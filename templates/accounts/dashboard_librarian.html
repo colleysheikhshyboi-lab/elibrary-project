@@ -1,0 +1,73 @@
+{% extends 'base.html' %}
+
+{% block title %}Librarian Dashboard - National Assembly e-Library{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-md-12">
+        <h2 class="mb-4">
+            <i class="bi bi-bookshelf"></i>
+            Librarian Dashboard
+        </h2>
+        
+        <div class="row">
+            <!-- Quick Actions -->
+            <div class="col-md-4">
+                <div class="card mb-3">
+                    <div class="card-header">
+                        <h5 class="mb-0">
+                            <i class="bi bi-lightning"></i>
+                            Quick Actions
+                        </h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="d-grid gap-2">
+                            <a href="{% url 'documents:document_upload' %}" class="btn btn-primary">
+                                <i class="bi bi-upload"></i>
+                                Upload Document
+                            </a>
+                            <a href="{% url 'documents:document_list' %}" class="btn btn-outline-primary">
+                                <i class="bi bi-collection"></i>
+                                View Documents
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Library Stats -->
+            <div class="col-md-8">
+                <div class="card">
+                    <div class="card-header">
+                        <h5 class="mb-0">
+                            <i class="bi bi-bar-chart"></i>
+                            Library Statistics
+                        </h5>
+                    </div>
+                    <div class="card-body">
+                        <p class="text-muted">
+                            Welcome to the Librarian Dashboard. Manage the digital document library 
+                            and assist researchers.
+                        </p>
+                        <div class="row text-center">
+                            <div class="col-4">
+                                <h3>{{ document_count|default:"0" }}</h3>
+                                <small class="text-muted">Documents</small>
+                            </div>
+                            <div class="col-4">
+                                <h3>{{ category_count|default:"0" }}</h3>
+                                <small class="text-muted">Categories</small>
+                            </div>
+                            <div class="col-4">
+                                <h3>{{ download_count|default:"0" }}</h3>
+                                <small class="text-muted">Downloads</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+

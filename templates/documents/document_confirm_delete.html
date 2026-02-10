@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ title }} - National Assembly e-Library{% endblock %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-6 col-lg-4">
+        <div class="card shadow">
+            <div class="card-header bg-danger text-white">
+                <h4 class="mb-0">
+                    <i class="bi bi-trash"></i>
+                    {{ title }}
+                </h4>
+            </div>
+            
+            <div class="card-body">
+                <p class="lead">Are you sure you want to unpublish/delete "{{ document.title }}"?</p>
+                
+                <div class="alert alert-warning">
+                    <i class="bi bi-exclamation-triangle"></i>
+                    This action will unpublish the document. It will no longer be visible to users.
+                </div>
+                
+                <form method="post">
+                    {% csrf_token %}
+                    
+                    <div class="d-grid gap-2">
+                        <button type="submit" class="btn btn-danger">
+                            <i class="bi bi-trash"></i>
+                            Confirm Unpublish
+                        </button>
+                        <a href="{% url 'documents:document_detail' document.slug %}" class="btn btn-outline-secondary">
+                            <i class="bi bi-arrow-left"></i>
+                            Cancel
+                        </a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+

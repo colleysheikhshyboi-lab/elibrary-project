@@ -1,0 +1,41 @@
+# Django Framework
+Django>=4.2,<5.0
+
+# Database
+psycopg2-binary>=2.9.9
+
+# Database Migration
+dj-database-url>=2.1.0
+
+# Static Files Management
+WhiteNoise>=6.5.0
+
+# Password Hashing
+argon2-cffi>=23.1.0
+
+# Security
+django-extensions>=3.2.3
+django-crispy-forms>=2.1
+
+# File Uploads
+Pillow>=10.0.0
+
+# Search (basic database search is built-in)
+# django-haystack>=3.2.0  # Commented out - can be added later for advanced search
+# whoosh>=2.7.4
+
+# REST API (optional, for future use)
+djangorestframework>=3.14.0
+
+# Configuration
+python-dotenv>=1.0.0
+
+# Logging and Monitoring (Django has built-in logging)
+
+# Testing
+pytest>=7.4.0
+pytest-django>=4.5.0
+
+# Utility
+requests>=2.31.0
+python-magic>=0.4.27

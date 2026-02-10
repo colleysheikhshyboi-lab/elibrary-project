@@ -1,0 +1,112 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ title }} - National Assembly e-Library{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-md-12">
+        <h2 class="mb-4">
+            <i class="bi bi-bar-chart"></i>
+            {{ title }}
+        </h2>
+        
+        <!-- Summary Stats -->
+        <div class="row mb-4">
+            <div class="col-md-3">
+                <div class="card text-center bg-primary text-white">
+                    <div class="card-body">
+                        <h3>{{ stats.total_documents }}</h3>
+                        <p class="mb-0">Total Documents</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card text-center bg-success text-white">
+                    <div class="card-body">
+                        <h3>{{ stats.published_documents }}</h3>
+                        <p class="mb-0">Published</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card text-center bg-warning text-dark">
+                    <div class="card-body">
+                        <h3>{{ stats.unpublished_documents }}</h3>
+                        <p class="mb-0">Unpublished</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card text-center bg-info text-white">
+                    <div class="card-body">
+                        <h3>{{ stats.total_downloads }}</h3>
+                        <p class="mb-0">Total Downloads</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- By Type -->
+        <div class="row mb-4">
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-header">
+                        <h5 class="mb-0">
+                            <i class="bi bi-folder"></i>
+                            Documents by Type
+                        </h5>
+                    </div>
+                    <div class="card-body">
+                        <table class="table mb-0">
+                            <thead>
+                                <tr>
+                                    <th>Document Type</th>
+                                    <th class="text-end">Count</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for doc_type, count in stats.by_type.items %}
+                                <tr>
+                                    <td>{{ doc_type }}</td>
+                                    <td class="text-end">{{ count }}</td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-header">
+                        <h5 class="mb-0">
+                            <i class="bi bi-calendar"></i>
+                            Documents by Year
+                        </h5>
+                    </div>
+                    <div class="card-body">
+                        <table class="table mb-0">
+                            <thead>
+                                <tr>
+                                    <th>Year</th>
+                                    <th class="text-end">Count</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for year, count in stats.by_year.items %}
+                                <tr>
+                                    <td>{{ year }}</td>
+                                    <td class="text-end">{{ count }}</td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+

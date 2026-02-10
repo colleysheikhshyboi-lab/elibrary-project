@@ -1,0 +1,97 @@
+{% extends 'base.html' %}
+
+{% block title %}MP Dashboard - National Assembly e-Library{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-md-12">
+        <h2 class="mb-4">
+            <i class="bi bi-person-badge"></i>
+            Welcome, Honourable Member
+        </h2>
+        
+        <div class="row">
+            <!-- Quick Access -->
+            <div class="col-md-6">
+                <div class="card mb-3">
+                    <div class="card-header bg-primary text-white">
+                        <h5 class="mb-0">
+                            <i class="bi bi-collection"></i>
+                            Document Library
+                        </h5>
+                    </div>
+                    <div class="card-body">
+                        <p>Access parliamentary documents, research materials, and official records.</p>
+                        <a href="{% url 'documents:document_list' %}" class="btn btn-primary">
+                            <i class="bi bi-arrow-right"></i>
+                            Browse Documents
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Recent Documents -->
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-header">
+                        <h5 class="mb-0">
+                            <i class="bi bi-clock-history"></i>
+                            Recent Activity
+                        </h5>
+                    </div>
+                    <div class="card-body">
+                        <p class="text-muted">
+                            View recently added documents and track your document access history.
+                        </p>
+                        <a href="{% url 'search:search' %}" class="btn btn-outline-primary">
+                            <i class="bi bi-search"></i>
+                            Search Documents
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Document Types -->
+        <div class="row mt-4">
+            <div class="col-md-3">
+                <div class="card text-center">
+                    <div class="card-body">
+                        <i class="bi bi-file-earmark-text display-4 text-primary"></i>
+                        <h5 class="mt-2">Acts</h5>
+                        <a href="{% url 'documents:document_list' %}?type=act" class="btn btn-sm btn-outline-primary">View</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card text-center">
+                    <div class="card-body">
+                        <i class="bi bi-file-earmark-ruled display-4 text-success"></i>
+                        <h5 class="mt-2">Bills</h5>
+                        <a href="{% url 'documents:document_list' %}?type=bill" class="btn btn-sm btn-outline-success">View</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card text-center">
+                    <div class="card-body">
+                        <i class="bi bi-file-earmark-bar-graph display-4 text-info"></i>
+                        <h5 class="mt-2">Reports</h5>
+                        <a href="{% url 'documents:document_list' %}?type=report" class="btn btn-sm btn-outline-info">View</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card text-center">
+                    <div class="card-body">
+                        <i class="bi bi-journal-text display-4 text-warning"></i>
+                        <h5 class="mt-2">Hansards</h5>
+                        <a href="{% url 'documents:document_list' %}?type=hansard" class="btn btn-sm btn-outline-warning">View</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+

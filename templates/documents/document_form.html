@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+{% block title %}{{ title }} - National Assembly e-Library{% endblock %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-8 col-lg-6">
+        <div class="card shadow">
+            <div class="card-header bg-primary text-white">
+                <h4 class="mb-0">
+                    <i class="bi bi-upload"></i>
+                    {{ title }}
+                </h4>
+            </div>
+            
+            <div class="card-body">
+                <form method="post" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    
+                    {{ form|crispy }}
+                    
+                    <div class="d-grid gap-2 mt-4">
+                        <button type="submit" class="btn btn-primary">
+                            <i class="bi bi-check-circle"></i>
+                            {% if document %}Save Changes{% else %}Upload Document{% endif %}
+                        </button>
+                        <a href="{% url 'documents:document_list' %}" class="btn btn-outline-secondary">
+                            <i class="bi bi-x-circle"></i>
+                            Cancel
+                        </a>
+                    </div>
+                </form>
+            </div>
+        </div>
+        
+        <!-- File Requirements Info -->
+        <div class="card mt-3">
+            <div class="card-body">
+                <h6 class="card-title">
+                    <i class="bi bi-info-circle"></i>
+                    Upload Requirements
+                </h6>
+                <ul class="mb-0 small">
+                    <li><strong>Allowed file types:</strong> PDF, DOC, DOCX, XLS, XLSX, PPT, PPTX, TXT, RTF, JPG, JPEG, PNG, TIFF, TIF, XML, JSON</li>
+                    <li><strong>Maximum file size:</strong> 100 MB</li>
+                    <li><strong>Document types supported:</strong> Acts of Parliament, Bills, Hansards, Committee Reports, Parliamentary Journals, Gazettes, Research Documents</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+

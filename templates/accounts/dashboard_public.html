@@ -1,0 +1,100 @@
+{% extends 'base.html' %}
+
+{% block title %}Dashboard - National Assembly e-Library{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-md-12">
+        <h2 class="mb-4">
+            <i class="bi bi-house-door"></i>
+            Welcome to the National Assembly e-Library
+        </h2>
+        
+        <div class="row">
+            <!-- Public Documents -->
+            <div class="col-md-8">
+                <div class="card">
+                    <div class="card-header">
+                        <h5 class="mb-0">
+                            <i class="bi bi-collection"></i>
+                            Public Document Library
+                        </h5>
+                    </div>
+                    <div class="card-body">
+                        <p>Access publicly available parliamentary documents and research materials.</p>
+                        <a href="{% url 'documents:document_list' %}" class="btn btn-primary">
+                            <i class="bi bi-arrow-right"></i>
+                            Browse Documents
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Login/Profile -->
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-header">
+                        <h5 class="mb-0">
+                            <i class="bi bi-person"></i>
+                            {% if user.is_authenticated %}
+                            My Account
+                            {% else %}
+                            Sign In
+                            {% endif %}
+                        </h5>
+                    </div>
+                    <div class="card-body">
+                        {% if user.is_authenticated %}
+                        <p>Welcome, {{ user.get_full_name }}!</p>
+                        <div class="d-grid gap-2">
+                            <a href="{% url 'accounts:profile' %}" class="btn btn-outline-primary">
+                                <i class="bi bi-person"></i>
+                                My Profile
+                            </a>
+                            <a href="{% url 'accounts:logout' %}" class="btn btn-outline-danger">
+                                <i class="bi bi-box-arrow-right"></i>
+                                Logout
+                            </a>
+                        </div>
+                        {% else %}
+                        <p>Sign in to access restricted documents and additional features.</p>
+                        <div class="d-grid gap-2">
+                            <a href="{% url 'accounts:login' %}" class="btn btn-primary">
+                                <i class="bi bi-box-arrow-in-right"></i>
+                                Sign In
+                            </a>
+                        </div>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Quick Search -->
+        <div class="row mt-4">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h5 class="mb-0">
+                            <i class="bi bi-search"></i>
+                            Quick Search
+                        </h5>
+                    </div>
+                    <div class="card-body">
+                        <form action="{% url 'search:search' %}" method="get">
+                            <div class="input-group">
+                                <input type="text" name="q" class="form-control" placeholder="Search documents...">
+                                <button type="submit" class="btn btn-primary">
+                                    <i class="bi bi-search"></i>
+                                    Search
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+

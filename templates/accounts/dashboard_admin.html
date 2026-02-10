@@ -1,0 +1,157 @@
+{% extends 'base.html' %}
+
+{% block title %}Admin Dashboard - National Assembly e-Library{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-md-3">
+        <!-- Sidebar -->
+        <div class="list-group">
+            <a href="{% url 'accounts:dashboard' %}" class="list-group-item list-group-item-action active">
+                <i class="bi bi-speedometer2"></i> Dashboard
+            </a>
+            <a href="{% url 'documents:document_list' %}" class="list-group-item list-group-item-action">
+                <i class="bi bi-book"></i> All Documents
+            </a>
+            <a href="{% url 'documents:document_upload' %}" class="list-group-item list-group-item-action">
+                <i class="bi bi-upload"></i> Upload Document
+            </a>
+            <a href="{% url 'accounts:user_list' %}" class="list-group-item list-group-item-action">
+                <i class="bi bi-people"></i> User Management
+            </a>
+            <a href="{% url 'documents:document_stats' %}" class="list-group-item list-group-item-action">
+                <i class="bi bi-bar-chart"></i> Statistics
+            </a>
+            <a href="/admin/" class="list-group-item list-group-item-action">
+                <i class="bi bi-gear"></i> Admin Panel
+            </a>
+        </div>
+    </div>
+    
+    <div class="col-md-9">
+        <!-- Main Content -->
+        <h2 class="mb-4">Admin Dashboard</h2>
+        
+        <!-- Stats Cards -->
+        <div class="row mb-4">
+            <div class="col-md-3">
+                <div class="card text-center bg-primary text-white">
+                    <div class="card-body">
+                        <h3 class="card-title">{{ total_documents }}</h3>
+                        <p class="card-text">Total Documents</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card text-center bg-success text-white">
+                    <div class="card-body">
+                        <h3 class="card-title">{{ published_documents }}</h3>
+                        <p class="card-text">Published</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card text-center bg-warning text-dark">
+                    <div class="card-body">
+                        <h3 class="card-title">{{ total_users }}</h3>
+                        <p class="card-text">Users</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card text-center bg-info text-white">
+                    <div class="card-body">
+                        <h3 class="card-title">{{ total_downloads }}</h3>
+                        <p class="card-text">Downloads</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Recent Documents -->
+        <div class="card mb-4">
+            <div class="card-header">
+                <h5 class="mb-0">
+                    <i class="bi bi-clock-history"></i>
+                    Recent Documents
+                </h5>
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th>Title</th>
+                                <th>Type</th>
+                                <th>Uploaded By</th>
+                                <th>Date</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for doc in recent_documents %}
+                            <tr>
+                                <td>
+                                    <a href="{% url 'documents:document_detail' doc.slug %}">
+                                        {{ doc.title }}
+                                    </a>
+                                </td>
+                                <td>{{ doc.get_document_type_display }}</td>
+                                <td>{{ doc.uploaded_by.get_full_name }}</td>
+                                <td>{{ doc.created_at|date:"M d, Y" }}</td>
+                            </tr>
+                            {% empty %}
+                            <tr>
+                                <td colspan="4" class="text-center">No documents uploaded yet.</td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Quick Actions -->
+        <div class="row">
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-header">
+                        <h5 class="mb-0">Quick Actions</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="d-grid gap-2">
+                            <a href="{% url 'documents:document_upload' %}" class="btn btn-primary">
+                                <i class="bi bi-upload"></i> Upload New Document
+                            </a>
+                            <a href="{% url 'accounts:user_create' %}" class="btn btn-secondary">
+                                <i class="bi bi-person-plus"></i> Add New User
+                            </a>
+                            <a href="#" class="btn btn-info">
+                                <i class="bi bi-gear"></i> System Settings
+                            </a>
+                            <a href="#" class="btn btn-success">
+                                <i class="bi bi-file-earmark-text"></i> Generate Report
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-header">
+                        <h5 class="mb-0">System Status</h5>
+                    </div>
+                    <div class="card-body">
+                        <ul class="list-unstyled mb-0">
+                            <li><i class="bi bi-check-circle text-success"></i> Database: Connected</li>
+                            <li><i class="bi bi-check-circle text-success"></i> Storage: Available</li>
+                            <li><i class="bi bi-check-circle text-success"></i> Backup: Up to date</li>
+                            <li><i class="bi bi-check-circle text-success"></i> Security: Active</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
