@@ -462,10 +462,103 @@ const ModalManager = {
 };
 
 // ============================
+// Dark Mode Manager
+// ============================
+
+const DarkModeManager = {
+    // Storage key
+    STORAGE_KEY: 'elibrary-dark-mode',
+    
+    // Initialize dark mode
+    init: function() {
+        // Load saved preference or check system preference
+        const savedPreference = localStorage.getItem(this.STORAGE_KEY);
+        
+        if (savedPreference !== null) {
+            // Use saved preference
+            if (savedPreference === 'true') {
+                this.enable();
+            } else {
+                this.disable();
+            }
+        } else {
+            // Check system preference
+            if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+                this.enable();
+            } else {
+                this.disable();
+            }
+        }
+        
+        // Listen for system preference changes
+        if (window.matchMedia) {
+            window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
+                // Only change if user hasn't set a preference
+                if (localStorage.getItem(this.STORAGE_KEY) === null) {
+                    if (e.matches) {
+                        this.enable();
+                    } else {
+                        this.disable();
+                    }
+                }
+            });
+        }
+    },
+    
+    // Enable dark mode
+    enable: function() {
+        document.body.classList.add('dark-mode');
+        this.updateToggleIcon(true);
+    },
+    
+    // Disable dark mode
+    disable: function() {
+        document.body.classList.remove('dark-mode');
+        this.updateToggleIcon(false);
+    },
+    
+    // Toggle dark mode
+    toggle: function() {
+        if (document.body.classList.contains('dark-mode')) {
+            this.disable();
+            localStorage.setItem(this.STORAGE_KEY, 'false');
+        } else {
+            this.enable();
+            localStorage.setItem(this.STORAGE_KEY, 'true');
+        }
+    },
+    
+    // Update toggle button icon based on current mode
+    updateToggleIcon: function(isDark) {
+        const toggleBtn = document.getElementById('darkModeToggle');
+        if (!toggleBtn) return;
+        
+        const sunIcon = toggleBtn.querySelector('.bi-sun-fill');
+        const moonIcon = toggleBtn.querySelector('.bi-moon-fill');
+        
+        if (isDark) {
+            if (sunIcon) sunIcon.style.display = 'inline-block';
+            if (moonIcon) moonIcon.style.display = 'none';
+        } else {
+            if (sunIcon) sunIcon.style.display = 'none';
+            if (moonIcon) moonIcon.style.display = 'inline-block';
+        }
+    },
+    
+    // Check if dark mode is enabled
+    isEnabled: function() {
+        return document.body.classList.contains('dark-mode');
+    }
+};
+
+// ============================
 // Initialize on DOM Ready
 // ============================
 
 document.addEventListener('DOMContentLoaded', function() {
+    // Initialize dark mode
+    DarkModeManager.init();
+    
     // Initialize search
     SearchManager.init();
     
@@ -518,3 +611,4 @@ window.SearchManager = SearchManager;
 window.UploadManager = UploadManager;
 window.UserManager = UserManager;
 window.ModalManager = ModalManager;
+window.DarkModeManager = DarkModeManager;

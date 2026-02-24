@@ -1,0 +1,98 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ title }} - National Assembly{% endblock %}
+
+{% block content %}
+<div class="container-fluid">
+    <!-- Page Header -->
+    <div class="row mb-4">
+        <div class="col">
+            <h1 class="h3 mb-2">
+                <i class="bi bi-geo-alt"></i> Parliamentary Constituencies
+            </h1>
+            <p class="text-muted">List of all constituencies represented in the National Assembly</p>
+        </div>
+    </div>
+
+    <!-- Constituencies Table -->
+    <div class="card">
+        <div class="card-body">
+            {% if constituencies %}
+            <div class="table-responsive">
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th>Code</th>
+                            <th>Constituency Name</th>
+                            <th>Region</th>
+                            <th class="text-center">Members</th>
+                            <th class="text-end">Population</th>
+                            <th class="text-end">Voters</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for constituency in constituencies %}
+                        <tr>
+                            <td>
+                                <span class="badge bg-primary">{{ constituency.code }}</span>
+                            </td>
+                            <td>
+                                <strong>{{ constituency.name }}</strong>
+                                {% if constituency.capital %}
+                                <br><small class="text-muted"><i class="bi bi-building"></i> {{ constituency.capital }}</small>
+                                {% endif %}
+                            </td>
+                            <td>{{ constituency.region }}</td>
+                            <td class="text-center">
+                                <span class="badge bg-success">{{ constituency.member_count }}</span>
+                            </td>
+                            <td class="text-end">
+                                {% if constituency.population %}
+{{ constituency.population|default:"N/A"|floatformat:0 }}
+                                {% else %}
+                                <span class="text-muted">N/A</span>
+                                {% endif %}
+                            </td>
+                            <td class="text-end">
+                                {% if constituency.voters_count %}
+                                {{ constituency.voters_count|default:"N/A"|floatformat:0 }}
+                                {% else %}
+                                <span class="text-muted">N/A</span>
+                                {% endif %}
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+            {% else %}
+            <div class="text-center py-5">
+                <i class="bi bi-geo-alt fs-1 text-muted"></i>
+                <h4 class="mt-3">No Constituencies Found</h4>
+                <p class="text-muted">There are no constituencies in the system yet.</p>
+            </div>
+            {% endif %}
+        </div>
+    </div>
+
+    <!-- Quick Links -->
+    <div class="row mt-4">
+        <div class="col-md-4">
+            <a href="{% url 'members:member_list' %}" class="btn btn-outline-primary w-100">
+                <i class="bi bi-people"></i> View All Members
+            </a>
+        </div>
+        <div class="col-md-4">
+            <a href="{% url 'members:member_stats' %}" class="btn btn-outline-secondary w-100">
+                <i class="bi bi-bar-chart"></i> View Statistics
+            </a>
+        </div>
+        <div class="col-md-4">
+            <a href="{% url 'members:party_list' %}" class="btn btn-outline-warning w-100">
+                <i class="bi bi-flag"></i> View Political Parties
+            </a>
+        </div>
+    </div>
+</div>
+{% endblock %}
+

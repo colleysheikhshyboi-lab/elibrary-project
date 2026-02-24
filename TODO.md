@@ -47,19 +47,19 @@ A secure, centralized digital repository for parliamentary documents with role-b
 ### Phase 6: Static Files & Styling
 - [x] CSS styling (responsive design)
 - [x] JavaScript functionality
-- [ ] icons and images
+- [x] icons and images (favicon added)
 - [x] Print-friendly styles
 
 ### Phase 7: Security & Performance
 - [x] Implement HTTPS and security headers
-- [ ] Add rate limiting
+- [x] Add rate limiting configuration
 - [ ] Configure backup system
 - [x] Optimize database queries
-- [ ] Add caching (if needed)
+- [x] Add caching (configured with LocMemCache)
 
 ### Phase 8: Testing & Documentation
 - [x] Write unit tests
-- [ ] Create API documentation
+- [x] Create API documentation (Swagger/OpenAPI)
 - [ ] User manual and admin guide
 - [x] Deployment instructions
 

@@ -1,0 +1,336 @@
+INFO Watching for file changes with StatReloader
+INFO "GET / HTTP/1.1" 200 16939
+INFO "GET / HTTP/1.1" 200 16939
+INFO "GET /static/js/main.js HTTP/1.1" 200 19361
+INFO "GET /static/css/style.css HTTP/1.1" 200 13950
+INFO "GET /static/img/logo.jpeg HTTP/1.1" 200 83363
+INFO "GET / HTTP/1.1" 200 16939
+INFO "GET /static/img/logo.jpeg HTTP/1.1" 304 0
+INFO "GET /static/css/style.css HTTP/1.1" 304 0
+INFO "GET /static/js/main.js HTTP/1.1" 304 0
+INFO "GET /accounts/login/ HTTP/1.1" 200 10485
+INFO "POST /accounts/login/ HTTP/1.1" 302 0
+INFO "GET /dashboard/ HTTP/1.1" 200 14817
+INFO "GET /accounts/login/ HTTP/1.1" 200 10485
+INFO "POST /accounts/login/ HTTP/1.1" 302 0
+INFO "GET /dashboard/ HTTP/1.1" 200 14817
+INFO "GET /accounts/users/create/ HTTP/1.1" 200 13541
+INFO "GET /dashboard/ HTTP/1.1" 200 14507
+INFO "GET /accounts/logout/ HTTP/1.1" 302 0
+INFO "GET /accounts/login/ HTTP/1.1" 200 10815
+INFO "GET /accounts/login/?next=/documents/%3Ftype%3Dact HTTP/1.1" 200 10485
+INFO "POST /accounts/login/?next=/documents/%3Ftype%3Dact HTTP/1.1" 302 0
+INFO "GET /documents/?type=act HTTP/1.1" 200 17367
+INFO "GET / HTTP/1.1" 200 18248
+INFO "GET /dashboard/ HTTP/1.1" 200 14507
+INFO /home/sheikh/Desktop/elibrary_project/settings.py changed, reloading.
+Performing system checks...
+
+System check identified no issues (0 silenced).
+February 19, 2026 - 12:43:13
+Django version 4.2.28, using settings 'elibrary_project.settings'
+Starting development server at http://127.0.0.1:8000/
+Quit the server with CONTROL-C.
+
+INFO Watching for file changes with StatReloader
+Exception in thread django-main-thread:
+Traceback (most recent call last):
+  File "/usr/lib/python3.13/threading.py", line 1043, in _bootstrap_inner
+    self.run()
+    ~~~~~~~~^^
+  File "/usr/lib/python3.13/threading.py", line 994, in run
+    self._target(*self._args, **self._kwargs)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sheikh/Desktop/venv/lib/python3.13/site-packages/django/utils/autoreload.py", line 64, in wrapper
+    fn(*args, **kwargs)
+    ~~^^^^^^^^^^^^^^^^^
+  File "/home/sheikh/Desktop/venv/lib/python3.13/site-packages/django/core/management/commands/runserver.py", line 125, in inner_run
+    autoreload.raise_last_exception()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/home/sheikh/Desktop/venv/lib/python3.13/site-packages/django/utils/autoreload.py", line 86, in raise_last_exception
+    raise _exception[1]
+  File "/home/sheikh/Desktop/venv/lib/python3.13/site-packages/django/core/management/__init__.py", line 394, in execute
+    autoreload.check_errors(django.setup)()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/home/sheikh/Desktop/venv/lib/python3.13/site-packages/django/utils/autoreload.py", line 64, in wrapper
+    fn(*args, **kwargs)
+    ~~^^^^^^^^^^^^^^^^^
+  File "/home/sheikh/Desktop/venv/lib/python3.13/site-packages/django/__init__.py", line 24, in setup
+    apps.populate(settings.INSTALLED_APPS)
+    ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sheikh/Desktop/venv/lib/python3.13/site-packages/django/apps/registry.py", line 91, in populate
+    app_config = AppConfig.create(entry)
+  File "/home/sheikh/Desktop/venv/lib/python3.13/site-packages/django/apps/config.py", line 193, in create
+    import_module(entry)
+    ~~~~~~~~~~~~~^^^^^^^
+  File "/usr/lib/python3.13/importlib/__init__.py", line 88, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1324, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'corsheaders'
+INFO /home/sheikh/Desktop/elibrary_project/settings.py changed, reloading.
+INFO Watching for file changes with StatReloader
+Exception in thread django-main-thread:
+Traceback (most recent call last):
+  File "/usr/lib/python3.13/threading.py", line 1043, in _bootstrap_inner
+    self.run()
+    ~~~~~~~~^^
+  File "/usr/lib/python3.13/threading.py", line 994, in run
+    self._target(*self._args, **self._kwargs)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sheikh/Desktop/venv/lib/python3.13/site-packages/django/utils/autoreload.py", line 64, in wrapper
+    fn(*args, **kwargs)
+    ~~^^^^^^^^^^^^^^^^^
+  File "/home/sheikh/Desktop/venv/lib/python3.13/site-packages/django/core/management/commands/runserver.py", line 125, in inner_run
+    autoreload.raise_last_exception()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/home/sheikh/Desktop/venv/lib/python3.13/site-packages/django/utils/autoreload.py", line 86, in raise_last_exception
+    raise _exception[1]
+  File "/home/sheikh/Desktop/venv/lib/python3.13/site-packages/django/core/management/__init__.py", line 394, in execute
+    autoreload.check_errors(django.setup)()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/home/sheikh/Desktop/venv/lib/python3.13/site-packages/django/utils/autoreload.py", line 64, in wrapper
+    fn(*args, **kwargs)
+    ~~^^^^^^^^^^^^^^^^^
+  File "/home/sheikh/Desktop/venv/lib/python3.13/site-packages/django/__init__.py", line 24, in setup
+    apps.populate(settings.INSTALLED_APPS)
+    ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sheikh/Desktop/venv/lib/python3.13/site-packages/django/apps/registry.py", line 91, in populate
+    app_config = AppConfig.create(entry)
+  File "/home/sheikh/Desktop/venv/lib/python3.13/site-packages/django/apps/config.py", line 193, in create
+    import_module(entry)
+    ~~~~~~~~~~~~~^^^^^^^
+  File "/usr/lib/python3.13/importlib/__init__.py", line 88, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1324, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'corsheaders'
+INFO /home/sheikh/Desktop/elibrary_project/settings.py changed, reloading.
+INFO Watching for file changes with StatReloader
+Exception in thread django-main-thread:
+Traceback (most recent call last):
+  File "/usr/lib/python3.13/threading.py", line 1043, in _bootstrap_inner
+    self.run()
+    ~~~~~~~~^^
+  File "/usr/lib/python3.13/threading.py", line 994, in run
+    self._target(*self._args, **self._kwargs)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sheikh/Desktop/venv/lib/python3.13/site-packages/django/utils/autoreload.py", line 64, in wrapper
+    fn(*args, **kwargs)
+    ~~^^^^^^^^^^^^^^^^^
+  File "/home/sheikh/Desktop/venv/lib/python3.13/site-packages/django/core/management/commands/runserver.py", line 125, in inner_run
+    autoreload.raise_last_exception()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/home/sheikh/Desktop/venv/lib/python3.13/site-packages/django/utils/autoreload.py", line 86, in raise_last_exception
+    raise _exception[1]
+  File "/home/sheikh/Desktop/venv/lib/python3.13/site-packages/django/core/management/__init__.py", line 394, in execute
+    autoreload.check_errors(django.setup)()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/home/sheikh/Desktop/venv/lib/python3.13/site-packages/django/utils/autoreload.py", line 64, in wrapper
+    fn(*args, **kwargs)
+    ~~^^^^^^^^^^^^^^^^^
+  File "/home/sheikh/Desktop/venv/lib/python3.13/site-packages/django/__init__.py", line 24, in setup
+    apps.populate(settings.INSTALLED_APPS)
+    ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sheikh/Desktop/venv/lib/python3.13/site-packages/django/apps/registry.py", line 91, in populate
+    app_config = AppConfig.create(entry)
+  File "/home/sheikh/Desktop/venv/lib/python3.13/site-packages/django/apps/config.py", line 193, in create
+    import_module(entry)
+    ~~~~~~~~~~~~~^^^^^^^
+  File "/usr/lib/python3.13/importlib/__init__.py", line 88, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1324, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'corsheaders'
+INFO /home/sheikh/Desktop/elibrary_project/settings.py changed, reloading.
+INFO Watching for file changes with StatReloader
+Exception in thread django-main-thread:
+Traceback (most recent call last):
+  File "/usr/lib/python3.13/threading.py", line 1043, in _bootstrap_inner
+    self.run()
+    ~~~~~~~~^^
+  File "/usr/lib/python3.13/threading.py", line 994, in run
+    self._target(*self._args, **self._kwargs)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sheikh/Desktop/venv/lib/python3.13/site-packages/django/utils/autoreload.py", line 64, in wrapper
+    fn(*args, **kwargs)
+    ~~^^^^^^^^^^^^^^^^^
+  File "/home/sheikh/Desktop/venv/lib/python3.13/site-packages/django/core/management/commands/runserver.py", line 125, in inner_run
+    autoreload.raise_last_exception()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/home/sheikh/Desktop/venv/lib/python3.13/site-packages/django/utils/autoreload.py", line 86, in raise_last_exception
+    raise _exception[1]
+  File "/home/sheikh/Desktop/venv/lib/python3.13/site-packages/django/core/management/__init__.py", line 394, in execute
+    autoreload.check_errors(django.setup)()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/home/sheikh/Desktop/venv/lib/python3.13/site-packages/django/utils/autoreload.py", line 64, in wrapper
+    fn(*args, **kwargs)
+    ~~^^^^^^^^^^^^^^^^^
+  File "/home/sheikh/Desktop/venv/lib/python3.13/site-packages/django/__init__.py", line 24, in setup
+    apps.populate(settings.INSTALLED_APPS)
+    ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sheikh/Desktop/venv/lib/python3.13/site-packages/django/apps/registry.py", line 91, in populate
+    app_config = AppConfig.create(entry)
+  File "/home/sheikh/Desktop/venv/lib/python3.13/site-packages/django/apps/config.py", line 193, in create
+    import_module(entry)
+    ~~~~~~~~~~~~~^^^^^^^
+  File "/usr/lib/python3.13/importlib/__init__.py", line 88, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1324, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'corsheaders'
+INFO /home/sheikh/Desktop/elibrary_project/settings.py changed, reloading.
+INFO Watching for file changes with StatReloader
+WARNING Forbidden (CSRF token from POST incorrect.): /accounts/login/
+WARNING "POST /accounts/login/ HTTP/1.1" 403 2518
+WARNING Session data corrupted
+INFO "GET / HTTP/1.1" 200 17928
+WARNING Session data corrupted
+INFO "GET / HTTP/1.1" 200 17928
+WARNING Forbidden (CSRF token from POST incorrect.): /accounts/login/
+WARNING "POST /accounts/login/ HTTP/1.1" 403 2518
+WARNING Session data corrupted
+INFO "GET / HTTP/1.1" 200 17928
+WARNING Session data corrupted
+INFO "GET /members/ HTTP/1.1" 200 35548
+WARNING "GET /members/stats/ HTTP/1.1" 404 3325
+INFO /home/sheikh/Desktop/members/urls.py changed, reloading.
+Performing system checks...
+
+System check identified no issues (0 silenced).
+February 19, 2026 - 14:22:09
+Django version 4.2.28, using settings 'elibrary_project.settings'
+Starting development server at http://127.0.0.1:8000/
+Quit the server with CONTROL-C.
+
+INFO Watching for file changes with StatReloader
+WARNING Session data corrupted
+INFO "GET /members/stats/ HTTP/1.1" 200 16238
+WARNING Session data corrupted
+ERROR "GET /members/constituencies/ HTTP/1.1" 500 124469
+INFO /home/sheikh/Desktop/members/views.py changed, reloading.
+Performing system checks...
+
+System check identified no issues (0 silenced).
+February 19, 2026 - 14:26:58
+Django version 4.2.28, using settings 'elibrary_project.settings'
+Starting development server at http://127.0.0.1:8000/
+Quit the server with CONTROL-C.
+
+INFO Watching for file changes with StatReloader
+INFO /home/sheikh/Desktop/members/views.py changed, reloading.
+Performing system checks...
+
+System check identified no issues (0 silenced).
+February 19, 2026 - 14:52:52
+Django version 4.2.28, using settings 'elibrary_project.settings'
+Starting development server at http://127.0.0.1:8000/
+Quit the server with CONTROL-C.
+
+INFO Watching for file changes with StatReloader
+WARNING Session data corrupted
+ERROR "GET /members/constituencies/ HTTP/1.1" 500 280627
+WARNING Session data corrupted
+ERROR "GET /members/constituencies/ HTTP/1.1" 500 280627
+WARNING Session data corrupted
+ERROR "GET /members/constituencies/ HTTP/1.1" 500 280627
+WARNING Session data corrupted
+ERROR "GET /members/constituencies/ HTTP/1.1" 500 280627
+WARNING Session data corrupted
+ERROR "GET /members/constituencies/ HTTP/1.1" 500 280627
+WARNING Session data corrupted
+INFO "GET /members/constituencies/ HTTP/1.1" 200 13124
+WARNING Session data corrupted
+INFO "GET /members/parties/ HTTP/1.1" 200 15022
+WARNING Session data corrupted
+INFO "GET / HTTP/1.1" 200 17928
+WARNING Session data corrupted
+INFO "GET /accounts/login/ HTTP/1.1" 200 11474
+WARNING Session data corrupted
+INFO "POST /accounts/login/ HTTP/1.1" 302 0
+INFO "GET /dashboard/ HTTP/1.1" 200 15806
+WARNING Session data corrupted
+INFO "GET / HTTP/1.1" 200 17928
+WARNING Session data corrupted
+INFO "GET /accounts/login/ HTTP/1.1" 200 11474
+WARNING Session data corrupted
+INFO "POST /accounts/login/ HTTP/1.1" 302 0
+INFO "GET /dashboard/ HTTP/1.1" 200 15806
+INFO "GET /admin/ HTTP/1.1" 200 9883
+INFO "GET /static/admin/css/dark_mode.css HTTP/1.1" 200 2929
+INFO "GET /static/admin/css/nav_sidebar.css HTTP/1.1" 200 2694
+INFO "GET /static/admin/js/theme.js HTTP/1.1" 200 1943
+INFO "GET /static/admin/css/dashboard.css HTTP/1.1" 200 441
+INFO "GET /static/admin/css/base.css HTTP/1.1" 200 21310
+INFO "GET /static/admin/js/nav_sidebar.js HTTP/1.1" 200 3063
+INFO "GET /static/admin/css/responsive.css HTTP/1.1" 200 18559
+INFO "GET /static/admin/img/icon-addlink.svg HTTP/1.1" 200 331
+INFO "GET /static/admin/img/icon-changelink.svg HTTP/1.1" 200 380
+INFO "GET /static/admin/img/icon-deletelink.svg HTTP/1.1" 200 392
+INFO "GET /documents/ HTTP/1.1" 200 18038
+INFO "GET / HTTP/1.1" 200 19237
+INFO "GET / HTTP/1.1" 200 17928
+INFO "GET /admin/ HTTP/1.1" 302 0
+INFO "GET /admin/login/?next=/admin/ HTTP/1.1" 200 4212
+INFO "GET /static/admin/css/login.css HTTP/1.1" 200 958
+INFO "POST /admin/login/?next=/admin/ HTTP/1.1" 302 0
+INFO "GET /admin/ HTTP/1.1" 200 9883
+INFO "GET / HTTP/1.1" 200 17928
+INFO "GET /admin/accounts/user/add/ HTTP/1.1" 200 20790
+INFO "GET /static/admin/js/admin/RelatedObjectLookups.js HTTP/1.1" 200 8943
+INFO "GET /static/admin/js/vendor/jquery/jquery.js HTTP/1.1" 200 292458
+INFO "GET /static/admin/js/urlify.js HTTP/1.1" 200 7887
+INFO "GET /static/admin/js/jquery.init.js HTTP/1.1" 200 347
+INFO "GET /static/admin/js/core.js HTTP/1.1" 200 5682
+INFO "GET /static/admin/js/actions.js HTTP/1.1" 200 7872
+INFO "GET /static/admin/js/prepopulate.js HTTP/1.1" 200 1531
+INFO "GET /static/admin/js/prepopulate_init.js HTTP/1.1" 200 586
+INFO "GET /static/admin/js/change_form.js HTTP/1.1" 200 606
+INFO "GET /static/admin/css/forms.css HTTP/1.1" 200 9090
+INFO "GET /static/admin/js/vendor/xregexp/xregexp.js HTTP/1.1" 200 232381
+INFO "GET /admin/jsi18n/ HTTP/1.1" 200 5755
+INFO "GET /static/admin/css/widgets.css HTTP/1.1" 200 11921
+INFO "POST /admin/accounts/user/add/ HTTP/1.1" 200 21345
+INFO "GET /admin/jsi18n/ HTTP/1.1" 200 5755
+INFO "POST /admin/accounts/user/add/ HTTP/1.1" 200 21363
+INFO "GET /admin/jsi18n/ HTTP/1.1" 200 5755
+INFO "POST /admin/accounts/user/add/ HTTP/1.1" 200 21144
+INFO "GET /admin/jsi18n/ HTTP/1.1" 200 5755
+INFO "POST /admin/accounts/user/add/ HTTP/1.1" 200 21083
+INFO "GET /admin/jsi18n/ HTTP/1.1" 200 5755
+INFO "POST /admin/accounts/user/add/ HTTP/1.1" 302 0
+INFO "GET /admin/accounts/user/2/change/ HTTP/1.1" 200 32346
+INFO "GET /admin/jsi18n/ HTTP/1.1" 200 5755
+INFO "GET /static/admin/js/SelectBox.js HTTP/1.1" 200 4530
+INFO "GET /static/admin/js/SelectFilter2.js HTTP/1.1" 200 15292
+INFO "GET /static/admin/js/calendar.js HTTP/1.1" 200 8466
+INFO "GET /static/admin/js/admin/DateTimeShortcuts.js HTTP/1.1" 200 19319
+INFO "GET /static/admin/img/icon-yes.svg HTTP/1.1" 200 436
+INFO "GET /static/admin/img/icon-unknown.svg HTTP/1.1" 200 655
+INFO "GET /static/admin/img/icon-unknown-alt.svg HTTP/1.1" 200 655
+INFO "GET /static/admin/img/icon-calendar.svg HTTP/1.1" 200 1086
+INFO "GET /static/admin/img/icon-clock.svg HTTP/1.1" 200 677
+INFO "GET /static/admin/img/search.svg HTTP/1.1" 200 458
+INFO "GET /static/admin/img/selector-icons.svg HTTP/1.1" 200 3291
+INFO "POST /admin/accounts/user/2/change/ HTTP/1.1" 302 0
+INFO "GET /admin/accounts/user/ HTTP/1.1" 200 16796
+INFO "GET /admin/jsi18n/ HTTP/1.1" 200 5755
+INFO "GET /static/admin/js/filters.js HTTP/1.1" 200 978
+INFO "GET /static/admin/css/changelists.css HTTP/1.1" 200 6566
+INFO "GET /static/admin/img/sorting-icons.svg HTTP/1.1" 200 1097
+INFO "GET /static/admin/img/tooltag-add.svg HTTP/1.1" 200 331
+INFO "GET / HTTP/1.1" 200 17928
+INFO "GET /static/js/main.js HTTP/1.1" 304 0
+INFO "GET /static/css/style.css HTTP/1.1" 304 0
+INFO "GET /static/img/logo.jpeg HTTP/1.1" 304 0
+INFO "GET /accounts/login/ HTTP/1.1" 200 11474
+INFO "POST /accounts/login/ HTTP/1.1" 302 0
+INFO "GET /dashboard/ HTTP/1.1" 200 15806

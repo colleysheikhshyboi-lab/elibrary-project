@@ -23,6 +23,12 @@ urlpatterns = [
     
     # Home page
     path('', include('core.urls')),
+    
+    # Members directory
+    path('members/', include('members.urls')),
+    
+    # API URLs
+    path('api/', include('api.urls', namespace='api')),
 ]
 
 # Serve media files in development mode

@@ -9,6 +9,7 @@ from django.contrib import messages
 from django.utils import timezone
 from django.db import transaction
 from django.http import HttpResponseForbidden
+from django.views.decorators.csrf import csrf_protect
 from .models import User
 from .forms import (
     CustomUserCreationForm,
@@ -19,6 +20,7 @@ from .forms import (
 )
 
 
+@csrf_protect
 def login_view(request):
     """
     User login view with security features.
@@ -61,7 +63,7 @@ def logout_view(request):
     """
     logout(request)
     messages.info(request, 'You have been logged out successfully.')
-    return redirect('login')
+    return redirect('accounts:login')
 
 
 @login_required

@@ -1,0 +1,198 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ title }} - National Assembly{% endblock %}
+
+{% block content %}
+<div class="container-fluid">
+    <!-- Page Header -->
+    <div class="row mb-4">
+        <div class="col">
+            <h1 class="h3 mb-2">
+                <i class="bi bi-bar-chart-line"></i> Member Statistics
+            </h1>
+            <p class="text-muted">Overview of parliamentary membership demographics and statistics</p>
+        </div>
+    </div>
+
+    <!-- Summary Cards -->
+    <div class="row mb-4">
+        <div class="col-md-3">
+            <div class="card bg-primary text-white">
+                <div class="card-body">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div>
+                            <h6 class="card-title">Total Members</h6>
+                            <h2 class="mb-0">{{ stats.total }}</h2>
+                        </div>
+                        <i class="bi bi-people fs-1 opacity-50"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card bg-success text-white">
+                <div class="card-body">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div>
+                            <h6 class="card-title">Active Parties</h6>
+                            <h2 class="mb-0">{{ stats.party_breakdown|length }}</h2>
+                        </div>
+                        <i class="bi bi-flag fs-1 opacity-50"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card bg-info text-white">
+                <div class="card-body">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div>
+                            <h6 class="card-title">Constituencies</h6>
+                            <h2 class="mb-0">{{ stats.constituencies }}</h2>
+                        </div>
+                        <i class="bi bi-geo-alt fs-1 opacity-50"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card bg-warning text-dark">
+                <div class="card-body">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div>
+                            <h6 class="card-title">Avg. Term (Years)</h6>
+                            <h2 class="mb-0">{{ stats.average_term_years }}</h2>
+                        </div>
+                        <i class="bi bi-calendar-range fs-1 opacity-50"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <!-- Gender Distribution -->
+        <div class="col-md-6 mb-4">
+            <div class="card h-100">
+                <div class="card-header">
+                    <h5 class="mb-0"><i class="bi bi-gender-ambiguous"></i> Gender Distribution</h5>
+                </div>
+                <div class="card-body">
+                    <div class="row text-center">
+                        <div class="col">
+                            <div class="display-4 text-primary">{{ stats.gender_breakdown.male }}</div>
+                            <p class="text-muted mb-0">Male</p>
+                            {% if stats.total > 0 %}
+                            <small class="text-muted">{{ stats.gender_breakdown.male|divisibleby:stats.total|floatformat:1 }}%</small>
+                            {% endif %}
+                        </div>
+                        <div class="col">
+                            <div class="display-4 text-danger">{{ stats.gender_breakdown.female }}</div>
+                            <p class="text-muted mb-0">Female</p>
+                            {% if stats.total > 0 %}
+                            <small class="text-muted">{{ stats.gender_breakdown.female|divisibleby:stats.total|floatformat:1 }}%</small>
+                            {% endif %}
+                        </div>
+                        <div class="col">
+                            <div class="display-4 text-secondary">{{ stats.gender_breakdown.other }}</div>
+                            <p class="text-muted mb-0">Other</p>
+                        </div>
+                    </div>
+                    {% if stats.total > 0 %}
+                    <div class="mt-4">
+                        <div class="progress" style="height: 30px;">
+                            {% if stats.gender_breakdown.male > 0 %}
+                            <div class="progress-bar bg-primary" role="progressbar" 
+                                 style="width: {% widthratio stats.gender_breakdown.male stats.total 100 %}%">
+                                Male {{ stats.gender_breakdown.male }}
+                            </div>
+                            {% endif %}
+                            {% if stats.gender_breakdown.female > 0 %}
+                            <div class="progress-bar bg-danger" role="progressbar" 
+                                 style="width: {% widthratio stats.gender_breakdown.female stats.total 100 %}%">
+                                Female {{ stats.gender_breakdown.female }}
+                            </div>
+                            {% endif %}
+                            {% if stats.gender_breakdown.other > 0 %}
+                            <div class="progress-bar bg-secondary" role="progressbar" 
+                                 style="width: {% widthratio stats.gender_breakdown.other stats.total 100 %}%">
+                                Other {{ stats.gender_breakdown.other }}
+                            </div>
+                            {% endif %}
+                        </div>
+                    </div>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+
+        <!-- Party Breakdown -->
+        <div class="col-md-6 mb-4">
+            <div class="card h-100">
+                <div class="card-header">
+                    <h5 class="mb-0"><i class="bi bi-flag"></i> Party Breakdown</h5>
+                </div>
+                <div class="card-body">
+                    {% if stats.party_breakdown %}
+                    <div class="table-responsive">
+                        <table class="table table-hover">
+                            <thead>
+                                <tr>
+                                    <th>Party</th>
+                                    <th class="text-end">Members</th>
+                                    <th class="text-end">Percentage</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for party in stats.party_breakdown %}
+                                <tr>
+                                    <td>{{ party.party }}</td>
+                                    <td class="text-end">{{ party.count }}</td>
+                                    <td class="text-end">
+                                        {% widthratio party.count stats.total 100 %}%
+                                    </td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                    {% else %}
+                    <p class="text-muted text-center py-4">No party data available</p>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Quick Links -->
+    <div class="row">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-header">
+                    <h5 class="mb-0"><i class="bi bi-link"></i> Quick Links</h5>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-4 mb-3">
+                            <a href="{% url 'members:member_list' %}" class="btn btn-outline-primary w-100">
+                                <i class="bi bi-people"></i> View All Members
+                            </a>
+                        </div>
+                        <div class="col-md-4 mb-3">
+                            <a href="{% url 'members:constituency_list' %}" class="btn btn-outline-success w-100">
+                                <i class="bi bi-geo-alt"></i> View Constituencies
+                            </a>
+                        </div>
+                        <div class="col-md-4 mb-3">
+                            <a href="{% url 'members:party_list' %}" class="btn btn-outline-warning w-100">
+                                <i class="bi bi-flag"></i> View Political Parties
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+

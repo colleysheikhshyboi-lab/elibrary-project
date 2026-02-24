@@ -3853,3 +3853,1123 @@ INFO 2026-02-10 12:35:52,779 basehttp 34116 135365660280512 "GET /admin/ HTTP/1.
 INFO 2026-02-10 12:35:52,834 basehttp 34116 135365660280512 "GET /static/admin/img/icon-deletelink.svg HTTP/1.1" 200 392
 INFO 2026-02-10 12:36:47,064 basehttp 34116 135365660280512 "GET /search/ HTTP/1.1" 200 13420
 INFO 2026-02-10 12:37:01,907 basehttp 34116 135365660280512 "GET / HTTP/1.1" 200 14433
+INFO 2026-02-10 15:11:31,449 autoreload 5525 140668233838912 Watching for file changes with StatReloader
+WARNING 2026-02-10 15:12:46,306 base 5525 140668181636800 Session data corrupted
+INFO 2026-02-10 15:12:46,349 basehttp 5525 140668181636800 "GET / HTTP/1.1" 200 13124
+INFO 2026-02-10 15:12:46,467 basehttp 5525 140668181636800 "GET /static/js/main.js HTTP/1.1" 304 0
+INFO 2026-02-10 15:12:46,477 basehttp 5525 140668181636800 "GET /static/css/style.css HTTP/1.1" 304 0
+WARNING 2026-02-10 15:12:49,569 base 5525 140668181636800 Session data corrupted
+INFO 2026-02-10 15:12:49,611 basehttp 5525 140668181636800 "GET /admin/ HTTP/1.1" 302 0
+WARNING 2026-02-10 15:12:49,617 base 5525 140668181636800 Session data corrupted
+INFO 2026-02-10 15:12:49,996 basehttp 5525 140668181636800 "GET /admin/login/?next=/admin/ HTTP/1.1" 200 4212
+INFO 2026-02-10 15:12:50,117 basehttp 5525 140668181636800 "GET /static/admin/js/theme.js HTTP/1.1" 304 0
+INFO 2026-02-10 15:12:50,118 basehttp 5525 140668097787584 "GET /static/admin/js/nav_sidebar.js HTTP/1.1" 304 0
+INFO 2026-02-10 15:12:50,132 basehttp 5525 140668097787584 "GET /static/admin/css/dark_mode.css HTTP/1.1" 304 0
+INFO 2026-02-10 15:12:50,135 basehttp 5525 140668181636800 "GET /static/admin/css/login.css HTTP/1.1" 304 0
+INFO 2026-02-10 15:12:50,138 basehttp 5525 140668089394880 "GET /static/admin/css/nav_sidebar.css HTTP/1.1" 304 0
+INFO 2026-02-10 15:12:50,140 basehttp 5525 140668081002176 "GET /static/admin/css/base.css HTTP/1.1" 304 0
+INFO 2026-02-10 15:12:50,140 basehttp 5525 140668072609472 "GET /static/admin/css/responsive.css HTTP/1.1" 304 0
+WARNING 2026-02-10 15:12:52,914 base 5525 140668181636800 Session data corrupted
+INFO 2026-02-10 15:12:53,872 basehttp 5525 140668181636800 "POST /admin/login/?next=/admin/ HTTP/1.1" 302 0
+INFO 2026-02-10 15:12:53,982 basehttp 5525 140668181636800 "GET /admin/ HTTP/1.1" 200 8303
+INFO 2026-02-10 15:12:54,058 basehttp 5525 140668089394880 "GET /static/admin/css/dashboard.css HTTP/1.1" 304 0
+INFO 2026-02-10 15:12:54,147 basehttp 5525 140668081002176 "GET /static/admin/img/icon-addlink.svg HTTP/1.1" 200 331
+INFO 2026-02-10 15:12:54,156 basehttp 5525 140668097787584 "GET /static/admin/img/icon-deletelink.svg HTTP/1.1" 200 392
+INFO 2026-02-10 15:12:54,156 basehttp 5525 140668072609472 "GET /static/admin/img/icon-changelink.svg HTTP/1.1" 200 380
+INFO 2026-02-10 15:12:55,954 basehttp 5525 140668181636800 "GET /accounts/login/ HTTP/1.1" 302 0
+INFO 2026-02-10 15:12:56,053 basehttp 5525 140668181636800 "GET /dashboard/ HTTP/1.1" 200 10692
+INFO 2026-02-10 15:13:10,086 basehttp 5525 140668181636800 "GET /admin/ HTTP/1.1" 200 8303
+INFO 2026-02-10 15:13:51,119 basehttp 5525 140668181636800 "GET /accounts/users/create/ HTTP/1.1" 200 9726
+INFO 2026-02-10 15:13:58,580 basehttp 5525 140668181636800 "GET /documents/upload/ HTTP/1.1" 200 13726
+INFO 2026-02-10 15:14:05,933 basehttp 5525 140668064216768 "GET /admin/ HTTP/1.1" 302 0
+INFO 2026-02-10 15:14:13,204 basehttp 5525 140668181636800 "GET /documents/ HTTP/1.1" 200 13234
+INFO 2026-02-10 15:14:18,754 basehttp 5525 140668181636800 "GET /documents/upload/ HTTP/1.1" 200 13726
+INFO 2026-02-10 15:14:22,247 basehttp 5525 140668181636800 "GET /accounts/users/ HTTP/1.1" 200 8764
+INFO 2026-02-10 15:14:33,059 basehttp 5525 140668181636800 "GET /documents/stats/ HTTP/1.1" 200 11019
+INFO 2026-02-10 15:15:06,065 basehttp 5525 140668181636800 "GET /documents/ HTTP/1.1" 200 13234
+INFO 2026-02-10 15:15:12,417 basehttp 5525 140668181636800 "GET /documents/concept-note-1/ HTTP/1.1" 200 18224
+INFO 2026-02-10 15:15:55,448 basehttp 5525 140668181636800 "GET /documents/concept-note-1/ HTTP/1.1" 200 18224
+INFO 2026-02-10 15:15:58,824 basehttp 5525 140668181636800 "GET /documents/concept-note-1/ HTTP/1.1" 200 18224
+INFO 2026-02-10 15:17:43,691 basehttp 5525 140668181636800 "GET /documents/concept-note-1/ HTTP/1.1" 200 18224
+INFO 2026-02-10 15:25:34,574 basehttp 5525 140668181636800 "GET / HTTP/1.1" 200 14433
+INFO 2026-02-10 15:25:56,544 basehttp 5525 140668181636800 "GET /accounts/dashboard/ HTTP/1.1" 200 10692
+INFO 2026-02-10 15:26:04,127 basehttp 5525 140668181636800 "GET / HTTP/1.1" 200 14433
+INFO 2026-02-10 15:26:22,109 basehttp 5525 140668064216768 "GET /documents/ HTTP/1.1" 302 0
+INFO 2026-02-10 15:26:22,660 basehttp 5525 140668064216768 "GET /accounts/login/?next=/documents/ HTTP/1.1" 200 6670
+INFO 2026-02-10 15:26:23,191 basehttp 5525 140668064216768 "GET /static/css/style.css HTTP/1.1" 200 6628
+INFO 2026-02-10 15:26:23,333 basehttp 5525 140668081002176 "GET /static/js/main.js HTTP/1.1" 200 16444
+WARNING 2026-02-10 15:26:23,619 basehttp 5525 140668081002176 "GET /static/img/favicon.ico HTTP/1.1" 404 1804
+INFO 2026-02-10 15:26:29,464 basehttp 5525 140668064216768 "POST /accounts/login/?next=/documents/ HTTP/1.1" 200 6874
+INFO 2026-02-10 15:26:42,832 basehttp 5525 140668064216768 "POST /accounts/login/?next=/documents/ HTTP/1.1" 200 6860
+INFO 2026-02-10 15:26:54,058 basehttp 5525 140668064216768 "POST /accounts/login/?next=/documents/ HTTP/1.1" 302 0
+INFO 2026-02-10 15:26:54,142 basehttp 5525 140668064216768 "GET /documents/ HTTP/1.1" 200 13544
+INFO 2026-02-10 15:27:02,199 basehttp 5525 140668064216768 "GET / HTTP/1.1" 200 14433
+INFO 2026-02-10 15:28:03,607 basehttp 5525 140668181636800 "GET /admin/ HTTP/1.1" 200 8303
+INFO 2026-02-10 15:29:23,433 autoreload 7132 136124669899072 Watching for file changes with StatReloader
+WARNING 2026-02-10 15:31:53,764 base 7132 136124619556544 Session data corrupted
+INFO 2026-02-10 15:31:53,804 basehttp 7132 136124619556544 "GET / HTTP/1.1" 200 13124
+WARNING 2026-02-10 15:32:42,982 base 7132 136124608190144 Session data corrupted
+INFO 2026-02-10 15:32:42,986 basehttp 7132 136124608190144 "GET / HTTP/1.1" 200 13124
+WARNING 2026-02-10 15:33:09,763 base 7132 136124608190144 Session data corrupted
+INFO 2026-02-10 15:33:09,786 basehttp 7132 136124608190144 "GET /documents/?type=act HTTP/1.1" 302 0
+WARNING 2026-02-10 15:33:09,803 base 7132 136124608190144 Session data corrupted
+INFO 2026-02-10 15:33:09,930 basehttp 7132 136124608190144 "GET /accounts/login/?next=/documents/%3Ftype%3Dact HTTP/1.1" 200 6670
+WARNING 2026-02-10 15:33:12,717 base 7132 136124608190144 Session data corrupted
+INFO 2026-02-10 15:33:13,391 basehttp 7132 136124608190144 "POST /accounts/login/?next=/documents/%3Ftype%3Dact HTTP/1.1" 302 0
+INFO 2026-02-10 15:33:13,443 basehttp 7132 136124608190144 "GET /documents/?type=act HTTP/1.1" 200 13552
+INFO 2026-02-10 15:33:20,211 basehttp 7132 136124608190144 "GET / HTTP/1.1" 200 14433
+INFO 2026-02-10 15:33:26,844 basehttp 7132 136124608190144 "GET / HTTP/1.1" 200 14433
+WARNING 2026-02-10 15:33:37,793 base 7132 136124619556544 Session data corrupted
+INFO 2026-02-10 15:33:37,794 basehttp 7132 136124619556544 "GET /documents/concept-note-1/ HTTP/1.1" 302 0
+WARNING 2026-02-10 15:33:37,800 base 7132 136124619556544 Session data corrupted
+INFO 2026-02-10 15:33:37,813 basehttp 7132 136124619556544 "GET /accounts/login/?next=/documents/concept-note-1/ HTTP/1.1" 200 6670
+WARNING 2026-02-10 15:33:44,228 base 7132 136124619556544 Session data corrupted
+INFO 2026-02-10 15:33:44,924 basehttp 7132 136124619556544 "POST /accounts/login/?next=/documents/concept-note-1/ HTTP/1.1" 302 0
+INFO 2026-02-10 15:33:45,281 basehttp 7132 136124619556544 "GET /documents/concept-note-1/ HTTP/1.1" 200 19843
+INFO 2026-02-10 15:33:50,385 basehttp 7132 136124619556544 "GET / HTTP/1.1" 200 14433
+INFO 2026-02-10 15:33:56,415 basehttp 7132 136124619556544 "GET / HTTP/1.1" 200 14433
+INFO 2026-02-10 15:42:57,083 autoreload 8037 130578127229248 Watching for file changes with StatReloader
+INFO 2026-02-10 15:43:25,668 basehttp 7132 136124619556544 "GET / HTTP/1.1" 200 14433
+INFO 2026-02-10 15:43:33,678 basehttp 7132 136124619556544 "GET / HTTP/1.1" 200 14433
+INFO 2026-02-10 15:43:34,847 basehttp 7132 136124619556544 "GET / HTTP/1.1" 200 14433
+INFO 2026-02-10 15:43:39,070 basehttp 7132 136124619556544 "GET / HTTP/1.1" 200 14433
+INFO 2026-02-10 15:44:01,207 basehttp 7132 136124619556544 "GET / HTTP/1.1" 200 14433
+INFO 2026-02-10 15:44:01,380 basehttp 7132 136124619556544 "GET /static/css/style.css HTTP/1.1" 200 6628
+INFO 2026-02-10 15:44:01,381 basehttp 7132 136124608190144 "GET /static/js/main.js HTTP/1.1" 200 16444
+WARNING 2026-02-10 15:44:01,695 basehttp 7132 136124608190144 "GET /static/img/favicon.ico HTTP/1.1" 404 1804
+INFO 2026-02-10 15:44:02,704 basehttp 7132 136124619556544 "GET / HTTP/1.1" 200 14433
+INFO 2026-02-10 15:44:02,714 basehttp 7132 136124619556544 "GET /static/css/style.css HTTP/1.1" 200 6628
+INFO 2026-02-10 15:44:02,717 basehttp 7132 136124608190144 "GET /static/js/main.js HTTP/1.1" 200 16444
+WARNING 2026-02-10 15:44:03,144 basehttp 7132 136124608190144 "GET /static/img/favicon.ico HTTP/1.1" 404 1804
+INFO 2026-02-10 15:44:04,204 basehttp 7132 136124619556544 "GET / HTTP/1.1" 200 14433
+INFO 2026-02-10 15:44:04,213 basehttp 7132 136124619556544 "GET /static/css/style.css HTTP/1.1" 200 6628
+INFO 2026-02-10 15:44:04,214 basehttp 7132 136124608190144 "GET /static/js/main.js HTTP/1.1" 200 16444
+WARNING 2026-02-10 15:44:04,654 basehttp 7132 136124608190144 "GET /static/img/favicon.ico HTTP/1.1" 404 1804
+INFO 2026-02-10 15:44:32,862 basehttp 7132 136124619556544 "GET / HTTP/1.1" 200 14433
+INFO 2026-02-10 15:45:17,383 basehttp 7132 136124619556544 "GET /documents/concept-note-1/ HTTP/1.1" 200 19533
+INFO 2026-02-10 15:45:48,680 basehttp 7132 136124619556544 "GET / HTTP/1.1" 200 14433
+INFO 2026-02-10 15:45:48,691 basehttp 7132 136124619556544 "GET /static/css/style.css HTTP/1.1" 200 6628
+INFO 2026-02-10 15:45:48,692 basehttp 7132 136124608190144 "GET /static/js/main.js HTTP/1.1" 200 16444
+INFO 2026-02-10 15:45:49,081 basehttp 7132 136124608190144 "GET / HTTP/1.1" 200 14433
+INFO 2026-02-10 15:45:49,091 basehttp 7132 136124608190144 "GET /static/css/style.css HTTP/1.1" 200 6628
+INFO 2026-02-10 15:45:49,092 basehttp 7132 136124619556544 "GET /static/js/main.js HTTP/1.1" 200 16444
+WARNING 2026-02-10 15:45:49,532 basehttp 7132 136124619556544 "GET /static/img/favicon.ico HTTP/1.1" 404 1804
+INFO 2026-02-10 15:45:50,443 basehttp 7132 136124608190144 "GET / HTTP/1.1" 200 14433
+INFO 2026-02-10 15:45:50,454 basehttp 7132 136124608190144 "GET /static/css/style.css HTTP/1.1" 200 6628
+INFO 2026-02-10 15:45:50,455 basehttp 7132 136124619556544 "GET /static/js/main.js HTTP/1.1" 200 16444
+WARNING 2026-02-10 15:45:50,770 basehttp 7132 136124619556544 "GET /static/img/favicon.ico HTTP/1.1" 404 1804
+INFO 2026-02-10 15:45:51,866 basehttp 7132 136124608190144 "GET / HTTP/1.1" 200 14433
+INFO 2026-02-10 15:45:51,877 basehttp 7132 136124608190144 "GET /static/css/style.css HTTP/1.1" 200 6628
+INFO 2026-02-10 15:45:51,878 basehttp 7132 136124619556544 "GET /static/js/main.js HTTP/1.1" 200 16444
+WARNING 2026-02-10 15:45:52,276 basehttp 7132 136124619556544 "GET /static/img/favicon.ico HTTP/1.1" 404 1804
+ERROR 2026-02-10 15:45:56,002 log 7132 136124608190144 Internal Server Error: /accounts/logout/
+Traceback (most recent call last):
+  File "/home/sheikh/Desktop/venv/lib/python3.13/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/sheikh/Desktop/venv/lib/python3.13/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/sheikh/Desktop/accounts/views.py", line 64, in logout_view
+    return redirect('login')
+  File "/home/sheikh/Desktop/venv/lib/python3.13/site-packages/django/shortcuts.py", line 48, in redirect
+    return redirect_class(resolve_url(to, *args, **kwargs))
+                          ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sheikh/Desktop/venv/lib/python3.13/site-packages/django/shortcuts.py", line 145, in resolve_url
+    return reverse(to, args=args, kwargs=kwargs)
+  File "/home/sheikh/Desktop/venv/lib/python3.13/site-packages/django/urls/base.py", line 88, in reverse
+    return resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sheikh/Desktop/venv/lib/python3.13/site-packages/django/urls/resolvers.py", line 828, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'login' not found. 'login' is not a valid view function or pattern name.
+ERROR 2026-02-10 15:45:56,005 basehttp 7132 136124608190144 "GET /accounts/logout/ HTTP/1.1" 500 94627
+INFO 2026-02-10 15:46:56,849 autoreload 7132 136124669899072 /home/sheikh/Desktop/accounts/views.py changed, reloading.
+INFO 2026-02-10 15:46:57,156 autoreload 8681 129837334503744 Watching for file changes with StatReloader
+INFO 2026-02-10 15:47:34,026 basehttp 8681 129837284230848 "GET /accounts/logout/ HTTP/1.1" 302 0
+INFO 2026-02-10 15:47:34,054 basehttp 8681 129837284230848 "GET /accounts/login/ HTTP/1.1" 200 7000
+INFO 2026-02-10 15:47:39,450 basehttp 8681 129837284230848 "POST /accounts/login/ HTTP/1.1" 302 0
+INFO 2026-02-10 15:47:39,490 basehttp 8681 129837284230848 "GET /dashboard/ HTTP/1.1" 200 11002
+INFO 2026-02-10 15:47:48,478 basehttp 8681 129837284230848 "GET /accounts/logout/ HTTP/1.1" 302 0
+INFO 2026-02-10 15:47:48,491 basehttp 8681 129837284230848 "GET /accounts/login/ HTTP/1.1" 200 7000
+INFO 2026-02-10 15:47:52,388 basehttp 8681 129837284230848 "POST /accounts/login/ HTTP/1.1" 302 0
+INFO 2026-02-10 15:47:52,425 basehttp 8681 129837284230848 "GET /dashboard/ HTTP/1.1" 200 11002
+INFO 2026-02-10 15:47:53,694 basehttp 8681 129837284230848 "GET / HTTP/1.1" 200 14433
+INFO 2026-02-10 16:00:39,723 basehttp 8681 129837284230848 "GET / HTTP/1.1" 200 14896
+INFO 2026-02-10 16:01:12,484 basehttp 8681 129837284230848 "GET / HTTP/1.1" 200 14896
+INFO 2026-02-10 16:01:12,592 basehttp 8681 129837284230848 "GET /static/css/style.css HTTP/1.1" 200 13950
+INFO 2026-02-10 16:01:12,603 basehttp 8681 129837272864448 "GET /static/js/main.js HTTP/1.1" 200 19361
+WARNING 2026-02-10 16:01:12,941 basehttp 8681 129837272864448 "GET /static/img/favicon.ico HTTP/1.1" 404 1804
+INFO 2026-02-10 16:01:15,716 basehttp 8681 129837284230848 "GET / HTTP/1.1" 200 14896
+INFO 2026-02-10 16:01:15,740 basehttp 8681 129837272864448 "GET /static/js/main.js HTTP/1.1" 200 19361
+INFO 2026-02-10 16:01:15,740 basehttp 8681 129837284230848 "GET /static/css/style.css HTTP/1.1" 200 13950
+WARNING 2026-02-10 16:01:16,159 basehttp 8681 129837272864448 "GET /static/img/favicon.ico HTTP/1.1" 404 1804
+INFO 2026-02-10 16:01:16,884 basehttp 8681 129837284230848 "GET / HTTP/1.1" 200 14896
+INFO 2026-02-10 16:01:16,957 basehttp 8681 129837284230848 "GET /static/css/style.css HTTP/1.1" 200 13950
+INFO 2026-02-10 16:01:16,965 basehttp 8681 129837272864448 "GET /static/js/main.js HTTP/1.1" 200 19361
+WARNING 2026-02-10 16:01:17,364 basehttp 8681 129837272864448 "GET /static/img/favicon.ico HTTP/1.1" 404 1804
+INFO 2026-02-11 08:21:52,008 autoreload 6443 123704627155264 Watching for file changes with StatReloader
+INFO 2026-02-11 08:22:19,484 autoreload 6539 124462751002944 Watching for file changes with StatReloader
+INFO 2026-02-11 08:40:48,729 basehttp 6443 123704574891712 "GET / HTTP/1.1" 200 13587
+INFO 2026-02-11 08:40:50,177 basehttp 6443 123704565450432 "GET /admin/ HTTP/1.1" 302 0
+INFO 2026-02-11 08:40:50,548 basehttp 6443 123704565450432 "GET /admin/login/?next=/admin/ HTTP/1.1" 200 4212
+INFO 2026-02-11 08:40:50,981 basehttp 6443 123704565450432 "GET / HTTP/1.1" 200 13587
+INFO 2026-02-11 08:41:11,969 basehttp 6443 123704565450432 "POST /admin/login/?next=/admin/ HTTP/1.1" 302 0
+INFO 2026-02-11 08:41:12,117 basehttp 6443 123704565450432 "GET /admin/ HTTP/1.1" 200 8303
+INFO 2026-02-11 08:41:12,191 basehttp 6443 123704565450432 "GET /static/admin/css/base.css HTTP/1.1" 304 0
+INFO 2026-02-11 08:41:12,194 basehttp 6443 123704556009152 "GET /static/admin/css/dark_mode.css HTTP/1.1" 304 0
+INFO 2026-02-11 08:41:12,196 basehttp 6443 123704547616448 "GET /static/admin/js/theme.js HTTP/1.1" 304 0
+INFO 2026-02-11 08:41:12,197 basehttp 6443 123704539223744 "GET /static/admin/css/nav_sidebar.css HTTP/1.1" 304 0
+INFO 2026-02-11 08:41:12,199 basehttp 6443 123704530831040 "GET /static/admin/js/nav_sidebar.js HTTP/1.1" 304 0
+INFO 2026-02-11 08:41:12,200 basehttp 6443 123704050710208 "GET /static/admin/css/responsive.css HTTP/1.1" 304 0
+INFO 2026-02-11 08:41:12,208 basehttp 6443 123704556009152 "GET /static/admin/css/dashboard.css HTTP/1.1" 304 0
+INFO 2026-02-11 08:41:12,340 basehttp 6443 123704530831040 "GET /static/admin/img/icon-deletelink.svg HTTP/1.1" 200 392
+INFO 2026-02-11 08:41:12,342 basehttp 6443 123704539223744 "GET /static/admin/img/icon-changelink.svg HTTP/1.1" 200 380
+INFO 2026-02-11 08:41:12,342 basehttp 6443 123704547616448 "GET /static/admin/img/icon-addlink.svg HTTP/1.1" 200 331
+INFO 2026-02-11 08:45:46,626 basehttp 6443 123704539223744 "GET /admin/ HTTP/1.1" 302 0
+INFO 2026-02-11 08:48:39,869 basehttp 6443 123704530831040 "GET /accounts/login/ HTTP/1.1" 200 7133
+INFO 2026-02-11 08:48:39,926 basehttp 6443 123704530831040 "GET /static/css/style.css HTTP/1.1" 304 0
+INFO 2026-02-11 08:48:39,926 basehttp 6443 123704539223744 "GET /static/js/main.js HTTP/1.1" 304 0
+INFO 2026-02-11 08:48:43,383 basehttp 6443 123704530831040 "POST /accounts/login/ HTTP/1.1" 302 0
+INFO 2026-02-11 08:48:43,421 basehttp 6443 123704530831040 "GET /dashboard/ HTTP/1.1" 200 11465
+INFO 2026-02-11 08:49:38,076 basehttp 6443 123704530831040 "GET / HTTP/1.1" 200 14896
+INFO 2026-02-11 09:01:49,324 autoreload 6443 123704627155264 /home/sheikh/Desktop/elibrary_project/settings.py changed, reloading.
+INFO 2026-02-11 09:01:49,620 autoreload 8570 137844023513408 Watching for file changes with StatReloader
+INFO 2026-02-11 09:01:57,066 autoreload 8570 137844023513408 /home/sheikh/Desktop/elibrary_project/urls.py changed, reloading.
+INFO 2026-02-11 09:01:57,370 autoreload 8622 128793688183104 Watching for file changes with StatReloader
+INFO 2026-02-11 09:04:35,803 autoreload 8622 128793688183104 /home/sheikh/Desktop/members/admin.py changed, reloading.
+INFO 2026-02-11 09:04:36,150 autoreload 8832 133239556571456 Watching for file changes with StatReloader
+INFO 2026-02-11 09:05:04,821 autoreload 8832 133239556571456 /home/sheikh/Desktop/members/models.py changed, reloading.
+INFO 2026-02-11 09:05:05,141 autoreload 8908 137756697575744 Watching for file changes with StatReloader
+INFO 2026-02-11 10:35:39,903 autoreload 11144 128445877305664 Watching for file changes with StatReloader
+INFO 2026-02-11 10:40:23,537 autoreload 11496 140712199831872 Watching for file changes with StatReloader
+INFO 2026-02-11 10:40:29,735 basehttp 11496 140712139200192 "GET / HTTP/1.1" 200 13811
+WARNING 2026-02-11 10:41:32,222 base 11496 140712139200192 Session data corrupted
+INFO 2026-02-11 10:41:32,225 basehttp 11496 140712139200192 "GET / HTTP/1.1" 200 13811
+INFO 2026-02-11 10:41:32,749 basehttp 11496 140712139200192 "GET /static/js/main.js HTTP/1.1" 304 0
+INFO 2026-02-11 10:41:32,752 basehttp 11496 140712054093504 "GET /static/css/style.css HTTP/1.1" 304 0
+WARNING 2026-02-11 10:41:35,564 base 11496 140712139200192 Session data corrupted
+INFO 2026-02-11 10:41:35,568 basehttp 11496 140712139200192 "GET / HTTP/1.1" 200 13811
+INFO 2026-02-11 10:41:35,589 basehttp 11496 140712054093504 "GET /static/js/main.js HTTP/1.1" 200 19361
+INFO 2026-02-11 10:41:35,589 basehttp 11496 140712139200192 "GET /static/css/style.css HTTP/1.1" 200 13950
+WARNING 2026-02-11 10:41:36,055 basehttp 11496 140712054093504 "GET /static/img/favicon.ico HTTP/1.1" 404 1804
+WARNING 2026-02-11 10:41:37,094 base 11496 140712139200192 Session data corrupted
+INFO 2026-02-11 10:41:37,098 basehttp 11496 140712139200192 "GET / HTTP/1.1" 200 13811
+INFO 2026-02-11 10:41:37,301 basehttp 11496 140712139200192 "GET /static/css/style.css HTTP/1.1" 200 13950
+INFO 2026-02-11 10:41:37,305 basehttp 11496 140712139200192 "GET /static/js/main.js HTTP/1.1" 200 19361
+WARNING 2026-02-11 10:41:37,743 basehttp 11496 140712139200192 "GET /static/img/favicon.ico HTTP/1.1" 404 1804
+WARNING 2026-02-11 10:41:41,768 base 11496 140712139200192 Session data corrupted
+INFO 2026-02-11 10:41:41,773 basehttp 11496 140712139200192 "GET /members/ HTTP/1.1" 200 31431
+WARNING 2026-02-11 10:42:06,601 base 11496 140712139200192 Session data corrupted
+INFO 2026-02-11 10:42:06,605 basehttp 11496 140712139200192 "GET / HTTP/1.1" 200 13811
+WARNING 2026-02-11 10:48:57,261 base 11496 140712139200192 Session data corrupted
+INFO 2026-02-11 10:48:57,264 basehttp 11496 140712139200192 "GET / HTTP/1.1" 200 15197
+WARNING 2026-02-11 10:49:44,807 base 11496 140712139200192 Session data corrupted
+INFO 2026-02-11 10:49:44,824 basehttp 11496 140712139200192 "GET /accounts/login/ HTTP/1.1" 200 8743
+WARNING 2026-02-11 10:49:47,914 base 11496 140712139200192 Session data corrupted
+INFO 2026-02-11 10:49:48,701 basehttp 11496 140712139200192 "POST /accounts/login/ HTTP/1.1" 302 0
+INFO 2026-02-11 10:49:48,742 basehttp 11496 140712139200192 "GET /dashboard/ HTTP/1.1" 200 13075
+INFO 2026-02-11 10:50:00,305 basehttp 11496 140712139200192 "GET / HTTP/1.1" 200 16506
+INFO 2026-02-11 10:54:51,719 basehttp 11496 140712139200192 "GET / HTTP/1.1" 200 18125
+INFO 2026-02-11 11:11:59,334 basehttp 11496 140712139200192 "GET / HTTP/1.1" 200 18248
+INFO 2026-02-11 11:11:59,349 basehttp 11496 140712139200192 "GET /static/img/logo.jpeg HTTP/1.1" 200 83363
+INFO 2026-02-11 11:19:00,751 basehttp 11496 140712139200192 "GET /accounts/dashboard/ HTTP/1.1" 200 14507
+INFO 2026-02-11 11:19:00,769 basehttp 11496 140712139200192 "GET /static/img/logo.jpeg HTTP/1.1" 304 0
+INFO 2026-02-11 11:21:30,750 basehttp 11496 140712139200192 "GET /documents/ HTTP/1.1" 200 17049
+INFO 2026-02-11 11:21:30,773 basehttp 11496 140712139200192 "GET /static/img/logo.jpeg HTTP/1.1" 304 0
+INFO 2026-02-11 11:21:34,520 basehttp 11496 140712139200192 "GET / HTTP/1.1" 200 18248
+INFO 2026-02-11 11:21:48,394 basehttp 11496 140712139200192 "GET /accounts/dashboard/ HTTP/1.1" 200 14507
+INFO 2026-02-11 11:35:24,263 basehttp 11496 140712139200192 "GET /documents/upload/ HTTP/1.1" 200 17541
+INFO 2026-02-11 11:35:24,288 basehttp 11496 140712139200192 "GET /static/img/logo.jpeg HTTP/1.1" 304 0
+INFO 2026-02-11 11:35:31,589 basehttp 11496 140712139200192 "GET /accounts/users/create/ HTTP/1.1" 200 13541
+INFO 2026-02-11 11:35:54,063 basehttp 11496 140712139200192 "GET /documents/stats/ HTTP/1.1" 200 14834
+INFO 2026-02-11 11:35:57,054 basehttp 11496 140712139200192 "GET /accounts/users/ HTTP/1.1" 200 12579
+INFO 2026-02-11 11:36:21,450 basehttp 11496 140712139200192 "GET /documents/upload/ HTTP/1.1" 200 17541
+INFO 2026-02-11 11:36:33,195 basehttp 11496 140712139200192 "GET /documents/ HTTP/1.1" 200 17049
+INFO 2026-02-11 11:42:00,267 basehttp 11496 140712139200192 "GET / HTTP/1.1" 200 18248
+INFO 2026-02-11 11:42:00,284 basehttp 11496 140712139200192 "GET /static/img/logo.jpeg HTTP/1.1" 304 0
+INFO 2026-02-13 07:42:57,964 autoreload 54223 138158663795008 Watching for file changes with StatReloader
+INFO 2026-02-13 07:47:26,727 basehttp 11496 140712139200192 "GET / HTTP/1.1" 200 16939
+INFO 2026-02-13 07:47:27,029 basehttp 11496 140712139200192 "GET /static/js/main.js HTTP/1.1" 304 0
+INFO 2026-02-13 07:47:27,037 basehttp 11496 140712139200192 "GET /static/css/style.css HTTP/1.1" 304 0
+INFO 2026-02-13 07:47:27,096 basehttp 11496 140712054093504 "GET /static/img/logo.jpeg HTTP/1.1" 304 0
+INFO 2026-02-13 07:54:59,021 basehttp 11496 140712054093504 "GET /accounts/login/ HTTP/1.1" 200 10485
+INFO 2026-02-13 07:55:03,297 basehttp 11496 140712054093504 "POST /accounts/login/ HTTP/1.1" 302 0
+INFO 2026-02-13 07:55:03,391 basehttp 11496 140712054093504 "GET /dashboard/ HTTP/1.1" 200 14817
+INFO 2026-02-13 08:05:26,883 basehttp 11496 140712054093504 "GET / HTTP/1.1" 200 18248
+INFO 2026-02-13 11:20:13,106 autoreload 58435 133524170957120 Watching for file changes with StatReloader
+INFO 2026-02-16 08:42:46,235 autoreload 5706 139379398021440 Watching for file changes with StatReloader
+INFO 2026-02-16 08:43:19,588 autoreload 5784 131390554702144 Watching for file changes with StatReloader
+INFO 2026-02-16 08:44:57,445 basehttp 5706 139379270129344 "GET / HTTP/1.1" 200 16939
+INFO 2026-02-16 08:44:59,847 basehttp 5706 139379260688064 "GET /admin/ HTTP/1.1" 302 0
+INFO 2026-02-16 08:45:00,042 basehttp 5706 139379260688064 "GET /admin/login/?next=/admin/ HTTP/1.1" 200 4212
+INFO 2026-02-16 08:45:03,209 basehttp 5706 139379260688064 "POST /admin/login/?next=/admin/ HTTP/1.1" 302 0
+INFO 2026-02-16 08:45:03,315 basehttp 5706 139379260688064 "GET /admin/ HTTP/1.1" 200 9883
+INFO 2026-02-16 08:45:03,390 basehttp 5706 139379260688064 "GET /static/admin/css/base.css HTTP/1.1" 304 0
+INFO 2026-02-16 08:45:03,394 basehttp 5706 139379251246784 "GET /static/admin/css/dark_mode.css HTTP/1.1" 304 0
+INFO 2026-02-16 08:45:03,395 basehttp 5706 139379242854080 "GET /static/admin/js/theme.js HTTP/1.1" 304 0
+INFO 2026-02-16 08:45:03,396 basehttp 5706 139379226068672 "GET /static/admin/js/nav_sidebar.js HTTP/1.1" 304 0
+INFO 2026-02-16 08:45:03,396 basehttp 5706 139379217675968 "GET /static/admin/css/responsive.css HTTP/1.1" 304 0
+INFO 2026-02-16 08:45:03,397 basehttp 5706 139379234461376 "GET /static/admin/css/nav_sidebar.css HTTP/1.1" 304 0
+INFO 2026-02-16 08:45:03,416 basehttp 5706 139379251246784 "GET /static/admin/css/dashboard.css HTTP/1.1" 304 0
+INFO 2026-02-16 08:45:03,475 basehttp 5706 139379226068672 "GET /static/admin/img/icon-changelink.svg HTTP/1.1" 200 380
+INFO 2026-02-16 08:45:03,475 basehttp 5706 139379242854080 "GET /static/admin/img/icon-addlink.svg HTTP/1.1" 200 331
+INFO 2026-02-16 08:45:03,475 basehttp 5706 139379217675968 "GET /static/admin/img/icon-deletelink.svg HTTP/1.1" 200 392
+INFO 2026-02-16 08:45:07,346 basehttp 5706 139379270129344 "GET /accounts/login/ HTTP/1.1" 200 10485
+INFO 2026-02-16 08:45:07,380 basehttp 5706 139379270129344 "GET /static/css/style.css HTTP/1.1" 304 0
+INFO 2026-02-16 08:45:07,381 basehttp 5706 139378735183552 "GET /static/js/main.js HTTP/1.1" 304 0
+INFO 2026-02-16 08:45:07,420 basehttp 5706 139378735183552 "GET /static/img/logo.jpeg HTTP/1.1" 304 0
+INFO 2026-02-16 08:45:22,461 basehttp 5706 139379270129344 "POST /accounts/login/ HTTP/1.1" 302 0
+INFO 2026-02-16 08:45:22,544 basehttp 5706 139379270129344 "GET /dashboard/ HTTP/1.1" 200 14817
+INFO 2026-02-16 11:52:07,268 basehttp 5706 139379270129344 "GET / HTTP/1.1" 200 18248
+INFO 2026-02-16 11:52:43,758 basehttp 5706 139379270129344 "GET /search/ HTTP/1.1" 200 17235
+INFO 2026-02-16 11:52:50,622 basehttp 5706 139379270129344 "GET / HTTP/1.1" 200 18248
+INFO 2026-02-16 11:52:53,453 basehttp 5706 139379270129344 "GET /documents/ HTTP/1.1" 200 17049
+INFO 2026-02-16 11:52:55,612 basehttp 5706 139379270129344 "GET / HTTP/1.1" 200 18248
+INFO 2026-02-16 15:22:04,898 autoreload 5213 138111354769728 Watching for file changes with StatReloader
+INFO 2026-02-16 15:22:31,810 autoreload 5302 125897147257152 Watching for file changes with StatReloader
+INFO 2026-02-16 15:23:10,359 basehttp 5213 138111294281408 "GET / HTTP/1.1" 200 16939
+WARNING 2026-02-16 15:23:11,186 base 5213 138111283791552 Session data corrupted
+INFO 2026-02-16 15:23:11,253 basehttp 5213 138111283791552 "GET /admin/ HTTP/1.1" 302 0
+WARNING 2026-02-16 15:23:11,307 base 5213 138111283791552 Session data corrupted
+INFO 2026-02-16 15:23:11,804 basehttp 5213 138111283791552 "GET /admin/login/?next=/admin/ HTTP/1.1" 200 4212
+WARNING 2026-02-16 15:23:47,504 base 5213 138111283791552 Session data corrupted
+INFO 2026-02-16 15:23:49,428 basehttp 5213 138111283791552 "POST /admin/login/?next=/admin/ HTTP/1.1" 302 0
+INFO 2026-02-16 15:23:49,565 basehttp 5213 138111283791552 "GET /admin/ HTTP/1.1" 200 9883
+INFO 2026-02-16 15:23:49,791 basehttp 5213 138111265957568 "GET /static/admin/img/icon-deletelink.svg HTTP/1.1" 200 392
+INFO 2026-02-16 15:23:49,791 basehttp 5213 138111283791552 "GET /static/admin/img/icon-addlink.svg HTTP/1.1" 200 331
+INFO 2026-02-16 15:23:49,792 basehttp 5213 138111274350272 "GET /static/admin/img/icon-changelink.svg HTTP/1.1" 200 380
+INFO 2026-02-16 15:24:21,838 basehttp 5213 138111294281408 "GET /members/ HTTP/1.1" 200 34559
+INFO 2026-02-16 15:24:27,034 basehttp 5213 138111294281408 "GET / HTTP/1.1" 200 16939
+INFO 2026-02-16 15:24:33,470 basehttp 5213 138111294281408 "GET /search/ HTTP/1.1" 302 0
+INFO 2026-02-16 15:24:33,767 basehttp 5213 138111294281408 "GET /accounts/login/?next=/search/ HTTP/1.1" 200 10485
+INFO 2026-02-16 15:24:39,929 basehttp 5213 138111294281408 "POST /accounts/login/?next=/search/ HTTP/1.1" 302 0
+INFO 2026-02-16 15:24:40,129 basehttp 5213 138111294281408 "GET /search/ HTTP/1.1" 200 17545
+INFO 2026-02-16 15:24:43,656 basehttp 5213 138111294281408 "GET / HTTP/1.1" 200 18248
+INFO 2026-02-19 12:43:12,952 autoreload 14473 125385031299392 Watching for file changes with StatReloader
+INFO 2026-02-19 12:49:50,461 basehttp 14473 125384970639040 "GET / HTTP/1.1" 200 16939
+INFO 2026-02-19 13:12:16,093 autoreload 20925 126135245263168 Watching for file changes with StatReloader
+INFO 2026-02-19 13:13:51,870 autoreload 20960 137296985276736 Watching for file changes with StatReloader
+INFO 2026-02-19 13:14:00,875 autoreload 20970 135388233367872 Watching for file changes with StatReloader
+INFO 2026-02-19 13:20:10,006 basehttp 14473 125384970639040 "GET / HTTP/1.1" 200 16939
+INFO 2026-02-19 13:20:10,550 basehttp 14473 125384960149184 "GET /static/js/main.js HTTP/1.1" 200 19361
+INFO 2026-02-19 13:20:10,551 basehttp 14473 125384951756480 "GET /static/css/style.css HTTP/1.1" 200 13950
+INFO 2026-02-19 13:20:10,566 basehttp 14473 125384970639040 "GET /static/img/logo.jpeg HTTP/1.1" 200 83363
+INFO 2026-02-19 13:20:12,851 basehttp 14473 125384942315200 "GET / HTTP/1.1" 200 16939
+INFO 2026-02-19 13:20:13,391 basehttp 14473 125384942315200 "GET /static/img/logo.jpeg HTTP/1.1" 304 0
+INFO 2026-02-19 13:20:13,396 basehttp 14473 125384942315200 "GET /static/css/style.css HTTP/1.1" 304 0
+INFO 2026-02-19 13:20:13,405 basehttp 14473 125384590882496 "GET /static/js/main.js HTTP/1.1" 304 0
+INFO 2026-02-19 13:22:09,988 basehttp 14473 125384590882496 "GET /accounts/login/ HTTP/1.1" 200 10485
+INFO 2026-02-19 13:22:13,487 basehttp 14473 125384590882496 "POST /accounts/login/ HTTP/1.1" 302 0
+INFO 2026-02-19 13:22:13,586 basehttp 14473 125384590882496 "GET /dashboard/ HTTP/1.1" 200 14817
+INFO 2026-02-19 13:22:30,815 basehttp 14473 125384942315200 "GET /accounts/login/ HTTP/1.1" 200 10485
+INFO 2026-02-19 13:22:35,087 basehttp 14473 125384942315200 "POST /accounts/login/ HTTP/1.1" 302 0
+INFO 2026-02-19 13:22:35,197 basehttp 14473 125384942315200 "GET /dashboard/ HTTP/1.1" 200 14817
+INFO 2026-02-19 13:23:18,153 basehttp 14473 125384942315200 "GET /accounts/users/create/ HTTP/1.1" 200 13541
+INFO 2026-02-19 13:23:31,447 basehttp 14473 125384942315200 "GET /dashboard/ HTTP/1.1" 200 14507
+INFO 2026-02-19 13:23:46,665 basehttp 14473 125384590882496 "GET /accounts/logout/ HTTP/1.1" 302 0
+INFO 2026-02-19 13:23:46,704 basehttp 14473 125384590882496 "GET /accounts/login/ HTTP/1.1" 200 10815
+INFO 2026-02-19 13:24:29,496 basehttp 14473 125384590882496 "GET /accounts/login/?next=/documents/%3Ftype%3Dact HTTP/1.1" 200 10485
+INFO 2026-02-19 13:24:35,913 basehttp 14473 125384590882496 "POST /accounts/login/?next=/documents/%3Ftype%3Dact HTTP/1.1" 302 0
+INFO 2026-02-19 13:24:36,025 basehttp 14473 125384590882496 "GET /documents/?type=act HTTP/1.1" 200 17367
+INFO 2026-02-19 13:24:50,870 basehttp 14473 125384590882496 "GET / HTTP/1.1" 200 18248
+INFO 2026-02-19 13:27:34,699 basehttp 14473 125384590882496 "GET /dashboard/ HTTP/1.1" 200 14507
+INFO 2026-02-19 13:39:13,133 autoreload 20970 135388233367872 /home/sheikh/Desktop/elibrary_project/settings.py changed, reloading.
+INFO 2026-02-19 13:39:13,617 autoreload 23572 133186754924864 Watching for file changes with StatReloader
+INFO 2026-02-19 13:39:13,959 autoreload 14473 125385031299392 /home/sheikh/Desktop/elibrary_project/settings.py changed, reloading.
+INFO 2026-02-19 13:39:14,253 autoreload 23575 132666589663552 Watching for file changes with StatReloader
+INFO 2026-02-19 13:39:24,440 autoreload 23575 132666589663552 /home/sheikh/Desktop/elibrary_project/settings.py changed, reloading.
+INFO 2026-02-19 13:39:24,764 autoreload 23584 139841267937600 Watching for file changes with StatReloader
+INFO 2026-02-19 13:39:24,800 autoreload 23572 133186754924864 /home/sheikh/Desktop/elibrary_project/settings.py changed, reloading.
+INFO 2026-02-19 13:39:25,016 autoreload 23587 125365008503104 Watching for file changes with StatReloader
+INFO 2026-02-19 13:39:35,975 autoreload 23584 139841267937600 /home/sheikh/Desktop/elibrary_project/settings.py changed, reloading.
+INFO 2026-02-19 13:39:36,228 autoreload 23587 125365008503104 /home/sheikh/Desktop/elibrary_project/settings.py changed, reloading.
+INFO 2026-02-19 13:39:36,241 autoreload 23599 139737157796160 Watching for file changes with StatReloader
+INFO 2026-02-19 13:39:36,581 autoreload 23602 136682686710080 Watching for file changes with StatReloader
+INFO 2026-02-19 13:41:47,412 autoreload 23599 139737157796160 /home/sheikh/Desktop/elibrary_project/settings.py changed, reloading.
+INFO 2026-02-19 13:41:47,551 autoreload 23602 136682686710080 /home/sheikh/Desktop/elibrary_project/settings.py changed, reloading.
+INFO 2026-02-19 13:41:47,693 autoreload 23731 128724596347200 Watching for file changes with StatReloader
+INFO 2026-02-19 13:41:47,840 autoreload 23732 135598545293632 Watching for file changes with StatReloader
+INFO 2026-02-19 13:54:35,791 autoreload 24325 136160537653568 Watching for file changes with StatReloader
+WARNING 2026-02-19 13:54:52,089 base 24325 136160372324032 Session data corrupted
+INFO 2026-02-19 13:54:52,142 basehttp 24325 136160372324032 "GET / HTTP/1.1" 200 17928
+WARNING 2026-02-19 13:54:58,029 log 24325 136160362882752 Forbidden (CSRF token from POST incorrect.): /accounts/login/
+WARNING 2026-02-19 13:54:58,030 basehttp 24325 136160362882752 "POST /accounts/login/ HTTP/1.1" 403 2518
+WARNING 2026-02-19 13:55:21,347 base 24325 136160372324032 Session data corrupted
+INFO 2026-02-19 13:55:21,350 basehttp 24325 136160372324032 "GET / HTTP/1.1" 200 17928
+WARNING 2026-02-19 13:55:39,143 base 24325 136160362882752 Session data corrupted
+INFO 2026-02-19 13:55:39,146 basehttp 24325 136160362882752 "GET / HTTP/1.1" 200 17928
+WARNING 2026-02-19 13:55:51,680 base 24325 136160372324032 Session data corrupted
+INFO 2026-02-19 13:55:51,683 basehttp 24325 136160372324032 "GET / HTTP/1.1" 200 17928
+INFO 2026-02-19 14:21:37,909 autoreload 24325 136160537653568 /home/sheikh/Desktop/accounts/views.py changed, reloading.
+INFO 2026-02-19 14:21:39,461 autoreload 26056 123370096496960 Watching for file changes with StatReloader
+INFO 2026-02-19 14:22:09,307 autoreload 23731 128724596347200 /home/sheikh/Desktop/elibrary_project/settings.py changed, reloading.
+INFO 2026-02-19 14:22:09,584 autoreload 26132 128748172513600 Watching for file changes with StatReloader
+INFO 2026-02-19 14:22:09,592 autoreload 26056 123370096496960 /home/sheikh/Desktop/elibrary_project/settings.py changed, reloading.
+INFO 2026-02-19 14:22:09,924 autoreload 26134 130546587459904 Watching for file changes with StatReloader
+WARNING 2026-02-19 14:24:49,292 log 26132 128748003260096 Forbidden (CSRF token from POST incorrect.): /accounts/login/
+WARNING 2026-02-19 14:24:49,292 basehttp 26132 128748003260096 "POST /accounts/login/ HTTP/1.1" 403 2518
+WARNING 2026-02-19 14:25:04,175 base 26132 128747994867392 Session data corrupted
+INFO 2026-02-19 14:25:04,190 basehttp 26132 128747994867392 "GET / HTTP/1.1" 200 17928
+WARNING 2026-02-19 14:25:11,613 base 26132 128747994867392 Session data corrupted
+INFO 2026-02-19 14:25:11,616 basehttp 26132 128747994867392 "GET / HTTP/1.1" 200 17928
+WARNING 2026-02-19 14:25:43,275 log 26132 128748003260096 Forbidden (CSRF token from POST incorrect.): /accounts/login/
+WARNING 2026-02-19 14:25:43,275 basehttp 26132 128748003260096 "POST /accounts/login/ HTTP/1.1" 403 2518
+WARNING 2026-02-19 14:25:49,345 base 26132 128748003260096 Session data corrupted
+INFO 2026-02-19 14:25:49,348 basehttp 26132 128748003260096 "GET / HTTP/1.1" 200 17928
+WARNING 2026-02-19 14:26:01,198 base 26132 128748003260096 Session data corrupted
+INFO 2026-02-19 14:26:01,203 basehttp 26132 128748003260096 "GET /members/ HTTP/1.1" 200 35548
+WARNING 2026-02-19 14:26:06,080 basehttp 26132 128748003260096 "GET /members/stats/ HTTP/1.1" 404 3325
+INFO 2026-02-19 14:26:58,024 autoreload 26132 128748172513600 /home/sheikh/Desktop/members/urls.py changed, reloading.
+INFO 2026-02-19 14:26:58,356 autoreload 26421 130836759929152 Watching for file changes with StatReloader
+INFO 2026-02-19 14:27:06,011 autoreload 26443 140719611851072 Watching for file changes with StatReloader
+INFO 2026-02-19 14:41:18,040 autoreload 26962 123603303235904 Watching for file changes with StatReloader
+INFO 2026-02-19 14:43:30,580 autoreload 27246 127122493264192 Watching for file changes with StatReloader
+WARNING 2026-02-19 14:51:37,801 base 26421 130836659697344 Session data corrupted
+INFO 2026-02-19 14:51:37,813 basehttp 26421 130836659697344 "GET /members/stats/ HTTP/1.1" 200 16238
+WARNING 2026-02-19 14:51:58,501 base 26421 130836659697344 Session data corrupted
+ERROR 2026-02-19 14:51:58,532 log 26421 130836659697344 Internal Server Error: /members/constituencies/
+Traceback (most recent call last):
+  File "/home/sheikh/Desktop/venv/lib/python3.13/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/sheikh/Desktop/venv/lib/python3.13/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/sheikh/Desktop/members/views.py", line 176, in constituency_list
+    constituencies = Constituency.objects.filter(is_active=True).annotate(
+                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        member_count=Count('member')
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ).order_by('name')
+    ^
+  File "/home/sheikh/Desktop/venv/lib/python3.13/site-packages/django/db/models/query.py", line 1595, in annotate
+    return self._annotate(args, kwargs, select=True)
+           ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sheikh/Desktop/venv/lib/python3.13/site-packages/django/db/models/query.py", line 1643, in _annotate
+    clone.query.add_annotation(
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        annotation,
+        ^^^^^^^^^^^
+        alias,
+        ^^^^^^
+        select=select,
+        ^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/sheikh/Desktop/venv/lib/python3.13/site-packages/django/db/models/sql/query.py", line 1135, in add_annotation
+    annotation = annotation.resolve_expression(self, allow_joins=True, reuse=None)
+  File "/home/sheikh/Desktop/venv/lib/python3.13/site-packages/django/db/models/aggregates.py", line 64, in resolve_expression
+    c = super().resolve_expression(query, allow_joins, reuse, summarize)
+  File "/home/sheikh/Desktop/venv/lib/python3.13/site-packages/django/db/models/expressions.py", line 950, in resolve_expression
+    c.source_expressions[pos] = arg.resolve_expression(
+                                ~~~~~~~~~~~~~~~~~~~~~~^
+        query, allow_joins, reuse, summarize, for_save
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/sheikh/Desktop/venv/lib/python3.13/site-packages/django/db/models/expressions.py", line 829, in resolve_expression
+    return query.resolve_ref(self.name, allow_joins, reuse, summarize)
+           ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sheikh/Desktop/venv/lib/python3.13/site-packages/django/db/models/sql/query.py", line 1985, in resolve_ref
+    join_info = self.setup_joins(
+        field_list, self.get_meta(), self.get_initial_alias(), can_reuse=reuse
+    )
+  File "/home/sheikh/Desktop/venv/lib/python3.13/site-packages/django/db/models/sql/query.py", line 1832, in setup_joins
+    path, final_field, targets, rest = self.names_to_path(
+                                       ~~~~~~~~~~~~~~~~~~^
+        names[:pivot],
+        ^^^^^^^^^^^^^^
+    ...<2 lines>...
+        fail_on_missing=True,
+        ^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/sheikh/Desktop/venv/lib/python3.13/site-packages/django/db/models/sql/query.py", line 1733, in names_to_path
+    raise FieldError(
+    ...<2 lines>...
+    )
+django.core.exceptions.FieldError: Cannot resolve keyword 'member' into field. Choices are: area_sq_km, capital, code, created_at, id, is_active, map_coordinates, name, population, region, updated_at, voters_count
+ERROR 2026-02-19 14:51:58,535 basehttp 26421 130836659697344 "GET /members/constituencies/ HTTP/1.1" 500 124469
+INFO 2026-02-19 14:52:52,326 autoreload 26421 130836759929152 /home/sheikh/Desktop/members/views.py changed, reloading.
+INFO 2026-02-19 14:52:52,658 autoreload 27615 137567478620480 Watching for file changes with StatReloader
+INFO 2026-02-19 14:53:16,585 autoreload 27615 137567478620480 /home/sheikh/Desktop/members/views.py changed, reloading.
+INFO 2026-02-19 14:53:16,929 autoreload 27624 130908553318720 Watching for file changes with StatReloader
+WARNING 2026-02-19 14:54:13,858 base 27624 130908384392896 Session data corrupted
+ERROR 2026-02-19 14:54:13,882 log 27624 130908384392896 Internal Server Error: /members/constituencies/
+Traceback (most recent call last):
+  File "/home/sheikh/Desktop/venv/lib/python3.13/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/sheikh/Desktop/venv/lib/python3.13/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/sheikh/Desktop/members/views.py", line 178, in constituency_list
+    return render(request, 'members/constituency_list.html', {
+        'constituencies': constituencies,
+        'title': 'Constituencies - National Assembly',
+    })
+  File "/home/sheikh/Desktop/venv/lib/python3.13/site-packages/django/shortcuts.py", line 24, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "/home/sheikh/Desktop/venv/lib/python3.13/site-packages/django/template/loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+  File "/home/sheikh/Desktop/venv/lib/python3.13/site-packages/django/template/loader.py", line 15, in get_template
+    return engine.get_template(template_name)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "/home/sheikh/Desktop/venv/lib/python3.13/site-packages/django/template/backends/django.py", line 33, in get_template
+    return Template(self.engine.get_template(template_name), self)
+                    ~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "/home/sheikh/Desktop/venv/lib/python3.13/site-packages/django/template/engine.py", line 175, in get_template
+    template, origin = self.find_template(template_name)
+                       ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "/home/sheikh/Desktop/venv/lib/python3.13/site-packages/django/template/engine.py", line 157, in find_template
+    template = loader.get_template(name, skip=skip)
+  File "/home/sheikh/Desktop/venv/lib/python3.13/site-packages/django/template/loaders/cached.py", line 57, in get_template
+    template = super().get_template(template_name, skip)
+  File "/home/sheikh/Desktop/venv/lib/python3.13/site-packages/django/template/loaders/base.py", line 28, in get_template
+    return Template(
+        contents,
+    ...<2 lines>...
+        self.engine,
+    )
+  File "/home/sheikh/Desktop/venv/lib/python3.13/site-packages/django/template/base.py", line 154, in __init__
+    self.nodelist = self.compile_nodelist()
+                    ~~~~~~~~~~~~~~~~~~~~~^^
+  File "/home/sheikh/Desktop/venv/lib/python3.13/site-packages/django/template/base.py", line 200, in compile_nodelist
+    return parser.parse()
+           ~~~~~~~~~~~~^^
+  File "/home/sheikh/Desktop/venv/lib/python3.13/site-packages/django/template/base.py", line 513, in parse
+    raise self.error(token, e)
+  File "/home/sheikh/Desktop/venv/lib/python3.13/site-packages/django/template/base.py", line 511, in parse
+    compiled_result = compile_func(self, token)
+  File "/home/sheikh/Desktop/venv/lib/python3.13/site-packages/django/template/loader_tags.py", line 293, in do_extends
+    nodelist = parser.parse()
+  File "/home/sheikh/Desktop/venv/lib/python3.13/site-packages/django/template/base.py", line 513, in parse
+    raise self.error(token, e)
+  File "/home/sheikh/Desktop/venv/lib/python3.13/site-packages/django/template/base.py", line 511, in parse
+    compiled_result = compile_func(self, token)
+  File "/home/sheikh/Desktop/venv/lib/python3.13/site-packages/django/template/loader_tags.py", line 232, in do_block
+    nodelist = parser.parse(("endblock",))
+  File "/home/sheikh/Desktop/venv/lib/python3.13/site-packages/django/template/base.py", line 513, in parse
+    raise self.error(token, e)
+  File "/home/sheikh/Desktop/venv/lib/python3.13/site-packages/django/template/base.py", line 511, in parse
+    compiled_result = compile_func(self, token)
+  File "/home/sheikh/Desktop/venv/lib/python3.13/site-packages/django/template/defaulttags.py", line 953, in do_if
+    nodelist = parser.parse(("elif", "else", "endif"))
+  File "/home/sheikh/Desktop/venv/lib/python3.13/site-packages/django/template/base.py", line 513, in parse
+    raise self.error(token, e)
+  File "/home/sheikh/Desktop/venv/lib/python3.13/site-packages/django/template/base.py", line 511, in parse
+    compiled_result = compile_func(self, token)
+  File "/home/sheikh/Desktop/venv/lib/python3.13/site-packages/django/template/defaulttags.py", line 853, in do_for
+    nodelist_loop = parser.parse(
+        (
+    ...<2 lines>...
+        )
+    )
+  File "/home/sheikh/Desktop/venv/lib/python3.13/site-packages/django/template/base.py", line 513, in parse
+    raise self.error(token, e)
+  File "/home/sheikh/Desktop/venv/lib/python3.13/site-packages/django/template/base.py", line 511, in parse
+    compiled_result = compile_func(self, token)
+  File "/home/sheikh/Desktop/venv/lib/python3.13/site-packages/django/template/defaulttags.py", line 953, in do_if
+    nodelist = parser.parse(("elif", "else", "endif"))
+  File "/home/sheikh/Desktop/venv/lib/python3.13/site-packages/django/template/base.py", line 484, in parse
+    raise self.error(token, e)
+  File "/home/sheikh/Desktop/venv/lib/python3.13/site-packages/django/template/base.py", line 482, in parse
+    filter_expression = self.compile_filter(token.contents)
+  File "/home/sheikh/Desktop/venv/lib/python3.13/site-packages/django/template/base.py", line 600, in compile_filter
+    return FilterExpression(token, self)
+  File "/home/sheikh/Desktop/venv/lib/python3.13/site-packages/django/template/base.py", line 698, in __init__
+    filter_func = parser.find_filter(filter_name)
+  File "/home/sheikh/Desktop/venv/lib/python3.13/site-packages/django/template/base.py", line 606, in find_filter
+    raise TemplateSyntaxError("Invalid filter: '%s'" % filter_name)
+django.template.exceptions.TemplateSyntaxError: Invalid filter: 'floatformest'
+ERROR 2026-02-19 14:54:13,887 basehttp 27624 130908384392896 "GET /members/constituencies/ HTTP/1.1" 500 280627
+WARNING 2026-02-19 14:54:16,473 base 27624 130908384392896 Session data corrupted
+ERROR 2026-02-19 14:54:16,494 log 27624 130908384392896 Internal Server Error: /members/constituencies/
+Traceback (most recent call last):
+  File "/home/sheikh/Desktop/venv/lib/python3.13/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/sheikh/Desktop/venv/lib/python3.13/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/sheikh/Desktop/members/views.py", line 178, in constituency_list
+    return render(request, 'members/constituency_list.html', {
+        'constituencies': constituencies,
+        'title': 'Constituencies - National Assembly',
+    })
+  File "/home/sheikh/Desktop/venv/lib/python3.13/site-packages/django/shortcuts.py", line 24, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "/home/sheikh/Desktop/venv/lib/python3.13/site-packages/django/template/loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+  File "/home/sheikh/Desktop/venv/lib/python3.13/site-packages/django/template/loader.py", line 15, in get_template
+    return engine.get_template(template_name)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "/home/sheikh/Desktop/venv/lib/python3.13/site-packages/django/template/backends/django.py", line 33, in get_template
+    return Template(self.engine.get_template(template_name), self)
+                    ~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "/home/sheikh/Desktop/venv/lib/python3.13/site-packages/django/template/engine.py", line 175, in get_template
+    template, origin = self.find_template(template_name)
+                       ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "/home/sheikh/Desktop/venv/lib/python3.13/site-packages/django/template/engine.py", line 157, in find_template
+    template = loader.get_template(name, skip=skip)
+  File "/home/sheikh/Desktop/venv/lib/python3.13/site-packages/django/template/loaders/cached.py", line 57, in get_template
+    template = super().get_template(template_name, skip)
+  File "/home/sheikh/Desktop/venv/lib/python3.13/site-packages/django/template/loaders/base.py", line 28, in get_template
+    return Template(
+        contents,
+    ...<2 lines>...
+        self.engine,
+    )
+  File "/home/sheikh/Desktop/venv/lib/python3.13/site-packages/django/template/base.py", line 154, in __init__
+    self.nodelist = self.compile_nodelist()
+                    ~~~~~~~~~~~~~~~~~~~~~^^
+  File "/home/sheikh/Desktop/venv/lib/python3.13/site-packages/django/template/base.py", line 200, in compile_nodelist
+    return parser.parse()
+           ~~~~~~~~~~~~^^
+  File "/home/sheikh/Desktop/venv/lib/python3.13/site-packages/django/template/base.py", line 513, in parse
+    raise self.error(token, e)
+  File "/home/sheikh/Desktop/venv/lib/python3.13/site-packages/django/template/base.py", line 511, in parse
+    compiled_result = compile_func(self, token)
+  File "/home/sheikh/Desktop/venv/lib/python3.13/site-packages/django/template/loader_tags.py", line 293, in do_extends
+    nodelist = parser.parse()
+  File "/home/sheikh/Desktop/venv/lib/python3.13/site-packages/django/template/base.py", line 513, in parse
+    raise self.error(token, e)
+  File "/home/sheikh/Desktop/venv/lib/python3.13/site-packages/django/template/base.py", line 511, in parse
+    compiled_result = compile_func(self, token)
+  File "/home/sheikh/Desktop/venv/lib/python3.13/site-packages/django/template/loader_tags.py", line 232, in do_block
+    nodelist = parser.parse(("endblock",))
+  File "/home/sheikh/Desktop/venv/lib/python3.13/site-packages/django/template/base.py", line 513, in parse
+    raise self.error(token, e)
+  File "/home/sheikh/Desktop/venv/lib/python3.13/site-packages/django/template/base.py", line 511, in parse
+    compiled_result = compile_func(self, token)
+  File "/home/sheikh/Desktop/venv/lib/python3.13/site-packages/django/template/defaulttags.py", line 953, in do_if
+    nodelist = parser.parse(("elif", "else", "endif"))
+  File "/home/sheikh/Desktop/venv/lib/python3.13/site-packages/django/template/base.py", line 513, in parse
+    raise self.error(token, e)
+  File "/home/sheikh/Desktop/venv/lib/python3.13/site-packages/django/template/base.py", line 511, in parse
+    compiled_result = compile_func(self, token)
+  File "/home/sheikh/Desktop/venv/lib/python3.13/site-packages/django/template/defaulttags.py", line 853, in do_for
+    nodelist_loop = parser.parse(
+        (
+    ...<2 lines>...
+        )
+    )
+  File "/home/sheikh/Desktop/venv/lib/python3.13/site-packages/django/template/base.py", line 513, in parse
+    raise self.error(token, e)
+  File "/home/sheikh/Desktop/venv/lib/python3.13/site-packages/django/template/base.py", line 511, in parse
+    compiled_result = compile_func(self, token)
+  File "/home/sheikh/Desktop/venv/lib/python3.13/site-packages/django/template/defaulttags.py", line 953, in do_if
+    nodelist = parser.parse(("elif", "else", "endif"))
+  File "/home/sheikh/Desktop/venv/lib/python3.13/site-packages/django/template/base.py", line 484, in parse
+    raise self.error(token, e)
+  File "/home/sheikh/Desktop/venv/lib/python3.13/site-packages/django/template/base.py", line 482, in parse
+    filter_expression = self.compile_filter(token.contents)
+  File "/home/sheikh/Desktop/venv/lib/python3.13/site-packages/django/template/base.py", line 600, in compile_filter
+    return FilterExpression(token, self)
+  File "/home/sheikh/Desktop/venv/lib/python3.13/site-packages/django/template/base.py", line 698, in __init__
+    filter_func = parser.find_filter(filter_name)
+  File "/home/sheikh/Desktop/venv/lib/python3.13/site-packages/django/template/base.py", line 606, in find_filter
+    raise TemplateSyntaxError("Invalid filter: '%s'" % filter_name)
+django.template.exceptions.TemplateSyntaxError: Invalid filter: 'floatformest'
+ERROR 2026-02-19 14:54:16,497 basehttp 27624 130908384392896 "GET /members/constituencies/ HTTP/1.1" 500 280627
+WARNING 2026-02-19 15:24:32,113 base 27624 130908384392896 Session data corrupted
+ERROR 2026-02-19 15:24:32,133 log 27624 130908384392896 Internal Server Error: /members/constituencies/
+Traceback (most recent call last):
+  File "/home/sheikh/Desktop/venv/lib/python3.13/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/sheikh/Desktop/venv/lib/python3.13/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/sheikh/Desktop/members/views.py", line 178, in constituency_list
+    return render(request, 'members/constituency_list.html', {
+        'constituencies': constituencies,
+        'title': 'Constituencies - National Assembly',
+    })
+  File "/home/sheikh/Desktop/venv/lib/python3.13/site-packages/django/shortcuts.py", line 24, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "/home/sheikh/Desktop/venv/lib/python3.13/site-packages/django/template/loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+  File "/home/sheikh/Desktop/venv/lib/python3.13/site-packages/django/template/loader.py", line 15, in get_template
+    return engine.get_template(template_name)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "/home/sheikh/Desktop/venv/lib/python3.13/site-packages/django/template/backends/django.py", line 33, in get_template
+    return Template(self.engine.get_template(template_name), self)
+                    ~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "/home/sheikh/Desktop/venv/lib/python3.13/site-packages/django/template/engine.py", line 175, in get_template
+    template, origin = self.find_template(template_name)
+                       ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "/home/sheikh/Desktop/venv/lib/python3.13/site-packages/django/template/engine.py", line 157, in find_template
+    template = loader.get_template(name, skip=skip)
+  File "/home/sheikh/Desktop/venv/lib/python3.13/site-packages/django/template/loaders/cached.py", line 57, in get_template
+    template = super().get_template(template_name, skip)
+  File "/home/sheikh/Desktop/venv/lib/python3.13/site-packages/django/template/loaders/base.py", line 28, in get_template
+    return Template(
+        contents,
+    ...<2 lines>...
+        self.engine,
+    )
+  File "/home/sheikh/Desktop/venv/lib/python3.13/site-packages/django/template/base.py", line 154, in __init__
+    self.nodelist = self.compile_nodelist()
+                    ~~~~~~~~~~~~~~~~~~~~~^^
+  File "/home/sheikh/Desktop/venv/lib/python3.13/site-packages/django/template/base.py", line 200, in compile_nodelist
+    return parser.parse()
+           ~~~~~~~~~~~~^^
+  File "/home/sheikh/Desktop/venv/lib/python3.13/site-packages/django/template/base.py", line 513, in parse
+    raise self.error(token, e)
+  File "/home/sheikh/Desktop/venv/lib/python3.13/site-packages/django/template/base.py", line 511, in parse
+    compiled_result = compile_func(self, token)
+  File "/home/sheikh/Desktop/venv/lib/python3.13/site-packages/django/template/loader_tags.py", line 293, in do_extends
+    nodelist = parser.parse()
+  File "/home/sheikh/Desktop/venv/lib/python3.13/site-packages/django/template/base.py", line 513, in parse
+    raise self.error(token, e)
+  File "/home/sheikh/Desktop/venv/lib/python3.13/site-packages/django/template/base.py", line 511, in parse
+    compiled_result = compile_func(self, token)
+  File "/home/sheikh/Desktop/venv/lib/python3.13/site-packages/django/template/loader_tags.py", line 232, in do_block
+    nodelist = parser.parse(("endblock",))
+  File "/home/sheikh/Desktop/venv/lib/python3.13/site-packages/django/template/base.py", line 513, in parse
+    raise self.error(token, e)
+  File "/home/sheikh/Desktop/venv/lib/python3.13/site-packages/django/template/base.py", line 511, in parse
+    compiled_result = compile_func(self, token)
+  File "/home/sheikh/Desktop/venv/lib/python3.13/site-packages/django/template/defaulttags.py", line 953, in do_if
+    nodelist = parser.parse(("elif", "else", "endif"))
+  File "/home/sheikh/Desktop/venv/lib/python3.13/site-packages/django/template/base.py", line 513, in parse
+    raise self.error(token, e)
+  File "/home/sheikh/Desktop/venv/lib/python3.13/site-packages/django/template/base.py", line 511, in parse
+    compiled_result = compile_func(self, token)
+  File "/home/sheikh/Desktop/venv/lib/python3.13/site-packages/django/template/defaulttags.py", line 853, in do_for
+    nodelist_loop = parser.parse(
+        (
+    ...<2 lines>...
+        )
+    )
+  File "/home/sheikh/Desktop/venv/lib/python3.13/site-packages/django/template/base.py", line 513, in parse
+    raise self.error(token, e)
+  File "/home/sheikh/Desktop/venv/lib/python3.13/site-packages/django/template/base.py", line 511, in parse
+    compiled_result = compile_func(self, token)
+  File "/home/sheikh/Desktop/venv/lib/python3.13/site-packages/django/template/defaulttags.py", line 953, in do_if
+    nodelist = parser.parse(("elif", "else", "endif"))
+  File "/home/sheikh/Desktop/venv/lib/python3.13/site-packages/django/template/base.py", line 484, in parse
+    raise self.error(token, e)
+  File "/home/sheikh/Desktop/venv/lib/python3.13/site-packages/django/template/base.py", line 482, in parse
+    filter_expression = self.compile_filter(token.contents)
+  File "/home/sheikh/Desktop/venv/lib/python3.13/site-packages/django/template/base.py", line 600, in compile_filter
+    return FilterExpression(token, self)
+  File "/home/sheikh/Desktop/venv/lib/python3.13/site-packages/django/template/base.py", line 698, in __init__
+    filter_func = parser.find_filter(filter_name)
+  File "/home/sheikh/Desktop/venv/lib/python3.13/site-packages/django/template/base.py", line 606, in find_filter
+    raise TemplateSyntaxError("Invalid filter: '%s'" % filter_name)
+django.template.exceptions.TemplateSyntaxError: Invalid filter: 'floatformest'
+ERROR 2026-02-19 15:24:32,136 basehttp 27624 130908384392896 "GET /members/constituencies/ HTTP/1.1" 500 280627
+WARNING 2026-02-19 15:24:34,545 base 27624 130908384392896 Session data corrupted
+ERROR 2026-02-19 15:24:34,566 log 27624 130908384392896 Internal Server Error: /members/constituencies/
+Traceback (most recent call last):
+  File "/home/sheikh/Desktop/venv/lib/python3.13/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/sheikh/Desktop/venv/lib/python3.13/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/sheikh/Desktop/members/views.py", line 178, in constituency_list
+    return render(request, 'members/constituency_list.html', {
+        'constituencies': constituencies,
+        'title': 'Constituencies - National Assembly',
+    })
+  File "/home/sheikh/Desktop/venv/lib/python3.13/site-packages/django/shortcuts.py", line 24, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "/home/sheikh/Desktop/venv/lib/python3.13/site-packages/django/template/loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+  File "/home/sheikh/Desktop/venv/lib/python3.13/site-packages/django/template/loader.py", line 15, in get_template
+    return engine.get_template(template_name)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "/home/sheikh/Desktop/venv/lib/python3.13/site-packages/django/template/backends/django.py", line 33, in get_template
+    return Template(self.engine.get_template(template_name), self)
+                    ~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "/home/sheikh/Desktop/venv/lib/python3.13/site-packages/django/template/engine.py", line 175, in get_template
+    template, origin = self.find_template(template_name)
+                       ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "/home/sheikh/Desktop/venv/lib/python3.13/site-packages/django/template/engine.py", line 157, in find_template
+    template = loader.get_template(name, skip=skip)
+  File "/home/sheikh/Desktop/venv/lib/python3.13/site-packages/django/template/loaders/cached.py", line 57, in get_template
+    template = super().get_template(template_name, skip)
+  File "/home/sheikh/Desktop/venv/lib/python3.13/site-packages/django/template/loaders/base.py", line 28, in get_template
+    return Template(
+        contents,
+    ...<2 lines>...
+        self.engine,
+    )
+  File "/home/sheikh/Desktop/venv/lib/python3.13/site-packages/django/template/base.py", line 154, in __init__
+    self.nodelist = self.compile_nodelist()
+                    ~~~~~~~~~~~~~~~~~~~~~^^
+  File "/home/sheikh/Desktop/venv/lib/python3.13/site-packages/django/template/base.py", line 200, in compile_nodelist
+    return parser.parse()
+           ~~~~~~~~~~~~^^
+  File "/home/sheikh/Desktop/venv/lib/python3.13/site-packages/django/template/base.py", line 513, in parse
+    raise self.error(token, e)
+  File "/home/sheikh/Desktop/venv/lib/python3.13/site-packages/django/template/base.py", line 511, in parse
+    compiled_result = compile_func(self, token)
+  File "/home/sheikh/Desktop/venv/lib/python3.13/site-packages/django/template/loader_tags.py", line 293, in do_extends
+    nodelist = parser.parse()
+  File "/home/sheikh/Desktop/venv/lib/python3.13/site-packages/django/template/base.py", line 513, in parse
+    raise self.error(token, e)
+  File "/home/sheikh/Desktop/venv/lib/python3.13/site-packages/django/template/base.py", line 511, in parse
+    compiled_result = compile_func(self, token)
+  File "/home/sheikh/Desktop/venv/lib/python3.13/site-packages/django/template/loader_tags.py", line 232, in do_block
+    nodelist = parser.parse(("endblock",))
+  File "/home/sheikh/Desktop/venv/lib/python3.13/site-packages/django/template/base.py", line 513, in parse
+    raise self.error(token, e)
+  File "/home/sheikh/Desktop/venv/lib/python3.13/site-packages/django/template/base.py", line 511, in parse
+    compiled_result = compile_func(self, token)
+  File "/home/sheikh/Desktop/venv/lib/python3.13/site-packages/django/template/defaulttags.py", line 953, in do_if
+    nodelist = parser.parse(("elif", "else", "endif"))
+  File "/home/sheikh/Desktop/venv/lib/python3.13/site-packages/django/template/base.py", line 513, in parse
+    raise self.error(token, e)
+  File "/home/sheikh/Desktop/venv/lib/python3.13/site-packages/django/template/base.py", line 511, in parse
+    compiled_result = compile_func(self, token)
+  File "/home/sheikh/Desktop/venv/lib/python3.13/site-packages/django/template/defaulttags.py", line 853, in do_for
+    nodelist_loop = parser.parse(
+        (
+    ...<2 lines>...
+        )
+    )
+  File "/home/sheikh/Desktop/venv/lib/python3.13/site-packages/django/template/base.py", line 513, in parse
+    raise self.error(token, e)
+  File "/home/sheikh/Desktop/venv/lib/python3.13/site-packages/django/template/base.py", line 511, in parse
+    compiled_result = compile_func(self, token)
+  File "/home/sheikh/Desktop/venv/lib/python3.13/site-packages/django/template/defaulttags.py", line 953, in do_if
+    nodelist = parser.parse(("elif", "else", "endif"))
+  File "/home/sheikh/Desktop/venv/lib/python3.13/site-packages/django/template/base.py", line 484, in parse
+    raise self.error(token, e)
+  File "/home/sheikh/Desktop/venv/lib/python3.13/site-packages/django/template/base.py", line 482, in parse
+    filter_expression = self.compile_filter(token.contents)
+  File "/home/sheikh/Desktop/venv/lib/python3.13/site-packages/django/template/base.py", line 600, in compile_filter
+    return FilterExpression(token, self)
+  File "/home/sheikh/Desktop/venv/lib/python3.13/site-packages/django/template/base.py", line 698, in __init__
+    filter_func = parser.find_filter(filter_name)
+  File "/home/sheikh/Desktop/venv/lib/python3.13/site-packages/django/template/base.py", line 606, in find_filter
+    raise TemplateSyntaxError("Invalid filter: '%s'" % filter_name)
+django.template.exceptions.TemplateSyntaxError: Invalid filter: 'floatformest'
+ERROR 2026-02-19 15:24:34,569 basehttp 27624 130908384392896 "GET /members/constituencies/ HTTP/1.1" 500 280627
+WARNING 2026-02-19 15:24:46,394 base 27624 130908384392896 Session data corrupted
+ERROR 2026-02-19 15:24:46,415 log 27624 130908384392896 Internal Server Error: /members/constituencies/
+Traceback (most recent call last):
+  File "/home/sheikh/Desktop/venv/lib/python3.13/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/sheikh/Desktop/venv/lib/python3.13/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/sheikh/Desktop/members/views.py", line 178, in constituency_list
+    return render(request, 'members/constituency_list.html', {
+        'constituencies': constituencies,
+        'title': 'Constituencies - National Assembly',
+    })
+  File "/home/sheikh/Desktop/venv/lib/python3.13/site-packages/django/shortcuts.py", line 24, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "/home/sheikh/Desktop/venv/lib/python3.13/site-packages/django/template/loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+  File "/home/sheikh/Desktop/venv/lib/python3.13/site-packages/django/template/loader.py", line 15, in get_template
+    return engine.get_template(template_name)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "/home/sheikh/Desktop/venv/lib/python3.13/site-packages/django/template/backends/django.py", line 33, in get_template
+    return Template(self.engine.get_template(template_name), self)
+                    ~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "/home/sheikh/Desktop/venv/lib/python3.13/site-packages/django/template/engine.py", line 175, in get_template
+    template, origin = self.find_template(template_name)
+                       ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "/home/sheikh/Desktop/venv/lib/python3.13/site-packages/django/template/engine.py", line 157, in find_template
+    template = loader.get_template(name, skip=skip)
+  File "/home/sheikh/Desktop/venv/lib/python3.13/site-packages/django/template/loaders/cached.py", line 57, in get_template
+    template = super().get_template(template_name, skip)
+  File "/home/sheikh/Desktop/venv/lib/python3.13/site-packages/django/template/loaders/base.py", line 28, in get_template
+    return Template(
+        contents,
+    ...<2 lines>...
+        self.engine,
+    )
+  File "/home/sheikh/Desktop/venv/lib/python3.13/site-packages/django/template/base.py", line 154, in __init__
+    self.nodelist = self.compile_nodelist()
+                    ~~~~~~~~~~~~~~~~~~~~~^^
+  File "/home/sheikh/Desktop/venv/lib/python3.13/site-packages/django/template/base.py", line 200, in compile_nodelist
+    return parser.parse()
+           ~~~~~~~~~~~~^^
+  File "/home/sheikh/Desktop/venv/lib/python3.13/site-packages/django/template/base.py", line 513, in parse
+    raise self.error(token, e)
+  File "/home/sheikh/Desktop/venv/lib/python3.13/site-packages/django/template/base.py", line 511, in parse
+    compiled_result = compile_func(self, token)
+  File "/home/sheikh/Desktop/venv/lib/python3.13/site-packages/django/template/loader_tags.py", line 293, in do_extends
+    nodelist = parser.parse()
+  File "/home/sheikh/Desktop/venv/lib/python3.13/site-packages/django/template/base.py", line 513, in parse
+    raise self.error(token, e)
+  File "/home/sheikh/Desktop/venv/lib/python3.13/site-packages/django/template/base.py", line 511, in parse
+    compiled_result = compile_func(self, token)
+  File "/home/sheikh/Desktop/venv/lib/python3.13/site-packages/django/template/loader_tags.py", line 232, in do_block
+    nodelist = parser.parse(("endblock",))
+  File "/home/sheikh/Desktop/venv/lib/python3.13/site-packages/django/template/base.py", line 513, in parse
+    raise self.error(token, e)
+  File "/home/sheikh/Desktop/venv/lib/python3.13/site-packages/django/template/base.py", line 511, in parse
+    compiled_result = compile_func(self, token)
+  File "/home/sheikh/Desktop/venv/lib/python3.13/site-packages/django/template/defaulttags.py", line 953, in do_if
+    nodelist = parser.parse(("elif", "else", "endif"))
+  File "/home/sheikh/Desktop/venv/lib/python3.13/site-packages/django/template/base.py", line 513, in parse
+    raise self.error(token, e)
+  File "/home/sheikh/Desktop/venv/lib/python3.13/site-packages/django/template/base.py", line 511, in parse
+    compiled_result = compile_func(self, token)
+  File "/home/sheikh/Desktop/venv/lib/python3.13/site-packages/django/template/defaulttags.py", line 853, in do_for
+    nodelist_loop = parser.parse(
+        (
+    ...<2 lines>...
+        )
+    )
+  File "/home/sheikh/Desktop/venv/lib/python3.13/site-packages/django/template/base.py", line 513, in parse
+    raise self.error(token, e)
+  File "/home/sheikh/Desktop/venv/lib/python3.13/site-packages/django/template/base.py", line 511, in parse
+    compiled_result = compile_func(self, token)
+  File "/home/sheikh/Desktop/venv/lib/python3.13/site-packages/django/template/defaulttags.py", line 953, in do_if
+    nodelist = parser.parse(("elif", "else", "endif"))
+  File "/home/sheikh/Desktop/venv/lib/python3.13/site-packages/django/template/base.py", line 484, in parse
+    raise self.error(token, e)
+  File "/home/sheikh/Desktop/venv/lib/python3.13/site-packages/django/template/base.py", line 482, in parse
+    filter_expression = self.compile_filter(token.contents)
+  File "/home/sheikh/Desktop/venv/lib/python3.13/site-packages/django/template/base.py", line 600, in compile_filter
+    return FilterExpression(token, self)
+  File "/home/sheikh/Desktop/venv/lib/python3.13/site-packages/django/template/base.py", line 698, in __init__
+    filter_func = parser.find_filter(filter_name)
+  File "/home/sheikh/Desktop/venv/lib/python3.13/site-packages/django/template/base.py", line 606, in find_filter
+    raise TemplateSyntaxError("Invalid filter: '%s'" % filter_name)
+django.template.exceptions.TemplateSyntaxError: Invalid filter: 'floatformest'
+ERROR 2026-02-19 15:24:46,418 basehttp 27624 130908384392896 "GET /members/constituencies/ HTTP/1.1" 500 280627
+WARNING 2026-02-19 15:25:51,433 base 27624 130908384392896 Session data corrupted
+INFO 2026-02-19 15:25:51,444 basehttp 27624 130908384392896 "GET /members/constituencies/ HTTP/1.1" 200 13124
+WARNING 2026-02-19 15:26:00,074 base 27624 130908384392896 Session data corrupted
+INFO 2026-02-19 15:26:00,078 basehttp 27624 130908384392896 "GET /members/parties/ HTTP/1.1" 200 15022
+WARNING 2026-02-19 15:26:05,363 base 27624 130908384392896 Session data corrupted
+INFO 2026-02-19 15:26:05,368 basehttp 27624 130908384392896 "GET / HTTP/1.1" 200 17928
+WARNING 2026-02-19 15:26:08,202 base 27624 130908384392896 Session data corrupted
+INFO 2026-02-19 15:26:08,246 basehttp 27624 130908384392896 "GET /accounts/login/ HTTP/1.1" 200 11474
+WARNING 2026-02-19 15:26:10,218 base 27624 130908384392896 Session data corrupted
+INFO 2026-02-19 15:26:11,010 basehttp 27624 130908384392896 "POST /accounts/login/ HTTP/1.1" 302 0
+INFO 2026-02-19 15:26:11,050 basehttp 27624 130908384392896 "GET /dashboard/ HTTP/1.1" 200 15806
+WARNING 2026-02-19 15:26:28,996 base 27624 130908372154048 Session data corrupted
+INFO 2026-02-19 15:26:29,000 basehttp 27624 130908372154048 "GET / HTTP/1.1" 200 17928
+WARNING 2026-02-19 15:26:32,838 base 27624 130908372154048 Session data corrupted
+INFO 2026-02-19 15:26:32,848 basehttp 27624 130908372154048 "GET /accounts/login/ HTTP/1.1" 200 11474
+WARNING 2026-02-19 15:26:35,591 base 27624 130908372154048 Session data corrupted
+INFO 2026-02-19 15:26:36,352 basehttp 27624 130908372154048 "POST /accounts/login/ HTTP/1.1" 302 0
+INFO 2026-02-19 15:26:36,475 basehttp 27624 130908372154048 "GET /dashboard/ HTTP/1.1" 200 15806
+INFO 2026-02-19 15:26:59,570 basehttp 27624 130908372154048 "GET /admin/ HTTP/1.1" 200 9883
+INFO 2026-02-19 15:26:59,748 basehttp 27624 130908355368640 "GET /static/admin/css/dark_mode.css HTTP/1.1" 200 2929
+INFO 2026-02-19 15:26:59,748 basehttp 27624 130908363761344 "GET /static/admin/css/nav_sidebar.css HTTP/1.1" 200 2694
+INFO 2026-02-19 15:26:59,751 basehttp 27624 130908346975936 "GET /static/admin/js/theme.js HTTP/1.1" 200 1943
+INFO 2026-02-19 15:26:59,752 basehttp 27624 130908338583232 "GET /static/admin/css/dashboard.css HTTP/1.1" 200 441
+INFO 2026-02-19 15:26:59,763 basehttp 27624 130908372154048 "GET /static/admin/css/base.css HTTP/1.1" 200 21310
+INFO 2026-02-19 15:26:59,764 basehttp 27624 130908363761344 "GET /static/admin/js/nav_sidebar.js HTTP/1.1" 200 3063
+INFO 2026-02-19 15:26:59,764 basehttp 27624 130908330190528 "GET /static/admin/css/responsive.css HTTP/1.1" 200 18559
+INFO 2026-02-19 15:26:59,820 basehttp 27624 130908330190528 "GET /static/admin/img/icon-addlink.svg HTTP/1.1" 200 331
+INFO 2026-02-19 15:26:59,820 basehttp 27624 130908355368640 "GET /static/admin/img/icon-changelink.svg HTTP/1.1" 200 380
+INFO 2026-02-19 15:26:59,821 basehttp 27624 130908346975936 "GET /static/admin/img/icon-deletelink.svg HTTP/1.1" 200 392
+INFO 2026-02-19 15:27:32,546 basehttp 27624 130908384392896 "GET /documents/ HTTP/1.1" 200 18038
+INFO 2026-02-19 15:27:45,120 basehttp 27624 130908384392896 "GET / HTTP/1.1" 200 19237
+INFO 2026-02-20 08:00:45,325 autoreload 50408 132588267794752 Watching for file changes with StatReloader
+INFO 2026-02-20 08:03:51,719 basehttp 27624 130908384392896 "GET / HTTP/1.1" 200 17928
+INFO 2026-02-20 08:03:54,032 basehttp 27624 130908372154048 "GET /admin/ HTTP/1.1" 302 0
+INFO 2026-02-20 08:03:54,273 basehttp 27624 130908372154048 "GET /admin/login/?next=/admin/ HTTP/1.1" 200 4212
+INFO 2026-02-20 08:03:54,541 basehttp 27624 130908372154048 "GET /static/admin/css/login.css HTTP/1.1" 200 958
+INFO 2026-02-20 08:03:59,053 basehttp 27624 130908372154048 "POST /admin/login/?next=/admin/ HTTP/1.1" 302 0
+INFO 2026-02-20 08:03:59,083 basehttp 27624 130908372154048 "GET /admin/ HTTP/1.1" 200 9883
+INFO 2026-02-20 08:04:08,271 basehttp 27624 130908384392896 "GET / HTTP/1.1" 200 17928
+INFO 2026-02-20 11:53:17,922 basehttp 27624 130908372154048 "GET /admin/accounts/user/add/ HTTP/1.1" 200 20790
+INFO 2026-02-20 11:53:17,996 basehttp 27624 130908363761344 "GET /static/admin/js/admin/RelatedObjectLookups.js HTTP/1.1" 200 8943
+INFO 2026-02-20 11:53:18,044 basehttp 27624 130908384392896 "GET /static/admin/js/vendor/jquery/jquery.js HTTP/1.1" 200 292458
+INFO 2026-02-20 11:53:18,051 basehttp 27624 130908363761344 "GET /static/admin/js/urlify.js HTTP/1.1" 200 7887
+INFO 2026-02-20 11:53:18,052 basehttp 27624 130908330190528 "GET /static/admin/js/jquery.init.js HTTP/1.1" 200 347
+INFO 2026-02-20 11:53:18,052 basehttp 27624 130908355368640 "GET /static/admin/js/core.js HTTP/1.1" 200 5682
+INFO 2026-02-20 11:53:18,053 basehttp 27624 130908346975936 "GET /static/admin/js/actions.js HTTP/1.1" 200 7872
+INFO 2026-02-20 11:53:18,133 basehttp 27624 130908384392896 "GET /static/admin/js/prepopulate.js HTTP/1.1" 200 1531
+INFO 2026-02-20 11:53:18,133 basehttp 27624 130908355368640 "GET /static/admin/js/prepopulate_init.js HTTP/1.1" 200 586
+INFO 2026-02-20 11:53:18,134 basehttp 27624 130908346975936 "GET /static/admin/js/change_form.js HTTP/1.1" 200 606
+INFO 2026-02-20 11:53:18,197 basehttp 27624 130908363761344 "GET /static/admin/css/forms.css HTTP/1.1" 200 9090
+INFO 2026-02-20 11:53:18,253 basehttp 27624 130908330190528 "GET /static/admin/js/vendor/xregexp/xregexp.js HTTP/1.1" 200 232381
+INFO 2026-02-20 11:53:18,258 basehttp 27624 130908372154048 "GET /admin/jsi18n/ HTTP/1.1" 200 5755
+INFO 2026-02-20 11:53:18,313 basehttp 27624 130908384392896 "GET /static/admin/css/widgets.css HTTP/1.1" 200 11921
+INFO 2026-02-20 11:58:41,591 basehttp 27624 130908384392896 "POST /admin/accounts/user/add/ HTTP/1.1" 200 21345
+INFO 2026-02-20 11:58:42,293 basehttp 27624 130908384392896 "GET /admin/jsi18n/ HTTP/1.1" 200 5755
+INFO 2026-02-20 11:59:14,336 basehttp 27624 130908384392896 "POST /admin/accounts/user/add/ HTTP/1.1" 200 21363
+INFO 2026-02-20 11:59:14,362 basehttp 27624 130908384392896 "GET /admin/jsi18n/ HTTP/1.1" 200 5755
+INFO 2026-02-20 12:01:13,791 basehttp 27624 130908355368640 "POST /admin/accounts/user/add/ HTTP/1.1" 200 21144
+INFO 2026-02-20 12:01:13,827 basehttp 27624 130908355368640 "GET /admin/jsi18n/ HTTP/1.1" 200 5755
+INFO 2026-02-20 12:01:47,642 basehttp 27624 130908355368640 "POST /admin/accounts/user/add/ HTTP/1.1" 200 21083
+INFO 2026-02-20 12:01:47,672 basehttp 27624 130908355368640 "GET /admin/jsi18n/ HTTP/1.1" 200 5755
+INFO 2026-02-20 12:02:20,002 basehttp 27624 130908355368640 "POST /admin/accounts/user/add/ HTTP/1.1" 302 0
+INFO 2026-02-20 12:02:20,343 basehttp 27624 130908355368640 "GET /admin/accounts/user/2/change/ HTTP/1.1" 200 32346
+INFO 2026-02-20 12:02:20,477 basehttp 27624 130908355368640 "GET /admin/jsi18n/ HTTP/1.1" 200 5755
+INFO 2026-02-20 12:02:20,491 basehttp 27624 130908363761344 "GET /static/admin/js/SelectBox.js HTTP/1.1" 200 4530
+INFO 2026-02-20 12:02:20,491 basehttp 27624 130908338583232 "GET /static/admin/js/SelectFilter2.js HTTP/1.1" 200 15292
+INFO 2026-02-20 12:02:20,491 basehttp 27624 130908372154048 "GET /static/admin/js/calendar.js HTTP/1.1" 200 8466
+INFO 2026-02-20 12:02:20,494 basehttp 27624 130908346975936 "GET /static/admin/js/admin/DateTimeShortcuts.js HTTP/1.1" 200 19319
+INFO 2026-02-20 12:02:20,894 basehttp 27624 130908346975936 "GET /static/admin/img/icon-yes.svg HTTP/1.1" 200 436
+INFO 2026-02-20 12:02:20,985 basehttp 27624 130908346975936 "GET /static/admin/img/icon-unknown.svg HTTP/1.1" 200 655
+INFO 2026-02-20 12:02:20,989 basehttp 27624 130908346975936 "GET /static/admin/img/icon-unknown-alt.svg HTTP/1.1" 200 655
+INFO 2026-02-20 12:02:20,990 basehttp 27624 130908363761344 "GET /static/admin/img/icon-calendar.svg HTTP/1.1" 200 1086
+INFO 2026-02-20 12:02:20,990 basehttp 27624 130908330190528 "GET /static/admin/img/icon-clock.svg HTTP/1.1" 200 677
+INFO 2026-02-20 12:02:21,010 basehttp 27624 130908338583232 "GET /static/admin/img/search.svg HTTP/1.1" 200 458
+INFO 2026-02-20 12:02:21,011 basehttp 27624 130908372154048 "GET /static/admin/img/selector-icons.svg HTTP/1.1" 200 3291
+INFO 2026-02-20 12:04:59,025 basehttp 27624 130908346975936 "POST /admin/accounts/user/2/change/ HTTP/1.1" 302 0
+INFO 2026-02-20 12:04:59,242 basehttp 27624 130908346975936 "GET /admin/accounts/user/ HTTP/1.1" 200 16796
+INFO 2026-02-20 12:04:59,309 basehttp 27624 130908384392896 "GET /admin/jsi18n/ HTTP/1.1" 200 5755
+INFO 2026-02-20 12:04:59,332 basehttp 27624 130908338583232 "GET /static/admin/js/filters.js HTTP/1.1" 200 978
+INFO 2026-02-20 12:04:59,389 basehttp 27624 130908346975936 "GET /static/admin/css/changelists.css HTTP/1.1" 200 6566
+INFO 2026-02-20 12:04:59,584 basehttp 27624 130908338583232 "GET /static/admin/img/sorting-icons.svg HTTP/1.1" 200 1097
+INFO 2026-02-20 12:04:59,584 basehttp 27624 130908384392896 "GET /static/admin/img/tooltag-add.svg HTTP/1.1" 200 331
+INFO 2026-02-20 12:05:23,802 basehttp 27624 130908330190528 "GET / HTTP/1.1" 200 17928
+INFO 2026-02-20 12:05:23,817 basehttp 27624 130908330190528 "GET /static/js/main.js HTTP/1.1" 304 0
+INFO 2026-02-20 12:05:23,848 basehttp 27624 130908372154048 "GET /static/css/style.css HTTP/1.1" 304 0
+INFO 2026-02-20 12:05:23,855 basehttp 27624 130908372154048 "GET /static/img/logo.jpeg HTTP/1.1" 304 0
+INFO 2026-02-20 12:05:38,932 basehttp 27624 130908330190528 "GET /accounts/login/ HTTP/1.1" 200 11474
+INFO 2026-02-20 12:05:41,346 basehttp 27624 130908330190528 "POST /accounts/login/ HTTP/1.1" 302 0
+INFO 2026-02-20 12:05:41,386 basehttp 27624 130908330190528 "GET /dashboard/ HTTP/1.1" 200 15806
+INFO 2026-02-20 12:26:19,688 autoreload 8019 126354832646464 Watching for file changes with StatReloader
+INFO 2026-02-20 12:27:09,587 basehttp 8019 126354730251968 "GET / HTTP/1.1" 200 17928
+INFO 2026-02-20 12:27:09,746 basehttp 8019 126354649511616 "GET /static/js/main.js HTTP/1.1" 200 19361
+INFO 2026-02-20 12:27:09,747 basehttp 8019 126354730251968 "GET /static/css/style.css HTTP/1.1" 200 13950
+INFO 2026-02-20 12:27:10,114 basehttp 8019 126354649511616 "GET /static/img/logo.jpeg HTTP/1.1" 200 83363
+WARNING 2026-02-20 12:27:10,513 basehttp 8019 126354649511616 "GET /static/img/favicon.ico HTTP/1.1" 404 1807
+INFO 2026-02-20 12:27:15,385 basehttp 8019 126354730251968 "GET /accounts/login/ HTTP/1.1" 200 11474
+INFO 2026-02-20 12:27:56,952 basehttp 8019 126354730251968 "POST /accounts/login/ HTTP/1.1" 302 0
+INFO 2026-02-20 12:27:56,995 basehttp 8019 126354730251968 "GET /dashboard/ HTTP/1.1" 200 15826
+INFO 2026-02-20 12:28:13,843 basehttp 8019 126354730251968 "GET /documents/ HTTP/1.1" 200 18045
+INFO 2026-02-20 12:28:16,870 basehttp 8019 126354730251968 "GET /documents/concept-note-1/ HTTP/1.1" 200 24347
+INFO 2026-02-20 12:28:50,041 basehttp 8019 126354730251968 "GET / HTTP/1.1" 200 19244
+INFO 2026-02-20 12:28:52,026 basehttp 8019 126354730251968 "GET /documents/ HTTP/1.1" 200 18045
+INFO 2026-02-23 08:07:40,665 autoreload 6277 137561229656384 Watching for file changes with StatReloader
+INFO 2026-02-23 08:08:08,852 autoreload 6440 124539221238080 Watching for file changes with StatReloader
+INFO 2026-02-23 08:08:27,605 autoreload 6577 132473502785856 Watching for file changes with StatReloader
+INFO 2026-02-23 08:10:04,668 basehttp 6277 137561063290560 "GET /admin/accounts/user/ HTTP/1.1" 302 0
+INFO 2026-02-23 08:10:05,624 basehttp 6277 137561063290560 "GET /admin/login/?next=/admin/accounts/user/ HTTP/1.1" 200 4240
+INFO 2026-02-23 08:10:13,943 basehttp 6277 137561063290560 "POST /admin/login/?next=/admin/accounts/user/ HTTP/1.1" 302 0
+INFO 2026-02-23 08:10:14,315 basehttp 6277 137561063290560 "GET /admin/accounts/user/ HTTP/1.1" 200 16577
+INFO 2026-02-23 08:10:14,725 basehttp 6277 137561052800704 "GET /static/admin/css/base.css HTTP/1.1" 304 0
+INFO 2026-02-23 08:10:14,729 basehttp 6277 137561052800704 "GET /static/admin/js/nav_sidebar.js HTTP/1.1" 304 0
+INFO 2026-02-23 08:10:14,730 basehttp 6277 137561044408000 "GET /static/admin/js/theme.js HTTP/1.1" 304 0
+INFO 2026-02-23 08:10:14,731 basehttp 6277 137561063290560 "GET /static/admin/css/dark_mode.css HTTP/1.1" 304 0
+INFO 2026-02-23 08:10:14,732 basehttp 6277 137561036015296 "GET /static/admin/css/nav_sidebar.css HTTP/1.1" 304 0
+INFO 2026-02-23 08:10:14,734 basehttp 6277 137560823166656 "GET /static/admin/css/responsive.css HTTP/1.1" 304 0
+INFO 2026-02-23 08:10:14,743 basehttp 6277 137561036015296 "GET /static/admin/js/jquery.init.js HTTP/1.1" 304 0
+INFO 2026-02-23 08:10:14,745 basehttp 6277 137560823166656 "GET /static/admin/js/vendor/jquery/jquery.js HTTP/1.1" 304 0
+INFO 2026-02-23 08:10:14,761 basehttp 6277 137561063290560 "GET /static/admin/js/vendor/xregexp/xregexp.js HTTP/1.1" 304 0
+INFO 2026-02-23 08:10:14,771 basehttp 6277 137561052800704 "GET /static/admin/js/core.js HTTP/1.1" 304 0
+INFO 2026-02-23 08:10:14,787 basehttp 6277 137561036015296 "GET /static/admin/js/admin/RelatedObjectLookups.js HTTP/1.1" 304 0
+INFO 2026-02-23 08:10:14,789 basehttp 6277 137560823166656 "GET /static/admin/js/actions.js HTTP/1.1" 304 0
+INFO 2026-02-23 08:10:14,805 basehttp 6277 137561063290560 "GET /static/admin/js/urlify.js HTTP/1.1" 304 0
+INFO 2026-02-23 08:10:14,814 basehttp 6277 137561052800704 "GET /static/admin/js/prepopulate.js HTTP/1.1" 304 0
+INFO 2026-02-23 08:10:14,831 basehttp 6277 137561044408000 "GET /static/admin/img/icon-yes.svg HTTP/1.1" 200 436
+INFO 2026-02-23 08:10:14,833 basehttp 6277 137560814773952 "GET /static/admin/img/search.svg HTTP/1.1" 200 458
+INFO 2026-02-23 08:10:14,834 basehttp 6277 137560823166656 "GET /static/admin/css/changelists.css HTTP/1.1" 304 0
+INFO 2026-02-23 08:10:14,837 basehttp 6277 137560814773952 "GET /static/admin/js/filters.js HTTP/1.1" 304 0
+INFO 2026-02-23 08:10:15,074 basehttp 6277 137561036015296 "GET /admin/jsi18n/ HTTP/1.1" 200 5755
+INFO 2026-02-23 08:10:15,156 basehttp 6277 137561036015296 "GET /static/admin/img/icon-addlink.svg HTTP/1.1" 200 331
+INFO 2026-02-23 08:10:15,156 basehttp 6277 137560814773952 "GET /static/admin/img/tooltag-add.svg HTTP/1.1" 200 331
+INFO 2026-02-23 08:10:15,166 basehttp 6277 137560814773952 "GET /static/admin/img/sorting-icons.svg HTTP/1.1" 200 1097
+INFO 2026-02-23 08:10:34,204 basehttp 6277 137561063290560 "GET /admin/accounts/user/add/ HTTP/1.1" 200 20790
+INFO 2026-02-23 08:10:34,225 basehttp 6277 137561036015296 "GET /admin/jsi18n/ HTTP/1.1" 200 5755
+INFO 2026-02-23 08:10:34,772 basehttp 6277 137561036015296 "GET /static/admin/js/change_form.js HTTP/1.1" 304 0
+INFO 2026-02-23 08:10:34,773 basehttp 6277 137561044408000 "GET /static/admin/js/prepopulate_init.js HTTP/1.1" 304 0
+INFO 2026-02-23 08:10:34,774 basehttp 6277 137560814773952 "GET /static/admin/css/forms.css HTTP/1.1" 304 0
+INFO 2026-02-23 08:10:34,920 basehttp 6277 137561036015296 "GET /static/admin/css/widgets.css HTTP/1.1" 304 0
+INFO 2026-02-23 08:14:13,102 basehttp 6277 137561036015296 "POST /admin/accounts/user/add/ HTTP/1.1" 200 21071
+INFO 2026-02-23 08:14:13,390 basehttp 6277 137561036015296 "GET /admin/jsi18n/ HTTP/1.1" 200 5755
+INFO 2026-02-23 08:14:52,332 basehttp 6277 137561036015296 "POST /admin/accounts/user/add/ HTTP/1.1" 302 0
+INFO 2026-02-23 08:14:52,486 basehttp 6277 137561036015296 "GET /admin/accounts/user/3/change/ HTTP/1.1" 200 32418
+INFO 2026-02-23 08:14:52,589 basehttp 6277 137561036015296 "GET /admin/jsi18n/ HTTP/1.1" 200 5755
+INFO 2026-02-23 08:14:52,652 basehttp 6277 137561036015296 "GET /static/admin/js/SelectFilter2.js HTTP/1.1" 304 0
+INFO 2026-02-23 08:14:52,654 basehttp 6277 137560814773952 "GET /static/admin/js/SelectBox.js HTTP/1.1" 304 0
+INFO 2026-02-23 08:14:52,655 basehttp 6277 137561063290560 "GET /static/admin/js/calendar.js HTTP/1.1" 304 0
+INFO 2026-02-23 08:14:52,656 basehttp 6277 137561044408000 "GET /static/admin/js/admin/DateTimeShortcuts.js HTTP/1.1" 304 0
+INFO 2026-02-23 08:14:52,867 basehttp 6277 137560814773952 "GET /static/admin/img/icon-unknown.svg HTTP/1.1" 200 655
+INFO 2026-02-23 08:14:52,867 basehttp 6277 137560823166656 "GET /static/admin/img/icon-clock.svg HTTP/1.1" 200 677
+INFO 2026-02-23 08:14:52,867 basehttp 6277 137561044408000 "GET /static/admin/img/icon-unknown-alt.svg HTTP/1.1" 200 655
+INFO 2026-02-23 08:14:52,867 basehttp 6277 137561036015296 "GET /static/admin/img/icon-calendar.svg HTTP/1.1" 200 1086
+INFO 2026-02-23 08:14:52,868 basehttp 6277 137561063290560 "GET /static/admin/img/selector-icons.svg HTTP/1.1" 200 3291
+INFO 2026-02-23 08:16:20,733 basehttp 6277 137561036015296 "POST /admin/accounts/user/3/change/ HTTP/1.1" 302 0
+INFO 2026-02-23 08:16:20,783 basehttp 6277 137561036015296 "GET /admin/accounts/user/ HTTP/1.1" 200 17384
+INFO 2026-02-23 08:16:20,846 basehttp 6277 137561063290560 "GET /admin/jsi18n/ HTTP/1.1" 200 5755
+INFO 2026-02-23 08:16:33,869 basehttp 6277 137560806381248 "GET /dashboard/ HTTP/1.1" 302 0
+INFO 2026-02-23 08:16:34,055 basehttp 6277 137560806381248 "GET /accounts/login/?next=/dashboard/ HTTP/1.1" 200 11474
+INFO 2026-02-23 08:16:36,893 basehttp 6277 137560806381248 "POST /accounts/login/?next=/dashboard/ HTTP/1.1" 302 0
+INFO 2026-02-23 08:16:36,979 basehttp 6277 137560806381248 "GET /dashboard/ HTTP/1.1" 200 15806
+INFO 2026-02-23 08:16:37,065 basehttp 6277 137560806381248 "GET /static/css/style.css HTTP/1.1" 304 0
+INFO 2026-02-23 08:16:37,066 basehttp 6277 137560806381248 "GET /static/js/main.js HTTP/1.1" 304 0
+INFO 2026-02-23 08:16:37,068 basehttp 6277 137560797988544 "GET /static/img/logo.jpeg HTTP/1.1" 304 0
+INFO 2026-02-23 08:46:59,490 autoreload 8515 127170187174208 Watching for file changes with StatReloader
+INFO 2026-02-23 08:47:24,002 basehttp 8515 127170015917760 "GET / HTTP/1.1" 200 17928
+INFO 2026-02-23 08:47:24,518 basehttp 8515 127170015917760 "GET /static/css/style.css HTTP/1.1" 200 13950
+INFO 2026-02-23 08:47:24,524 basehttp 8515 127170005427904 "GET /static/js/main.js HTTP/1.1" 200 19361
+INFO 2026-02-23 08:47:24,967 basehttp 8515 127170005427904 "GET /static/img/logo.jpeg HTTP/1.1" 200 83363
+WARNING 2026-02-23 08:47:26,032 basehttp 8515 127170005427904 "GET /static/img/favicon.ico HTTP/1.1" 404 1807
+INFO 2026-02-23 08:47:30,078 basehttp 8515 127170015917760 "GET /accounts/login/ HTTP/1.1" 200 11474
+INFO 2026-02-23 08:47:53,720 basehttp 6277 137560806381248 "GET /admin/ HTTP/1.1" 200 11127
+INFO 2026-02-23 08:47:53,775 basehttp 6277 137560806381248 "GET /static/admin/js/theme.js HTTP/1.1" 304 0
+INFO 2026-02-23 08:47:53,776 basehttp 6277 137560797988544 "GET /static/admin/js/nav_sidebar.js HTTP/1.1" 304 0
+INFO 2026-02-23 08:47:53,789 basehttp 6277 137560797988544 "GET /static/admin/css/dark_mode.css HTTP/1.1" 304 0
+INFO 2026-02-23 08:47:53,791 basehttp 6277 137560806381248 "GET /static/admin/css/base.css HTTP/1.1" 304 0
+INFO 2026-02-23 08:47:53,792 basehttp 6277 137561044756160 "GET /static/admin/css/dashboard.css HTTP/1.1" 304 0
+INFO 2026-02-23 08:47:53,792 basehttp 6277 137561036015296 "GET /static/admin/css/nav_sidebar.css HTTP/1.1" 304 0
+INFO 2026-02-23 08:47:53,793 basehttp 6277 137561063290560 "GET /static/admin/css/responsive.css HTTP/1.1" 304 0
+INFO 2026-02-23 08:47:53,886 basehttp 6277 137561044756160 "GET /static/admin/img/icon-addlink.svg HTTP/1.1" 200 331
+INFO 2026-02-23 08:47:53,894 basehttp 6277 137561036015296 "GET /static/admin/img/icon-changelink.svg HTTP/1.1" 200 380
+INFO 2026-02-23 08:47:53,895 basehttp 6277 137561063290560 "GET /static/admin/img/icon-deletelink.svg HTTP/1.1" 200 392
+INFO 2026-02-23 08:48:21,898 basehttp 6277 137560806381248 "GET / HTTP/1.1" 200 19237
+ERROR 2026-02-23 08:48:27,991 log 6277 137560806381248 Internal Server Error: /accounts/profile/
+Traceback (most recent call last):
+  File "/home/sheikh/Desktop/venv/lib/python3.13/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/sheikh/Desktop/venv/lib/python3.13/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/sheikh/Desktop/venv/lib/python3.13/site-packages/django/contrib/auth/decorators.py", line 23, in _wrapper_view
+    return view_func(request, *args, **kwargs)
+  File "/home/sheikh/Desktop/accounts/views.py", line 114, in profile_view
+    return render(request, 'accounts/profile.html', {
+        'form': form,
+        'title': 'My Profile'
+    })
+  File "/home/sheikh/Desktop/venv/lib/python3.13/site-packages/django/shortcuts.py", line 24, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "/home/sheikh/Desktop/venv/lib/python3.13/site-packages/django/template/loader.py", line 62, in render_to_string
+    return template.render(context, request)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "/home/sheikh/Desktop/venv/lib/python3.13/site-packages/django/template/backends/django.py", line 61, in render
+    return self.template.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/home/sheikh/Desktop/venv/lib/python3.13/site-packages/django/template/base.py", line 175, in render
+    return self._render(context)
+           ~~~~~~~~~~~~^^^^^^^^^
+  File "/home/sheikh/Desktop/venv/lib/python3.13/site-packages/django/template/base.py", line 167, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/home/sheikh/Desktop/venv/lib/python3.13/site-packages/django/template/base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/home/sheikh/Desktop/venv/lib/python3.13/site-packages/django/template/base.py", line 966, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "/home/sheikh/Desktop/venv/lib/python3.13/site-packages/django/template/loader_tags.py", line 157, in render
+    return compiled_parent._render(context)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/home/sheikh/Desktop/venv/lib/python3.13/site-packages/django/template/base.py", line 167, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/home/sheikh/Desktop/venv/lib/python3.13/site-packages/django/template/base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/home/sheikh/Desktop/venv/lib/python3.13/site-packages/django/template/base.py", line 966, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "/home/sheikh/Desktop/venv/lib/python3.13/site-packages/django/template/loader_tags.py", line 63, in render
+    result = block.nodelist.render(context)
+  File "/home/sheikh/Desktop/venv/lib/python3.13/site-packages/django/template/base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/home/sheikh/Desktop/venv/lib/python3.13/site-packages/django/template/base.py", line 966, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "/home/sheikh/Desktop/venv/lib/python3.13/site-packages/django/template/defaulttags.py", line 471, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+  File "/home/sheikh/Desktop/venv/lib/python3.13/site-packages/django/urls/base.py", line 88, in reverse
+    return resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sheikh/Desktop/venv/lib/python3.13/site-packages/django/urls/resolvers.py", line 828, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'home' not found. 'home' is not a valid view function or pattern name.
+ERROR 2026-02-23 08:48:27,994 basehttp 6277 137560806381248 "GET /accounts/profile/ HTTP/1.1" 500 171420
+INFO 2026-02-23 08:50:23,704 basehttp 6277 137560806381248 "GET /accounts/profile/ HTTP/1.1" 200 12337
+INFO 2026-02-23 08:50:46,085 basehttp 6277 137560806381248 "GET /accounts/change-password/ HTTP/1.1" 200 12405
+INFO 2026-02-23 08:51:43,600 basehttp 8515 127170015917760 "POST /accounts/login/ HTTP/1.1" 302 0
+INFO 2026-02-23 08:51:43,677 basehttp 8515 127170015917760 "GET /dashboard/ HTTP/1.1" 200 15806
+INFO 2026-02-23 08:52:02,560 basehttp 6277 137560806381248 "GET / HTTP/1.1" 200 19237

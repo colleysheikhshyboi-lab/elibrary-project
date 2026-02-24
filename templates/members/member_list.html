@@ -1,0 +1,307 @@
+{% extends 'base.html' %}
+
+{% block title %}Members Directory - National Assembly{% endblock %}
+
+{% block content %}
+<div class="row">
+    <!-- Sidebar Filters -->
+    <div class="col-lg-3 mb-4">
+        <div class="card">
+            <div class="card-header">
+                <h5 class="mb-0">
+                    <i class="bi bi-funnel"></i>
+                    Filter Members
+                </h5>
+            </div>
+            <div class="card-body">
+                <form method="get" action=".">
+                    <!-- Search -->
+                    <div class="mb-3">
+                        <label class="form-label">Search</label>
+                        <input type="text" name="q" class="form-control" 
+                               placeholder="Name, constituency, party..." 
+                               value="{{ search_query }}">
+                    </div>
+                    
+                    <!-- Party Filter -->
+                    <div class="mb-3">
+                        <label class="form-label">Political Party</label>
+                        <select name="party" class="form-select">
+                            <option value="">All Parties</option>
+                            {% for party in parties %}
+                            <option value="{{ party }}" {% if request.GET.party == party %}selected{% endif %}>
+                                {{ party }}
+                            </option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                    
+                    <!-- Constituency Filter -->
+                    <div class="mb-3">
+                        <label class="form-label">Constituency</label>
+                        <select name="constituency" class="form-select">
+                            <option value="">All Constituencies</option>
+                            {% for constituency in constituencies %}
+                            <option value="{{ constituency }}" {% if request.GET.constituency == constituency %}selected{% endif %}>
+                                {{ constituency }}
+                            </option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                    
+                    <!-- Gender Filter -->
+                    <div class="mb-3">
+                        <label class="form-label">Gender</label>
+                        <select name="gender" class="form-select">
+                            <option value="">All</option>
+                            <option value="male" {% if request.GET.gender == 'male' %}selected{% endif %}>Male</option>
+                            <option value="female" {% if request.GET.gender == 'female' %}selected{% endif %}>Female</option>
+                        </select>
+                    </div>
+                    
+                    <!-- Speaker Filter -->
+                    <div class="mb-3">
+                        <div class="form-check">
+                            <input type="checkbox" name="speaker" value="yes" class="form-check-input" 
+                                   id="speakerCheck" {% if request.GET.speaker == 'yes' %}checked{% endif %}>
+                            <label class="form-check-label" for="speakerCheck">
+                                Speaker/Deputy Only
+                            </label>
+                        </div>
+                    </div>
+                    
+                    <div class="d-grid gap-2">
+                        <button type="submit" class="btn btn-primary">
+                            <i class="bi bi-search"></i>
+                            Apply Filters
+                        </button>
+                        <a href="{% url 'members:member_list' %}" class="btn btn-outline-secondary">
+                            <i class="bi bi-arrow-counterclockwise"></i>
+                            Reset
+                        </a>
+                    </div>
+                </form>
+            </div>
+        </div>
+        
+        <!-- Statistics Card -->
+        <div class="card mt-3">
+            <div class="card-header">
+                <h5 class="mb-0">
+                    <i class="bi bi-bar-chart"></i>
+                    Directory Stats
+                </h5>
+            </div>
+            <div class="card-body">
+                <div class="row text-center">
+                    <div class="col-6 mb-3">
+                        <h3 class="mb-0 text-primary">{{ stats.total }}</h3>
+                        <small class="text-muted">Total Members</small>
+                    </div>
+                    <div class="col-6 mb-3">
+                        <h3 class="mb-0 text-info">{{ stats.parties }}</h3>
+                        <small class="text-muted">Parties</small>
+                    </div>
+                    <div class="col-6">
+                        <h3 class="mb-0 text-success">{{ stats.male }}</h3>
+                        <small class="text-muted">Male</small>
+                    </div>
+                    <div class="col-6">
+                        <h3 class="mb-0 text-warning">{{ stats.female }}</h3>
+                        <small class="text-muted">Female</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Member Grid -->
+    <div class="col-lg-9">
+        <!-- Header -->
+        <div class="d-flex justify-content-between align-items-center mb-4">
+            <h2 class="mb-0">
+                <i class="bi bi-people-fill"></i>
+                Members of Parliament
+            </h2>
+            
+            <!-- Sort Dropdown -->
+            <div class="btn-group">
+                <button type="button" class="btn btn-outline-secondary dropdown-toggle" data-bs-toggle="dropdown">
+                    <i class="bi bi-sort-down"></i>
+                    Sort
+                </button>
+                <ul class="dropdown-menu dropdown-menu-end">
+                    <li><a class="dropdown-item" href="?sort=name{% if search_query %}&q={{ search_query }}{% endif %}">Name (A-Z)</a></li>
+                    <li><a class="dropdown-item" href="?sort=constituency{% if search_query %}&q={{ search_query }}{% endif %}">Constituency</a></li>
+                    <li><a class="dropdown-item" href="?sort=party{% if search_query %}&q={{ search_query }}{% endif %}">Party</a></li>
+                    <li><a class="dropdown-item" href="?sort=recent{% if search_query %}&q={{ search_query }}{% endif %}">Most Recent First</a></li>
+                </ul>
+            </div>
+        </div>
+        
+        <!-- Member Cards -->
+        <div class="row row-cols-1 row-cols-md-2 row-cols-xl-3 g-4">
+            {% for member in members %}
+            <div class="col">
+                <div class="card h-100 member-card">
+                    <div class="card-body">
+                        <div class="d-flex align-items-start">
+                            <!-- Photo -->
+                            <div class="member-photo me-3">
+                                {% if member.photo %}
+                                <img src="{{ member.photo.url }}" alt="{{ member.name }}" 
+                                     class="rounded-circle member-img">
+                                {% else %}
+                                <div class="member-avatar rounded-circle d-flex align-items-center justify-content-center bg-primary text-white">
+                                    <i class="bi bi-person-fill fs-1"></i>
+                                </div>
+                                {% endif %}
+                            </div>
+                            
+                            <!-- Info -->
+                            <div class="flex-grow-1">
+                                <h5 class="card-title mb-1">
+                                    <a href="{% url 'members:member_detail' member.slug %}" class="text-decoration-none">
+                                        {{ member.name }}
+                                    </a>
+                                </h5>
+                                
+                                <p class="card-text text-muted mb-1">
+                                    <small>
+                                        <i class="bi bi-geo-alt"></i>
+                                        {{ member.constituency }}
+                                    </small>
+                                </p>
+                                
+                                {% if member.party %}
+                                <p class="card-text mb-1">
+                                    <span class="badge" style="background-color: {% if member.party_abbreviation == 'UDP' %}#ce1126{% elif member.party_abbreviation == 'NPP' %}#3c8d2f{% else %}#0c2340{% endif %};">
+                                        {{ member.party_abbreviation|default:member.party }}
+                                    </span>
+                                </p>
+                                {% endif %}
+                                
+                                {% if member.is_speaker %}
+                                <p class="card-text">
+                                    <span class="badge bg-warning text-dark">
+                                        <i class="bi bi-megaphone"></i>
+                                        {{ member.speaker|default:'Speaker' }}
+                                    </span>
+                                </p>
+                                {% endif %}
+                            </div>
+                        </div>
+                        
+                        <!-- Quick Info -->
+                        <div class="mt-3 pt-3 border-top">
+                            {% if member.profession %}
+                            <small class="text-muted d-block">
+                                <i class="bi bi-briefcase"></i>
+                                {{ member.profession }}
+                            </small>
+                            {% endif %}
+                            
+                            {% if member.first_elected %}
+                            <small class="text-muted d-block">
+                                <i class="bi bi-calendar"></i>
+                                Elected: {{ member.first_elected }}
+                            </small>
+                            {% endif %}
+                        </div>
+                    </div>
+                    
+                    <div class="card-footer bg-transparent border-top-0 pt-0">
+                        <a href="{% url 'members:member_detail' member.slug %}" class="btn btn-outline-primary btn-sm w-100">
+                            <i class="bi bi-person-vcard"></i>
+                            View Profile
+                        </a>
+                    </div>
+                </div>
+            </div>
+            {% empty %}
+            <div class="col-12">
+                <div class="text-center py-5">
+                    <i class="bi bi-people display-1 text-muted"></i>
+                    <h4 class="mt-3 text-muted">No Members Found</h4>
+                    <p class="text-muted">Try adjusting your search or filter criteria.</p>
+                    <a href="{% url 'members:member_list' %}" class="btn btn-outline-primary">
+                        <i class="bi bi-arrow-counterclockwise"></i>
+                        View All Members
+                    </a>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        
+        <!-- Pagination -->
+        {% if members.paginator.num_pages > 1 %}
+        <nav aria-label="Member pagination" class="mt-4">
+            <ul class="pagination justify-content-center">
+                {% if members.has_previous %}
+                <li class="page-item">
+                    <a class="page-link" href="?page={{ members.previous_page_number }}{% if search_query %}&q={{ search_query }}{% endif %}">
+                        <i class="bi bi-chevron-left"></i>
+                    </a>
+                </li>
+                {% endif %}
+                
+                {% for num in members.paginator.page_range %}
+                <li class="page-item {% if members.number == num %}active{% endif %}">
+                    <a class="page-link" href="?page={{ num }}{% if search_query %}&q={{ search_query }}{% endif %}">
+                        {{ num }}
+                    </a>
+                </li>
+                {% endfor %}
+                
+                {% if members.has_next %}
+                <li class="page-item">
+                    <a class="page-link" href="?page={{ members.next_page_number }}{% if search_query %}&q={{ search_query }}{% endif %}">
+                        <i class="bi bi-chevron-right"></i>
+                    </a>
+                </li>
+                {% endif %}
+            </ul>
+        </nav>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_css %}
+<style>
+    .member-card {
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    
+    .member-card:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+    }
+    
+    .member-photo {
+        flex-shrink: 0;
+    }
+    
+    .member-img {
+        width: 80px;
+        height: 80px;
+        object-fit: cover;
+        border: 3px solid #dee2e6;
+    }
+    
+    .member-avatar {
+        width: 80px;
+        height: 80px;
+        border: 3px solid #dee2e6;
+    }
+    
+    .card-title a {
+        color: #0c2340;
+    }
+    
+    .card-title a:hover {
+        color: #1a5276;
+    }
+</style>
+{% endblock %}
+
