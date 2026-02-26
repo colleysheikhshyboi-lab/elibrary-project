@@ -1,0 +1,69 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ title }} - National Assembly e-Library{% endblock %}
+
+{% block content %}
+<div class="container py-4">
+    <div class="row mb-4">
+        <div class="col-12">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="{% url 'documents:speech_list' %}">Speeches</a></li>
+                    <li class="breadcrumb-item active">{{ speech.title|truncatewords:5 }}</li>
+                </ol>
+            </nav>
+            <h2 class="fw-bold mb-1">{{ speech.title }}</h2>
+            <p class="text-muted">{{ speech.get_speech_type_display }} - {{ speech.session }}</p>
+        </div>
+    </div>
+    
+    <div class="row">
+        <div class="col-lg-8">
+            <div class="card mb-4">
+                <div class="card-header">
+                    <h5 class="mb-0">Speech Details</h5>
+                </div>
+                <div class="card-body">
+                    <p><strong>Member:</strong> {{ speech.member.name }}</p>
+                    <p><strong>Party:</strong> {{ speech.member.party.name|default:"N/A" }}</p>
+                    <p><strong>Constituency:</strong> {{ speech.member.constituency.name|default:"N/A" }}</p>
+                    <p><strong>Session:</strong> {{ speech.session }}</p>
+                    <p><strong>Date:</strong> {{ speech.debate_date }}</p>
+                    <p><strong>Type:</strong> {{ speech.get_speech_type_display }}</p>
+                    <p><strong>Status:</strong> 
+                        <span class="badge bg-{% if speech.is_verified %}success{% else %}warning{% endif %}">
+                            {% if speech.is_verified %}Verified{% else %}Unverified{% endif %}
+                        </span>
+                    </p>
+                </div>
+            </div>
+            
+            <div class="card mb-4">
+                <div class="card-header">
+                    <h5 class="mb-0">Speech Text</h5>
+                </div>
+                <div class="card-body">
+                    <p>{{ speech.speech_text|linebreaks }}</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-lg-4">
+            <div class="card">
+                <div class="card-header">
+                    <h5 class="mb-0">Actions</h5>
+                </div>
+                <div class="card-body">
+                    <a href="{% url 'documents:member_speeches' speech.member.slug %}" class="btn btn-outline-primary w-100 mb-2">
+                        <i class="bi bi-person me-1"></i> More from {{ speech.member.name }}
+                    </a>
+                    <a href="{% url 'documents:speech_list' %}" class="btn btn-outline-secondary w-100">
+                        <i class="bi bi-arrow-left me-1"></i> Back to Speeches
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+

@@ -1,0 +1,92 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ title }} - National Assembly e-Library{% endblock %}
+
+{% block content %}
+<div class="container py-4">
+    <div class="row mb-4">
+        <div class="col-12">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="{% url 'documents:ordinance_list' %}">Ordinances</a></li>
+                    <li class="breadcrumb-item active">{{ ordinance.title|truncatewords:5 }}</li>
+                </ol>
+            </nav>
+            <h2 class="fw-bold mb-1">{{ ordinance.title }}</h2>
+            <p class="text-muted">Ordinance No. {{ ordinance.ordinance_number }} of {{ ordinance.year }}</p>
+        </div>
+    </div>
+    
+    <div class="row">
+        <div class="col-lg-8">
+            <div class="card mb-4">
+                <div class="card-header">
+                    <h5 class="mb-0">Ordinance Details</h5>
+                </div>
+                <div class="card-body">
+                    {% if ordinance.description %}
+                    <p><strong>Description:</strong></p>
+                    <p>{{ ordinance.description }}</p>
+                    {% endif %}
+                    
+                    <p><strong>Ordinance Number:</strong> {{ ordinance.ordinance_number }}</p>
+                    <p><strong>Year:</strong> {{ ordinance.year }}</p>
+                    <p><strong>Issued Date:</strong> {{ ordinance.issued_date }}</p>
+                    
+                    {% if ordinance.issuing_authority %}
+                    <p><strong>Issuing Authority:</strong> {{ ordinance.issuing_authority }}</p>
+                    {% endif %}
+                    
+                    {% if ordinance.ministry %}
+                    <p><strong>Ministry:</strong> {{ ordinance.ministry }}</p>
+                    {% endif %}
+                    
+                    <p><strong>Status:</strong> 
+                        <span class="badge bg-{% if ordinance.status == 'active' %}success{% elif ordinance.status == 'expired' %}warning{% else %}secondary{% endif %}">
+                            {{ ordinance.get_status_display }}
+                        </span>
+                    </p>
+                    
+                    {% if ordinance.lapsed_date %}
+                    <p><strong>Lapsed Date:</strong> {{ ordinance.lapsed_date }}</p>
+                    {% endif %}
+                    
+                    {% if ordinance.related_act %}
+                    <p><strong>Related Act:</strong> {{ ordinance.related_act }}</p>
+                    {% endif %}
+                </div>
+            </div>
+            
+            {% if ordinance.notes %}
+            <div class="card mb-4">
+                <div class="card-header">
+                    <h5 class="mb-0">Notes</h5>
+                </div>
+                <div class="card-body">
+                    <p>{{ ordinance.notes }}</p>
+                </div>
+            </div>
+            {% endif %}
+        </div>
+        
+        <div class="col-lg-4">
+            <div class="card">
+                <div class="card-header">
+                    <h5 class="mb-0">Actions</h5>
+                </div>
+                <div class="card-body">
+                    {% if ordinance.file %}
+                    <a href="{% url 'documents:document_download' ordinance.file.slug %}" class="btn btn-success w-100 mb-2">
+                        <i class="bi bi-download me-1"></i> Download Ordinance
+                    </a>
+                    {% endif %}
+                    <a href="{% url 'documents:ordinance_list' %}" class="btn btn-outline-secondary w-100">
+                        <i class="bi bi-arrow-left me-1"></i> Back to Ordinances
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+

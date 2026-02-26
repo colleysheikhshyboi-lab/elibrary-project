@@ -1,0 +1,113 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ title }} - National Assembly e-Library{% endblock %}
+
+{% block content %}
+<div class="container py-4">
+    <div class="row mb-4">
+        <div class="col-12">
+            <h2 class="fw-bold mb-1">
+                <i class="bi bi-mic text-gambia-blue me-2"></i>
+                Member Speeches
+            </h2>
+            <p class="text-muted">Browse speeches by Members of Parliament</p>
+        </div>
+    </div>
+    
+    <!-- Filters -->
+    <div class="card mb-4">
+        <div class="card-body">
+            <form method="get" class="row g-3">
+                <div class="col-md-3">
+                    <label class="form-label">Search</label>
+                    <input type="text" name="q" class="form-control" placeholder="Search speeches..." value="{{ request.GET.q|default:'' }}">
+                </div>
+                <div class="col-md-2">
+                    <label class="form-label">Type</label>
+                    <select name="type" class="form-select">
+                        <option value="">All Types</option>
+                        <option value="debate">Debate</option>
+                        <option value="motion">Motion</option>
+                        <option value="statement">Statement</option>
+                        <option value="interjection">Interjection</option>
+                    </select>
+                </div>
+                <div class="col-md-2">
+                    <label class="form-label">Session</label>
+                    <select name="session" class="form-select">
+                        <option value="">All Sessions</option>
+                        <option value="Winter 2024">Winter 2024</option>
+                        <option value="Monsoon 2024">Monsoon 2024</option>
+                    </select>
+                </div>
+                <div class="col-md-2 d-flex align-items-end">
+                    <button type="submit" class="btn btn-primary w-100">
+                        <i class="bi bi-search me-1"></i> Filter
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+    
+    <!-- Speech List -->
+    <div class="row">
+        {% for speech in speeches %}
+        <div class="col-md-6 mb-4">
+            <div class="card h-100">
+                <div class="card-header bg-transparent">
+                    <span class="badge bg-{% if speech.is_verified %}success{% else %}warning{% endif %}">
+                        {% if speech.is_verified %}Verified{% else %}Unverified{% endif %}
+                    </span>
+                    <span class="badge bg-secondary">{{ speech.get_speech_type_display }}</span>
+                </div>
+                <div class="card-body">
+                    <h6 class="card-title">
+                        <a href="{% url 'documents:speech_detail' speech.pk %}" class="text-decoration-none">
+                            {{ speech.title|truncatewords:20 }}
+                        </a>
+                    </h6>
+                    <p class="card-text text-muted small">
+                        <strong>Member:</strong> {{ speech.member.name }}<br>
+                        <strong>Session:</strong> {{ speech.session }}
+                    </p>
+                </div>
+                <div class="card-footer bg-transparent">
+                    <small class="text-muted">
+                        <i class="bi bi-calendar me-1"></i> {{ speech.debate_date }}
+                    </small>
+                </div>
+            </div>
+        </div>
+        {% empty %}
+        <div class="col-12">
+            <div class="alert alert-info">
+                <i class="bi bi-info-circle me-2"></i>
+                No speeches found. Add speeches in the admin panel.
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    
+    <!-- Pagination -->
+    {% if speeches.has_other_pages %}
+    <nav>
+        <ul class="pagination justify-content-center">
+            {% if speeches.has_previous %}
+            <li class="page-item">
+                <a class="page-link" href="?page={{ speeches.previous_page_number }}">Previous</a>
+            </li>
+            {% endif %}
+            <li class="page-item active">
+                <span class="page-link">Page {{ speeches.number }} of {{ speeches.paginator.num_pages }}</span>
+            </li>
+            {% if speeches.has_next %}
+            <li class="page-item">
+                <a class="page-link" href="?page={{ speeches.next_page_number }}">Next</a>
+            </li>
+            {% endif %}
+        </ul>
+    </nav>
+    {% endif %}
+</div>
+{% endblock %}
+

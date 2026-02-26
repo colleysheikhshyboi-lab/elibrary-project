@@ -1,0 +1,105 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ title }} - National Assembly e-Library{% endblock %}
+
+{% block content %}
+<div class="container py-4">
+    <div class="row mb-4">
+        <div class="col-12">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="{% url 'documents:committee_list' %}">Committees</a></li>
+                    <li class="breadcrumb-item active">{{ committee.name }}</li>
+                </ol>
+            </nav>
+            <h2 class="fw-bold mb-1">{{ committee.name }}</h2>
+            <p class="text-muted">{{ committee.get_committee_type_display }}</p>
+        </div>
+    </div>
+    
+    <div class="row">
+        <div class="col-lg-8">
+            <div class="card mb-4">
+                <div class="card-header">
+                    <h5 class="mb-0">Committee Details</h5>
+                </div>
+                <div class="card-body">
+                    <p>{{ committee.description }}</p>
+                    {% if committee.ministry %}
+                    <p><strong>Related Ministry:</strong> {{ committee.ministry }}</p>
+                    {% endif %}
+                    <p><strong>Year Formed:</strong> {{ committee.year_formed }}</p>
+                    {% if committee.meeting_frequency %}
+                    <p><strong>Meeting Frequency:</strong> {{ committee.meeting_frequency }}</p>
+                    {% endif %}
+                </div>
+            </div>
+            
+            <!-- Members -->
+            {% if members %}
+            <div class="card mb-4">
+                <div class="card-header">
+                    <h5 class="mb-0">Committee Members</h5>
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>Member</th>
+                                    <th>Role</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for member in members %}
+                                <tr>
+                                    <td>{{ member.member.name }}</td>
+                                    <td>{{ member.get_role_display }}</td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            {% endif %}
+            
+            <!-- Recent Meetings -->
+            {% if meetings %}
+            <div class="card">
+                <div class="card-header">
+                    <h5 class="mb-0">Recent Meetings</h5>
+                </div>
+                <div class="card-body">
+                    {% for meeting in meetings %}
+                    <div class="mb-3 pb-3 border-bottom">
+                        <h6>{{ meeting.get_meeting_type_display }} - Meeting #{{ meeting.meeting_number }}</h6>
+                        <p class="mb-1 text-muted">
+                            <i class="bi bi-calendar me-1"></i> {{ meeting.meeting_date }}
+                            <span class="mx-2">|</span>
+                            <i class="bi bi-geo-alt me-1"></i> {{ meeting.venue }}
+                        </p>
+                        <p class="mb-0">{{ meeting.agenda|truncatewords:30 }}</p>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+            {% endif %}
+        </div>
+        
+        <div class="col-lg-4">
+            <div class="card">
+                <div class="card-header">
+                    <h5 class="mb-0">Actions</h5>
+                </div>
+                <div class="card-body">
+                    <a href="{% url 'documents:committee_list' %}" class="btn btn-outline-secondary w-100">
+                        <i class="bi bi-arrow-left me-1"></i> Back to Committees
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+

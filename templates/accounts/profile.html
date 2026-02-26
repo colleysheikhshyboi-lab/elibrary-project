@@ -4,36 +4,98 @@
 {% block title %}{{ title }} - National Assembly e-Library{% endblock %}
 
 {% block content %}
-<div class="row justify-content-center">
-    <div class="col-md-8 col-lg-6">
-        <div class="card shadow">
-            <div class="card-header bg-primary text-white">
-                <h4 class="mb-0">
-                    <i class="bi bi-person"></i>
-                    {{ title }}
-                </h4>
-            </div>
-            
-            <div class="card-body">
-                <form method="post">
-                    {% csrf_token %}
-                    
-                    {{ form|crispy }}
-                    
-                    <div class="d-grid gap-2 mt-4">
-                        <button type="submit" class="btn btn-primary">
-                            <i class="bi bi-check-circle"></i>
-                            Save Changes
-                        </button>
-                        <a href="{% url 'core:home' %}" class="btn btn-outline-secondary">
-                            <i class="bi bi-arrow-left"></i>
-                            Back to Dashboard
-                        </a>
+<div class="container py-4">
+    <div class="row justify-content-center">
+        <div class="col-md-8 col-lg-6">
+            <div class="card border-0 shadow-lg" style="border-radius: 20px; overflow: hidden;">
+                <div class="card-header text-white text-center py-4" style="background: linear-gradient(135deg, #0c2340 0%, #1a5276 100%);">
+                    <div class="mb-3">
+                        <i class="bi bi-person-circle display-1"></i>
                     </div>
-                </form>
+                    <h3 class="mb-1">{{ title }}</h3>
+                    <p class="mb-0 text-white-70">Update your account information</p>
+                </div>
+                
+                <div class="card-body p-4">
+                    <form method="post">
+                        {% csrf_token %}
+                        
+                        {{ form|crispy }}
+                        
+                        <div class="d-grid gap-2 mt-4">
+                            <button type="submit" class="btn btn-primary btn-lg">
+                                <i class="bi bi-check-circle me-2"></i>
+                                Save Changes
+                            </button>
+                            <a href="{% url 'core:home' %}" class="btn btn-outline-secondary">
+                                <i class="bi bi-arrow-left me-2"></i>
+                                Back to Home
+                            </a>
+                        </div>
+                    </form>
+                </div>
             </div>
         </div>
     </div>
 </div>
+{% endblock %}
+
+{% block extra_css %}
+<style>
+    .card {
+        border-radius: 20px;
+    }
+    
+    body.dark-mode .card {
+        background: #1e1e22;
+    }
+    
+    /* Form field improvements */
+    .form-control, .form-select {
+        border-radius: 10px;
+        padding: 0.75rem 1rem;
+        border: 2px solid #e9ecef;
+        transition: all 0.3s ease;
+    }
+    
+    .form-control:focus, .form-select:focus {
+        border-color: #0c2340;
+        box-shadow: 0 0 0 4px rgba(12, 35, 64, 0.1);
+    }
+    
+    body.dark-mode .form-control,
+    body.dark-mode .form-select {
+        border-color: #3a3a40;
+        background-color: #252529;
+    }
+    
+    body.dark-mode .form-control:focus,
+    body.dark-mode .form-select:focus {
+        border-color: #64b5f6;
+        box-shadow: 0 0 0 4px rgba(100, 181, 246, 0.1);
+    }
+    
+    /* Button improvements */
+    .btn {
+        border-radius: 10px;
+        font-weight: 600;
+        padding: 0.75rem 1.5rem;
+        transition: all 0.3s ease;
+    }
+    
+    .btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+    }
+    
+    .btn-primary {
+        background: linear-gradient(135deg, #0c2340 0%, #1a5276 100%);
+        border: none;
+    }
+    
+    .btn-primary:hover {
+        background: linear-gradient(135deg, #0a1a2f 0%, #153d5e 100%);
+    }
+</style>
 {% endblock %}
 

@@ -3,392 +3,397 @@
 {% block title %}{{ member.name }} - Member Profile{% endblock %}
 
 {% block content %}
-<div class="row">
-    <!-- Member Profile Card -->
-    <div class="col-lg-4 mb-4">
-        <div class="card">
-            <div class="card-body text-center">
-                <!-- Photo -->
-                <div class="member-profile-photo mb-3">
-                    {% if member.photo %}
-                    <img src="{{ member.photo.url }}" alt="{{ member.name }}" 
-                         class="rounded-circle profile-img">
-                    {% else %}
-                    <div class="profile-avatar rounded-circle d-flex align-items-center justify-content-center mx-auto bg-primary text-white">
-                        <i class="bi bi-person-fill fs-1"></i>
+<div class="container-fluid py-4">
+    <div class="row">
+        <!-- Member Profile Card -->
+        <div class="col-lg-4 mb-4">
+            <div class="card border-0 shadow-sm h-100" style="border-radius: 16px;">
+                <div class="card-body text-center p-4">
+                    <!-- Photo -->
+                    <div class="member-profile-photo mb-3">
+                        {% if member.photo %}
+                        <img src="{{ member.photo.url }}" alt="{{ member.name }}" 
+                             class="rounded-circle profile-img">
+                        {% else %}
+                        <div class="profile-avatar rounded-circle d-flex align-items-center justify-content-center mx-auto bg-primary text-white">
+                            <i class="bi bi-person-fill fs-1"></i>
+                        </div>
+                        {% endif %}
                     </div>
-                    {% endif %}
-                </div>
-                
-                <!-- Name & Title -->
-                <h3 class="card-title mb-1">{{ member.name }}</h3>
-                
-                {% if member.is_speaker %}
-                <p class="card-text">
-                    <span class="badge bg-warning text-dark fs-6">
-                        <i class="bi bi-megaphone"></i>
-                        {{ member.speaker|default:'Speaker' }}
-                    </span>
-                </p>
-                {% endif %}
-                
-                <!-- Constituency & Party -->
-                <p class="card-text text-muted mb-1">
-                    <i class="bi bi-geo-alt"></i>
-                    {{ member.constituency }}
-                </p>
-                
-                {% if member.party %}
-                <p class="card-text">
-                    <span class="badge fs-6" 
-                          style="background-color: {% if member.party_abbreviation == 'UDP' %}#ce1126{% elif member.party_abbreviation == 'NPP' %}#3c8d2f{% else %}#0c2340{% endif %};">
-                        {{ member.party_abbreviation|default:member.party }}
-                    </span>
-                </p>
-                {% endif %}
-                
-                <!-- Status -->
-                <div class="mt-3">
-                    {% if member.is_active %}
-                    <span class="badge bg-success">Active Member</span>
-                    {% else %}
-                    <span class="badge bg-secondary">Inactive</span>
+                    
+                    <!-- Name & Title -->
+                    <h3 class="fw-bold mb-2">{{ member.name }}</h3>
+                    
+                    {% if member.is_speaker %}
+                    <p class="card-text">
+                        <span class="badge bg-warning text-dark fs-6">
+                            <i class="bi bi-megaphone me-1"></i>
+                            {{ member.speaker|default:'Speaker' }}
+                        </span>
+                    </p>
                     {% endif %}
                     
-                    {% if member.is_retired %}
-                    <span class="badge bg-info">Retired</span>
+                    <!-- Constituency & Party -->
+                    <p class="text-muted mb-2">
+                        <i class="bi bi-geo-alt me-1"></i>
+                        {{ member.constituency }}
+                    </p>
+                    
+                    {% if member.party %}
+                    <p class="card-text">
+                        <span class="badge fs-6" 
+                              style="background-color: {% if member.party_abbreviation == 'UDP' %}#ce1126{% elif member.party_abbreviation == 'NPP' %}#3c8d2f{% else %}#0c2340{% endif %};">
+                            {{ member.party_abbreviation|default:member.party }}
+                        </span>
+                    </p>
                     {% endif %}
+                    
+                    <!-- Status -->
+                    <div class="mt-3">
+                        {% if member.is_active %}
+                        <span class="badge bg-success">
+                            <i class="bi bi-check-circle me-1"></i>Active Member
+                        </span>
+                        {% else %}
+                        <span class="badge bg-secondary">Inactive</span>
+                        {% endif %}
+                        
+                        {% if member.is_retired %}
+                        <span class="badge bg-info">Retired</span>
+                        {% endif %}
+                    </div>
+                </div>
+                
+                <!-- Contact Info -->
+                <ul class="list-group list-group-flush px-3">
+                    {% if member.email %}
+                    <li class="list-group-item bg-transparent">
+                        <i class="bi bi-envelope me-2 text-primary"></i>
+                        <a href="mailto:{{ member.email }}">{{ member.email }}</a>
+                    </li>
+                    {% endif %}
+                    
+                    {% if member.phone %}
+                    <li class="list-group-item bg-transparent">
+                        <i class="bi bi-phone me-2 text-primary"></i>
+                        {{ member.phone }}
+                    </li>
+                    {% endif %}
+                    
+                    {% if member.office_location %}
+                    <li class="list-group-item bg-transparent">
+                        <i class="bi bi-building me-2 text-primary"></i>
+                        {{ member.office_location }}
+                    </li>
+                    {% endif %}
+                </ul>
+                
+                <!-- Social Media -->
+                {% if member.twitter or member.facebook or member.website %}
+                <div class="card-body pt-3">
+                    <div class="d-flex justify-content-center gap-2">
+                        {% if member.twitter %}
+                        <a href="{{ member.twitter }}" target="_blank" class="btn btn-outline-primary btn-sm rounded-circle" title="Twitter" style="width: 40px; height: 40px; padding: 0;">
+                            <i class="bi bi-twitter-x"></i>
+                        </a>
+                        {% endif %}
+                        
+                        {% if member.facebook %}
+                        <a href="{{ member.facebook }}" target="_blank" class="btn btn-outline-primary btn-sm rounded-circle" title="Facebook" style="width: 40px; height: 40px; padding: 0;">
+                            <i class="bi bi-facebook"></i>
+                        </a>
+                        {% endif %}
+                        
+                        {% if member.website %}
+                        <a href="{{ member.website }}" target="_blank" class="btn btn-outline-primary btn-sm rounded-circle" title="Website" style="width: 40px; height: 40px; padding: 0;">
+                            <i class="bi bi-globe"></i>
+                        </a>
+                        {% endif %}
+                    </div>
+                </div>
+                {% endif %}
+            </div>
+        </div>
+        
+        <!-- Detailed Information -->
+        <div class="col-lg-8">
+            <!-- Quick Stats -->
+            <div class="row g-3 mb-4">
+                <div class="col-md-3 col-6">
+                    <div class="stat-card text-center h-100" style="background: linear-gradient(135deg, #0c2340 0%, #1a5276 100%); color: white;">
+                        <h4 class="mb-0">{{ member.first_elected|default:"-" }}</h4>
+                        <small class="text-white-70">First Elected</small>
+                    </div>
+                </div>
+                <div class="col-md-3 col-6">
+                    <div class="stat-card text-center h-100" style="background: linear-gradient(135deg, #3c8d2f 0%, #4caf50 100%); color: white;">
+                        <h4 class="mb-0">{{ member.parliament_number|default:"-" }}</h4>
+                        <small class="text-white-70">Parliament</small>
+                    </div>
+                </div>
+                <div class="col-md-3 col-6">
+                    <div class="stat-card text-center h-100" style="background: linear-gradient(135deg, #17a2b8 0%, #20c997 100%); color: white;">
+                        <h4 class="mb-0">{{ member.age|default:"-" }}</h4>
+                        <small class="text-white-70">Age</small>
+                    </div>
+                </div>
+                <div class="col-md-3 col-6">
+                    <div class="stat-card text-center h-100" style="background: linear-gradient(135deg, #ffc107 0%, #fd7e14 100%); color: white;">
+                        <h4 class="mb-0">{{ member.term_duration|default:"-" }}</h4>
+                        <small class="text-white-70">Years Served</small>
+                    </div>
                 </div>
             </div>
             
-            <!-- Contact Info -->
-            <ul class="list-group list-group-flush">
-                {% if member.email %}
-                <li class="list-group-item">
-                    <i class="bi bi-envelope me-2"></i>
-                    <a href="mailto:{{ member.email }}">{{ member.email }}</a>
+            <!-- Tabs Navigation -->
+            <ul class="nav nav-tabs border-0 mb-3" id="memberTab" role="tablist">
+                <li class="nav-item">
+                    <button class="nav-link active" id="about-tab" data-bs-toggle="tab" data-bs-target="#about" type="button">
+                        <i class="bi bi-person me-1"></i> About
+                    </button>
                 </li>
-                {% endif %}
-                
-                {% if member.phone %}
-                <li class="list-group-item">
-                    <i class="bi bi-phone me-2"></i>
-                    {{ member.phone }}
+                <li class="nav-item">
+                    <button class="nav-link" id="committees-tab" data-bs-toggle="tab" data-bs-target="#committees" type="button">
+                        <i class="bi bi-people me-1"></i> Committees
+                    </button>
                 </li>
-                {% endif %}
-                
-                {% if member.office_location %}
-                <li class="list-group-item">
-                    <i class="bi bi-building me-2"></i>
-                    {{ member.office_location }}
+                <li class="nav-item">
+                    <button class="nav-link" id="background-tab" data-bs-toggle="tab" data-bs-target="#background" type="button">
+                        <i class="bi bi-book me-1"></i> Background
+                    </button>
                 </li>
-                {% endif %}
             </ul>
             
-            <!-- Social Media -->
-            {% if member.twitter or member.facebook or member.website %}
-            <div class="card-body">
-                <div class="d-flex justify-content-center gap-2">
-                    {% if member.twitter %}
-                    <a href="{{ member.twitter }}" target="_blank" class="btn btn-outline-primary btn-sm" title="Twitter">
-                        <i class="bi bi-twitter-x"></i>
-                    </a>
+            <!-- Tab Content -->
+            <div class="tab-content p-4 border-0 shadow-sm" id="memberTabContent" style="border-radius: 0 16px 16px 16px; background: var(--card-bg);">
+                <!-- About Tab -->
+                <div class="tab-pane fade show active" id="about">
+                    <h5 class="fw-bold border-bottom pb-2 mb-3">
+                        <i class="bi bi-info-circle text-gambia-blue me-2"></i>
+                        Parliamentary Information
+                    </h5>
+                    
+                    <div class="row mb-3">
+                        <div class="col-md-4">
+                            <strong class="text-muted">Constituency:</strong>
+                        </div>
+                        <div class="col-md-8">
+                            {{ member.constituency }}
+                            {% if member.constituency_code %}
+                            <span class="text-muted">({{ member.constituency_code }})</span>
+                            {% endif %}
+                        </div>
+                    </div>
+                    
+                    <div class="row mb-3">
+                        <div class="col-md-4">
+                            <strong class="text-muted">Political Party:</strong>
+                        </div>
+                        <div class="col-md-8">
+                            {{ member.party }}
+                        </div>
+                    </div>
+                    
+                    <div class="row mb-3">
+                        <div class="col-md-4">
+                            <strong class="text-muted">Current Term:</strong>
+                        </div>
+                        <div class="col-md-8">
+                            {% if member.term_start %}
+                            {{ member.term_start|date:"F Y" }} - 
+                            {% if member.term_end %}
+                            {{ member.term_end|date:"F Y" }}
+                            {% else %}
+                            Present
+                            {% endif %}
+                            {% else %}
+                            Not specified
+                            {% endif %}
+                        </div>
+                    </div>
+                    
+                    <div class="row mb-3">
+                        <div class="col-md-4">
+                            <strong class="text-muted">Gender:</strong>
+                        </div>
+                        <div class="col-md-8">
+                            {{ member.get_gender_display }}
+                        </div>
+                    </div>
+                    
+                    {% if member.place_of_birth %}
+                    <div class="row mb-3">
+                        <div class="col-md-4">
+                            <strong class="text-muted">Place of Birth:</strong>
+                        </div>
+                        <div class="col-md-8">
+                            {{ member.place_of_birth }}
+                        </div>
+                    </div>
                     {% endif %}
                     
-                    {% if member.facebook %}
-                    <a href="{{ member.facebook }}" target="_blank" class="btn btn-outline-primary btn-sm" title="Facebook">
-                        <i class="bi bi-facebook"></i>
-                    </a>
+                    {% if member.date_of_birth %}
+                    <div class="row mb-3">
+                        <div class="col-md-4">
+                            <strong class="text-muted">Date of Birth:</strong>
+                        </div>
+                        <div class="col-md-8">
+                            {{ member.date_of_birth|date:"F d, Y" }} 
+                            {% if member.age %}
+                            (Age {{ member.age }})
+                            {% endif %}
+                        </div>
+                    </div>
                     {% endif %}
+                </div>
+                
+                <!-- Committees Tab -->
+                <div class="tab-pane fade" id="committees">
+                    <h5 class="fw-bold border-bottom pb-2 mb-3">
+                        <i class="bi bi-people text-gambia-blue me-2"></i>
+                        Committee Memberships
+                    </h5>
                     
-                    {% if member.website %}
-                    <a href="{{ member.website }}" target="_blank" class="btn btn-outline-primary btn-sm" title="Website">
-                        <i class="bi bi-globe"></i>
-                    </a>
-                    {% endif %}
-                </div>
-            </div>
-            {% endif %}
-        </div>
-    </div>
-    
-    <!-- Detailed Information -->
-    <div class="col-lg-8">
-        <!-- Quick Stats -->
-        <div class="row mb-4">
-            <div class="col-md-3 col-6">
-                <div class="card text-center h-100">
-                    <div class="card-body">
-                        <h4 class="text-primary mb-0">{{ member.first_elected|default:"-" }}</h4>
-                        <small class="text-muted">First Elected</small>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-3 col-6">
-                <div class="card text-center h-100">
-                    <div class="card-body">
-                        <h4 class="text-success mb-0">{{ member.parliament_number|default:"-" }}</h4>
-                        <small class="text-muted">Parliament</small>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-3 col-6">
-                <div class="card text-center h-100">
-                    <div class="card-body">
-                        <h4 class="text-info mb-0">{{ member.age|default:"-" }}</h4>
-                        <small class="text-muted">Age</small>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-3 col-6">
-                <div class="card text-center h-100">
-                    <div class="card-body">
-                        <h4 class="text-warning mb-0">{{ member.term_duration|default:"-" }}</h4>
-                        <small class="text-muted">Years Served</small>
-                    </div>
-                </div>
-            </div>
-        </div>
-        
-        <!-- Tabs Navigation -->
-        <ul class="nav nav-tabs" id="memberTab" role="tablist">
-            <li class="nav-item">
-                <button class="nav-link active" id="about-tab" data-bs-toggle="tab" data-bs-target="#about" type="button">
-                    <i class="bi bi-person"></i> About
-                </button>
-            </li>
-            <li class="nav-item">
-                <button class="nav-link" id="committees-tab" data-bs-toggle="tab" data-bs-target="#committees" type="button">
-                    <i class="bi bi-people"></i> Committees
-                </button>
-            </li>
-            <li class="nav-item">
-                <button class="nav-link" id="background-tab" data-bs-toggle="tab" data-bs-target="#background" type="button">
-                    <i class="bi bi-book"></i> Background
-                </button>
-            </li>
-        </ul>
-        
-        <!-- Tab Content -->
-        <div class="tab-content p-3 border border-top-0 rounded-bottom" id="memberTabContent">
-            <!-- About Tab -->
-            <div class="tab-pane fade show active" id="about">
-                <h5 class="border-bottom pb-2 mb-3">Parliamentary Information</h5>
-                
-                <div class="row mb-3">
-                    <div class="col-md-4">
-                        <strong>Constituency:</strong>
-                    </div>
-                    <div class="col-md-8">
-                        {{ member.constituency }}
-                        {% if member.constituency_code %}
-                        <span class="text-muted">({{ member.constituency_code }})</span>
-                        {% endif %}
-                    </div>
-                </div>
-                
-                <div class="row mb-3">
-                    <div class="col-md-4">
-                        <strong>Political Party:</strong>
-                    </div>
-                    <div class="col-md-8">
-                        {{ member.party }}
-                    </div>
-                </div>
-                
-                <div class="row mb-3">
-                    <div class="col-md-4">
-                        <strong>Current Term:</strong>
-                    </div>
-                    <div class="col-md-8">
-                        {% if member.term_start %}
-                        {{ member.term_start|date:"F Y" }} - 
-                        {% if member.term_end %}
-                        {{ member.term_end|date:"F Y" }}
-                        {% else %}
-                        Present
-                        {% endif %}
-                        {% else %}
-                        Not specified
-                        {% endif %}
-                    </div>
-                </div>
-                
-                <div class="row mb-3">
-                    <div class="col-md-4">
-                        <strong>Gender:</strong>
-                    </div>
-                    <div class="col-md-8">
-                        {{ member.get_gender_display }}
-                    </div>
-                </div>
-                
-                {% if member.place_of_birth %}
-                <div class="row mb-3">
-                    <div class="col-md-4">
-                        <strong>Place of Birth:</strong>
-                    </div>
-                    <div class="col-md-8">
-                        {{ member.place_of_birth }}
-                    </div>
-                </div>
-                {% endif %}
-                
-                {% if member.date_of_birth %}
-                <div class="row mb-3">
-                    <div class="col-md-4">
-                        <strong>Date of Birth:</strong>
-                    </div>
-                    <div class="col-md-8">
-                        {{ member.date_of_birth|date:"F d, Y" }} 
-                        {% if member.age %}
-                        (Age {{ member.age }})
-                        {% endif %}
-                    </div>
-                </div>
-                {% endif %}
-            </div>
-            
-            <!-- Committees Tab -->
-            <div class="tab-pane fade" id="committees">
-                <h5 class="border-bottom pb-2 mb-3">Committee Memberships</h5>
-                
-                {% if member.committees %}
-                <div class="mb-4">
-                    <h6><i class="bi bi-check-circle text-success"></i> Member of:</h6>
-                    <ul class="list-group list-group-flush">
-                        {% for committee in member.get_committees_list %}
-                        <li class="list-group-item">
-                            <i class="bi bi-arrow-right-circle me-2"></i>
-                            {{ committee }}
-                        </li>
-                        {% endfor %}
-                    </ul>
-                </div>
-                {% else %}
-                <p class="text-muted">No committee memberships recorded.</p>
-                {% endif %}
-                
-                {% if member.committee_chair %}
-                <div>
-                    <h6><i class="bi bi-star-fill text-warning"></i> Chair of:</h6>
-                    <ul class="list-group list-group-flush">
-                        {% for chair in member.get_chairs_list %}
-                        <li class="list-group-item">
-                            <i class="bi bi-star me-2"></i>
-                            {{ chair }}
-                        </li>
-                        {% endfor %}
-                    </ul>
-                </div>
-                {% endif %}
-            </div>
-            
-            <!-- Background Tab -->
-            <div class="tab-pane fade" id="background">
-                <h5 class="border-bottom pb-2 mb-3">Professional Background</h5>
-                
-                {% if member.profession %}
-                <div class="mb-3">
-                    <strong>Profession/Occupation:</strong>
-                    <p>{{ member.profession }}</p>
-                </div>
-                {% endif %}
-                
-                {% if member.education %}
-                <div class="mb-3">
-                    <strong>Educational Background:</strong>
-                    <p>{{ member.education|linebreaks }}</p>
-                </div>
-                {% endif %}
-                
-                {% if member.biography %}
-                <div class="mb-3">
-                    <strong>Biography:</strong>
-                    <p>{{ member.biography|linebreaks }}</p>
-                </div>
-                {% endif %}
-                
-                {% if member.achievements %}
-                <div class="mb-3">
-                    <strong>Notable Achievements:</strong>
-                    <p>{{ member.achievements|linebreaks }}</p>
-                </div>
-                {% endif %}
-            </div>
-        </div>
-        
-        <!-- Related Members -->
-        <div class="row mt-4">
-            {% if same_constituency %}
-            <div class="col-md-6">
-                <div class="card">
-                    <div class="card-header">
-                        <h6 class="mb-0">
-                            <i class="bi bi-geo-alt"></i>
-                            From Same Constituency
-                        </h6>
-                    </div>
-                    <div class="card-body">
-                        <div class="list-group list-group-flush">
-                            {% for m in same_constituency %}
-                            <a href="{% url 'members:member_detail' m.slug %}" class="list-group-item list-group-item-action">
-                                <div class="d-flex align-items-center">
-                                    {% if m.photo %}
-                                    <img src="{{ m.photo.url }}" alt="" class="rounded-circle me-2" style="width: 40px; height: 40px; object-fit: cover;">
-                                    {% else %}
-                                    <div class="rounded-circle bg-primary text-white d-flex align-items-center justify-content-center me-2" style="width: 40px; height: 40px;">
-                                        <i class="bi bi-person"></i>
-                                    </div>
-                                    {% endif %}
-                                    <div>
-                                        <strong>{{ m.name }}</strong>
-                                        <br>
-                                        <small class="text-muted">{{ m.party_abbreviation|default:m.party }}</small>
-                                    </div>
-                                </div>
-                            </a>
+                    {% if member.committees %}
+                    <div class="mb-4">
+                        <h6><i class="bi bi-check-circle text-success me-1"></i> Member of:</h6>
+                        <ul class="list-group list-group-flush">
+                            {% for committee in member.get_committees_list %}
+                            <li class="list-group-item bg-transparent">
+                                <i class="bi bi-arrow-right-circle me-2 text-primary"></i>
+                                {{ committee }}
+                            </li>
                             {% endfor %}
+                        </ul>
+                    </div>
+                    {% else %}
+                    <p class="text-muted">No committee memberships recorded.</p>
+                    {% endif %}
+                    
+                    {% if member.committee_chair %}
+                    <div>
+                        <h6><i class="bi bi-star-fill text-warning me-1"></i> Chair of:</h6>
+                        <ul class="list-group list-group-flush">
+                            {% for chair in member.get_chairs_list %}
+                            <li class="list-group-item bg-transparent">
+                                <i class="bi bi-star me-2 text-warning"></i>
+                                {{ chair }}
+                            </li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                    {% endif %}
+                </div>
+                
+                <!-- Background Tab -->
+                <div class="tab-pane fade" id="background">
+                    <h5 class="fw-bold border-bottom pb-2 mb-3">
+                        <i class="bi bi-book text-gambia-blue me-2"></i>
+                        Professional Background
+                    </h5>
+                    
+                    {% if member.profession %}
+                    <div class="mb-3">
+                        <strong class="text-muted">Profession/Occupation:</strong>
+                        <p>{{ member.profession }}</p>
+                    </div>
+                    {% endif %}
+                    
+                    {% if member.education %}
+                    <div class="mb-3">
+                        <strong class="text-muted">Educational Background:</strong>
+                        <p>{{ member.education|linebreaks }}</p>
+                    </div>
+                    {% endif %}
+                    
+                    {% if member.biography %}
+                    <div class="mb-3">
+                        <strong class="text-muted">Biography:</strong>
+                        <p>{{ member.biography|linebreaks }}</p>
+                    </div>
+                    {% endif %}
+                    
+                    {% if member.achievements %}
+                    <div class="mb-3">
+                        <strong class="text-muted">Notable Achievements:</strong>
+                        <p>{{ member.achievements|linebreaks }}</p>
+                    </div>
+                    {% endif %}
+                </div>
+            </div>
+            
+            <!-- Related Members -->
+            <div class="row mt-4 g-3">
+                {% if same_constituency %}
+                <div class="col-md-6">
+                    <div class="card border-0 shadow-sm" style="border-radius: 16px;">
+                        <div class="card-header bg-transparent border-0 pt-4 px-4">
+                            <h6 class="fw-bold mb-0">
+                                <i class="bi bi-geo-alt text-gambia-blue me-2"></i>
+                                From Same Constituency
+                            </h6>
+                        </div>
+                        <div class="card-body px-4 pb-4">
+                            <div class="list-group list-group-flush">
+                                {% for m in same_constituency %}
+                                <a href="{% url 'members:member_detail' m.slug %}" class="list-group-item list-group-item-action bg-transparent px-0">
+                                    <div class="d-flex align-items-center">
+                                        {% if m.photo %}
+                                        <img src="{{ m.photo.url }}" alt="" class="rounded-circle me-3" style="width: 45px; height: 45px; object-fit: cover; border: 2px solid #0c2340;">
+                                        {% else %}
+                                        <div class="rounded-circle bg-primary text-white d-flex align-items-center justify-content-center me-3" style="width: 45px; height: 45px;">
+                                            <i class="bi bi-person"></i>
+                                        </div>
+                                        {% endif %}
+                                        <div>
+                                            <strong>{{ m.name }}</strong>
+                                            <br>
+                                            <small class="text-muted">{{ m.party_abbreviation|default:m.party }}</small>
+                                        </div>
+                                    </div>
+                                </a>
+                                {% endfor %}
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            {% endif %}
-            
-            {% if other_speakers %}
-            <div class="col-md-6">
-                <div class="card">
-                    <div class="card-header">
-                        <h6 class="mb-0">
-                            <i class="bi bi-megaphone"></i>
-                            Other Speakers
-                        </h6>
-                    </div>
-                    <div class="card-body">
-                        <div class="list-group list-group-flush">
-                            {% for m in other_speakers %}
-                            <a href="{% url 'members:member_detail' m.slug %}" class="list-group-item list-group-item-action">
-                                <div class="d-flex align-items-center">
-                                    {% if m.photo %}
-                                    <img src="{{ m.photo.url }}" alt="" class="rounded-circle me-2" style="width: 40px; height: 40px; object-fit: cover;">
-                                    {% else %}
-                                    <div class="rounded-circle bg-warning text-dark d-flex align-items-center justify-content-center me-2" style="width: 40px; height: 40px;">
-                                        <i class="bi bi-person"></i>
+                {% endif %}
+                
+                {% if other_speakers %}
+                <div class="col-md-6">
+                    <div class="card border-0 shadow-sm" style="border-radius: 16px;">
+                        <div class="card-header bg-transparent border-0 pt-4 px-4">
+                            <h6 class="fw-bold mb-0">
+                                <i class="bi bi-megaphone text-gambia-blue me-2"></i>
+                                Other Speakers
+                            </h6>
+                        </div>
+                        <div class="card-body px-4 pb-4">
+                            <div class="list-group list-group-flush">
+                                {% for m in other_speakers %}
+                                <a href="{% url 'members:member_detail' m.slug %}" class="list-group-item list-group-item-action bg-transparent px-0">
+                                    <div class="d-flex align-items-center">
+                                        {% if m.photo %}
+                                        <img src="{{ m.photo.url }}" alt="" class="rounded-circle me-3" style="width: 45px; height: 45px; object-fit: cover; border: 2px solid #ffc107;">
+                                        {% else %}
+                                        <div class="rounded-circle bg-warning text-dark d-flex align-items-center justify-content-center me-3" style="width: 45px; height: 45px;">
+                                            <i class="bi bi-person"></i>
+                                        </div>
+                                        {% endif %}
+                                        <div>
+                                            <strong>{{ m.name }}</strong>
+                                            <br>
+                                            <small class="text-muted">{{ m.speaker|default:'Speaker' }}</small>
+                                        </div>
                                     </div>
-                                    {% endif %}
-                                    <div>
-                                        <strong>{{ m.name }}</strong>
-                                        <br>
-                                        <small class="text-muted">{{ m.speaker|default:'Speaker' }}</small>
-                                    </div>
-                                </div>
-                            </a>
-                            {% endfor %}
+                                </a>
+                                {% endfor %}
+                            </div>
                         </div>
                     </div>
                 </div>
+                {% endif %}
             </div>
-            {% endif %}
         </div>
     </div>
 </div>
@@ -400,13 +405,15 @@
         width: 150px;
         height: 150px;
         object-fit: cover;
-        border: 4px solid #dee2e6;
+        border: 4px solid #0c2340;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
     }
     
     .profile-avatar {
         width: 150px;
         height: 150px;
-        border: 4px solid #dee2e6;
+        border: 4px solid #0c2340;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
     }
     
     .member-profile-photo {
@@ -417,22 +424,41 @@
         color: var(--body-text);
         border: none;
         border-bottom: 2px solid transparent;
+        border-radius: 10px 10px 0 0;
+        padding: 0.75rem 1.25rem;
+        font-weight: 500;
+        transition: all 0.3s ease;
     }
     
     .nav-tabs .nav-link:hover {
-        border-color: transparent;
+        background: var(--list-group-hover-bg);
         border-bottom-color: var(--link-color);
     }
     
     .nav-tabs .nav-link.active {
-        color: var(--link-color);
-        border-color: transparent;
-        border-bottom-color: var(--link-color);
-        background-color: transparent;
+        color: #0c2340;
+        background: var(--card-bg);
+        border-bottom-color: #0c2340;
     }
     
-    .tab-content {
-        background-color: var(--card-bg);
+    .stat-card {
+        padding: 1.25rem;
+        border-radius: 12px;
+        transition: all 0.3s ease;
+    }
+    
+    .stat-card:hover {
+        transform: translateY(-3px);
+    }
+    
+    body.dark-mode .nav-tabs .nav-link.active {
+        color: #64b5f6;
+        border-bottom-color: #64b5f6;
+    }
+    
+    body.dark-mode .profile-img,
+    body.dark-mode .profile-avatar {
+        border-color: #64b5f6;
     }
 </style>
 {% endblock %}

@@ -90,9 +90,32 @@ A secure, centralized digital repository for parliamentary documents with role-b
 - `README.md`
 - `deployment.md`
 
-## Timeline
-- Phase 1-3: Core functionality (2-3 days)
-- Phase 4-5: Frontend and views (2-3 days)
-- Phase 6-8: Security and testing (1-2 days)
+## Features Added from Indian Parliament e-Library
 
-Total estimated time: 5-8 days for complete implementation
+### Phase 1: New Document Types & Templates (Completed)
+- [x] Legislative Tracking - Bills with status timeline
+- [x] Parliamentary Questions - Q&A repository linked to members
+- [x] Committee Section - Committees, meetings, members
+- [x] Budget Documents - Budget tracking with fiscal years
+- [x] Member Speeches - Hansard speeches linked to members
+- [x] Ordinance Tracking - Ordinance lifecycle (issued, expired, replaced)
+
+### Templates Created
+- [x] bill_list.html
+- [x] bill_detail.html
+- [x] question_list.html
+- [x] question_detail.html
+- [x] committee_list.html
+- [x] committee_detail.html
+- [x] committee_meeting_detail.html
+- [x] budget_list.html
+- [x] budget_detail.html
+- [x] speech_list.html
+- [x] speech_detail.html
+- [x] ordinance_list.html
+- [x] ordinance_detail.html
+
+### Next Steps
+- [ ] Add sample data via admin panel
+- [ ] Test all new routes
+- [ ] Add API endpoints for mobile app

@@ -3,150 +3,152 @@
 {% block title %}{{ title }} - National Assembly{% endblock %}
 
 {% block content %}
-<div class="container-fluid">
+<div class="container-fluid py-4">
     <!-- Page Header -->
     <div class="row mb-4">
         <div class="col">
-            <h1 class="h3 mb-2">
-                <i class="bi bi-bar-chart-line"></i> Member Statistics
-            </h1>
-            <p class="text-muted">Overview of parliamentary membership demographics and statistics</p>
+            <div class="d-flex justify-content-between align-items-center">
+                <div>
+                    <h1 class="h3 fw-bold mb-1">
+                        <i class="bi bi-bar-chart-line text-gambia-blue me-2"></i>
+                        Member Statistics
+                    </h1>
+                    <p class="text-muted mb-0">Overview of parliamentary membership demographics and statistics</p>
+                </div>
+                <div class="d-flex gap-2">
+                    <a href="{% url 'members:member_list' %}" class="btn btn-outline-primary">
+                        <i class="bi bi-people me-1"></i> View All Members
+                    </a>
+                </div>
+            </div>
         </div>
     </div>
 
     <!-- Summary Cards -->
-    <div class="row mb-4">
+    <div class="row g-4 mb-4">
         <div class="col-md-3">
-            <div class="card bg-primary text-white">
-                <div class="card-body">
-                    <div class="d-flex justify-content-between align-items-center">
-                        <div>
-                            <h6 class="card-title">Total Members</h6>
-                            <h2 class="mb-0">{{ stats.total }}</h2>
-                        </div>
-                        <i class="bi bi-people fs-1 opacity-50"></i>
+            <div class="stat-card" style="background: linear-gradient(135deg, #0c2340 0%, #1a5276 100%); color: white;">
+                <div class="d-flex justify-content-between align-items-center">
+                    <div>
+                        <p class="text-white-70 mb-1">Total Members</p>
+                        <h2 class="mb-0 fw-bold">{{ stats.total }}</h2>
                     </div>
+                    <i class="bi bi-people" style="font-size: 3rem; opacity: 0.3;"></i>
                 </div>
             </div>
         </div>
         <div class="col-md-3">
-            <div class="card bg-success text-white">
-                <div class="card-body">
-                    <div class="d-flex justify-content-between align-items-center">
-                        <div>
-                            <h6 class="card-title">Active Parties</h6>
-                            <h2 class="mb-0">{{ stats.party_breakdown|length }}</h2>
-                        </div>
-                        <i class="bi bi-flag fs-1 opacity-50"></i>
+            <div class="stat-card" style="background: linear-gradient(135deg, #3c8d2f 0%, #4caf50 100%); color: white;">
+                <div class="d-flex justify-content-between align-items-center">
+                    <div>
+                        <p class="text-white-70 mb-1">Active Parties</p>
+                        <h2 class="mb-0 fw-bold">{{ stats.party_breakdown|length }}</h2>
                     </div>
+                    <i class="bi bi-flag" style="font-size: 3rem; opacity: 0.3;"></i>
                 </div>
             </div>
         </div>
         <div class="col-md-3">
-            <div class="card bg-info text-white">
-                <div class="card-body">
-                    <div class="d-flex justify-content-between align-items-center">
-                        <div>
-                            <h6 class="card-title">Constituencies</h6>
-                            <h2 class="mb-0">{{ stats.constituencies }}</h2>
-                        </div>
-                        <i class="bi bi-geo-alt fs-1 opacity-50"></i>
+            <div class="stat-card" style="background: linear-gradient(135deg, #17a2b8 0%, #20c997 100%); color: white;">
+                <div class="d-flex justify-content-between align-items-center">
+                    <div>
+                        <p class="text-white-70 mb-1">Constituencies</p>
+                        <h2 class="mb-0 fw-bold">{{ stats.constituencies }}</h2>
                     </div>
+                    <i class="bi bi-geo-alt" style="font-size: 3rem; opacity: 0.3;"></i>
                 </div>
             </div>
         </div>
         <div class="col-md-3">
-            <div class="card bg-warning text-dark">
-                <div class="card-body">
-                    <div class="d-flex justify-content-between align-items-center">
-                        <div>
-                            <h6 class="card-title">Avg. Term (Years)</h6>
-                            <h2 class="mb-0">{{ stats.average_term_years }}</h2>
-                        </div>
-                        <i class="bi bi-calendar-range fs-1 opacity-50"></i>
+            <div class="stat-card" style="background: linear-gradient(135deg, #ffc107 0%, #fd7e14 100%); color: white;">
+                <div class="d-flex justify-content-between align-items-center">
+                    <div>
+                        <p class="text-white-70 mb-1">Avg. Term (Years)</p>
+                        <h2 class="mb-0 fw-bold">{{ stats.average_term_years }}</h2>
                     </div>
+                    <i class="bi bi-calendar-range" style="font-size: 3rem; opacity: 0.3;"></i>
                 </div>
             </div>
         </div>
     </div>
 
-    <div class="row">
+    <div class="row g-4">
         <!-- Gender Distribution -->
-        <div class="col-md-6 mb-4">
-            <div class="card h-100">
-                <div class="card-header">
-                    <h5 class="mb-0"><i class="bi bi-gender-ambiguous"></i> Gender Distribution</h5>
+        <div class="col-md-6">
+            <div class="card h-100 border-0 shadow-sm">
+                <div class="card-header bg-transparent border-0 pt-4 px-4">
+                    <h5 class="fw-bold mb-0">
+                        <i class="bi bi-pie-chart text-gambia-blue me-2"></i>
+                        Gender Distribution
+                    </h5>
                 </div>
                 <div class="card-body">
-                    <div class="row text-center">
-                        <div class="col">
-                            <div class="display-4 text-primary">{{ stats.gender_breakdown.male }}</div>
-                            <p class="text-muted mb-0">Male</p>
-                            {% if stats.total > 0 %}
-                            <small class="text-muted">{{ stats.gender_breakdown.male|divisibleby:stats.total|floatformat:1 }}%</small>
-                            {% endif %}
+                    <div class="row align-items-center">
+                        <div class="col-md-6">
+                            <canvas id="genderChart" height="200" 
+                                data-values='{"Male": {{ stats.gender_breakdown.male }}, "Female": {{ stats.gender_breakdown.female }}, "Other": {{ stats.gender_breakdown.other }}}'>
+                            </canvas>
                         </div>
-                        <div class="col">
-                            <div class="display-4 text-danger">{{ stats.gender_breakdown.female }}</div>
-                            <p class="text-muted mb-0">Female</p>
-                            {% if stats.total > 0 %}
-                            <small class="text-muted">{{ stats.gender_breakdown.female|divisibleby:stats.total|floatformat:1 }}%</small>
-                            {% endif %}
-                        </div>
-                        <div class="col">
-                            <div class="display-4 text-secondary">{{ stats.gender_breakdown.other }}</div>
-                            <p class="text-muted mb-0">Other</p>
+                        <div class="col-md-6">
+                            <div class="text-center mb-4">
+                                <div class="display-4 text-primary fw-bold">{{ stats.gender_breakdown.male }}</div>
+                                <p class="text-muted mb-1">Male</p>
+                                {% if stats.total > 0 %}
+                                <div class="progress" style="height: 8px; max-width: 150px; margin: 0 auto;">
+                                    <div class="progress-bar bg-primary" role="progressbar" 
+                                         style="width: {% widthratio stats.gender_breakdown.male stats.total 100 %}%">
+                                    </div>
+                                </div>
+                                {% endif %}
+                            </div>
+                            <div class="text-center">
+                                <div class="display-4 text-danger fw-bold">{{ stats.gender_breakdown.female }}</div>
+                                <p class="text-muted mb-1">Female</p>
+                                {% if stats.total > 0 %}
+                                <div class="progress" style="height: 8px; max-width: 150px; margin: 0 auto;">
+                                    <div class="progress-bar bg-danger" role="progressbar" 
+                                         style="width: {% widthratio stats.gender_breakdown.female stats.total 100 %}%">
+                                    </div>
+                                </div>
+                                {% endif %}
+                            </div>
                         </div>
                     </div>
-                    {% if stats.total > 0 %}
-                    <div class="mt-4">
-                        <div class="progress" style="height: 30px;">
-                            {% if stats.gender_breakdown.male > 0 %}
-                            <div class="progress-bar bg-primary" role="progressbar" 
-                                 style="width: {% widthratio stats.gender_breakdown.male stats.total 100 %}%">
-                                Male {{ stats.gender_breakdown.male }}
-                            </div>
-                            {% endif %}
-                            {% if stats.gender_breakdown.female > 0 %}
-                            <div class="progress-bar bg-danger" role="progressbar" 
-                                 style="width: {% widthratio stats.gender_breakdown.female stats.total 100 %}%">
-                                Female {{ stats.gender_breakdown.female }}
-                            </div>
-                            {% endif %}
-                            {% if stats.gender_breakdown.other > 0 %}
-                            <div class="progress-bar bg-secondary" role="progressbar" 
-                                 style="width: {% widthratio stats.gender_breakdown.other stats.total 100 %}%">
-                                Other {{ stats.gender_breakdown.other }}
-                            </div>
-                            {% endif %}
-                        </div>
-                    </div>
-                    {% endif %}
                 </div>
             </div>
         </div>
 
         <!-- Party Breakdown -->
-        <div class="col-md-6 mb-4">
-            <div class="card h-100">
-                <div class="card-header">
-                    <h5 class="mb-0"><i class="bi bi-flag"></i> Party Breakdown</h5>
+        <div class="col-md-6">
+            <div class="card h-100 border-0 shadow-sm">
+                <div class="card-header bg-transparent border-0 pt-4 px-4">
+                    <h5 class="fw-bold mb-0">
+                        <i class="bi bi-bar-chart text-gambia-blue me-2"></i>
+                        Party Breakdown
+                    </h5>
                 </div>
                 <div class="card-body">
                     {% if stats.party_breakdown %}
-                    <div class="table-responsive">
-                        <table class="table table-hover">
+                    <canvas id="partyChart" height="200"
+                        data-values='{% for party in stats.party_breakdown %}{{ party.party }}: {{ party.count }}{% if not forloop.last %}, {% endif %}{% endfor %}'>
+                    </canvas>
+                    <div class="table-responsive mt-3">
+                        <table class="table table-sm">
                             <thead>
                                 <tr>
                                     <th>Party</th>
                                     <th class="text-end">Members</th>
-                                    <th class="text-end">Percentage</th>
+                                    <th class="text-end">%</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 {% for party in stats.party_breakdown %}
                                 <tr>
-                                    <td>{{ party.party }}</td>
+                                    <td>
+                                        <span class="badge" style="background-color: {% if forloop.first %}#0c2340{% elif forloop.counter == 2 %}#ce1126{% elif forloop.counter == 3 %}#3c8d2f{% else %}#6c757d{% endif %};">
+                                            {{ party.party }}
+                                        </span>
+                                    </td>
                                     <td class="text-end">{{ party.count }}</td>
                                     <td class="text-end">
                                         {% widthratio party.count stats.total 100 %}%
@@ -157,7 +159,10 @@
                         </table>
                     </div>
                     {% else %}
-                    <p class="text-muted text-center py-4">No party data available</p>
+                    <div class="text-center py-5">
+                        <i class="bi bi-flag display-1 text-muted"></i>
+                        <p class="mt-3 text-muted">No party data available</p>
+                    </div>
                     {% endif %}
                 </div>
             </div>
@@ -165,27 +170,33 @@
     </div>
 
     <!-- Quick Links -->
-    <div class="row">
+    <div class="row mt-4">
         <div class="col-12">
-            <div class="card">
-                <div class="card-header">
-                    <h5 class="mb-0"><i class="bi bi-link"></i> Quick Links</h5>
+            <div class="card border-0 shadow-sm">
+                <div class="card-header bg-transparent border-0 pt-4 px-4">
+                    <h5 class="fw-bold mb-0">
+                        <i class="bi bi-link-45deg text-gambia-blue me-2"></i>
+                        Quick Links
+                    </h5>
                 </div>
-                <div class="card-body">
-                    <div class="row">
-                        <div class="col-md-4 mb-3">
-                            <a href="{% url 'members:member_list' %}" class="btn btn-outline-primary w-100">
-                                <i class="bi bi-people"></i> View All Members
+                <div class="card-body px-4 pb-4">
+                    <div class="row g-3">
+                        <div class="col-md-4">
+                            <a href="{% url 'members:member_list' %}" class="btn btn-outline-primary w-100 py-3">
+                                <i class="bi bi-people me-2"></i>
+                                View All Members
                             </a>
                         </div>
-                        <div class="col-md-4 mb-3">
-                            <a href="{% url 'members:constituency_list' %}" class="btn btn-outline-success w-100">
-                                <i class="bi bi-geo-alt"></i> View Constituencies
+                        <div class="col-md-4">
+                            <a href="{% url 'members:constituency_list' %}" class="btn btn-outline-success w-100 py-3">
+                                <i class="bi bi-geo-alt me-2"></i>
+                                View Constituencies
                             </a>
                         </div>
-                        <div class="col-md-4 mb-3">
-                            <a href="{% url 'members:party_list' %}" class="btn btn-outline-warning w-100">
-                                <i class="bi bi-flag"></i> View Political Parties
+                        <div class="col-md-4">
+                            <a href="{% url 'members:party_list' %}" class="btn btn-outline-warning w-100 py-3">
+                                <i class="bi bi-flag me-2"></i>
+                                View Political Parties
                             </a>
                         </div>
                     </div>
@@ -194,5 +205,74 @@
         </div>
     </div>
 </div>
+{% endblock %}
+
+{% block extra_js %}
+<!-- Chart.js for statistics -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        if (typeof Chart !== 'undefined') {
+            Chart.defaults.font.family = "'Segoe UI', -apple-system, BlinkMacSystemFont, 'Roboto', sans-serif";
+            Chart.defaults.color = '#6c757d';
+            
+            // Gender Chart
+            const genderChartEl = document.getElementById('genderChart');
+            if (genderChartEl) {
+                const genderValues = { 'Male': {{ stats.gender_breakdown.male|default:0 }}, 'Female': {{ stats.gender_breakdown.female|default:0 }}, 'Other': {{ stats.gender_breakdown.other|default:0 }} };
+                new Chart(genderChartEl, {
+                    type: 'doughnut',
+                    data: {
+                        labels: Object.keys(genderValues),
+                        datasets: [{
+                            data: Object.values(genderValues),
+                            backgroundColor: ['#0c2340', '#ce1126', '#6c757d'],
+                            borderWidth: 0,
+                            hoverOffset: 10
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        cutout: '60%',
+                        plugins: { legend: { display: false } }
+                    }
+                });
+            }
+            
+            // Party Chart
+            const partyChartEl = document.getElementById('partyChart');
+            if (partyChartEl) {
+                const partyData = [
+                    {% for party in stats.party_breakdown %}
+                    { party: '{{ party.party }}', count: {{ party.count|default:0 }} }{% if not forloop.last %},{% endif %}
+                    {% endfor %}
+                ];
+                new Chart(partyChartEl, {
+                    type: 'bar',
+                    data: {
+                        labels: partyData.map(p => p.party),
+                        datasets: [{
+                            label: 'Members',
+                            data: partyData.map(p => p.count),
+                            backgroundColor: ['#0c2340', '#ce1126', '#3c8d2f', '#ffc107', '#6f42c1', '#17a2b8'],
+                            borderRadius: 8,
+                            borderSkipped: false
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        plugins: { legend: { display: false } },
+                        scales: {
+                            y: { beginAtZero: true, ticks: { stepSize: 1 }, grid: { display: false } },
+                            x: { grid: { display: false } }
+                        }
+                    }
+                });
+            }
+        }
+    });
+</script>
 {% endblock %}
 

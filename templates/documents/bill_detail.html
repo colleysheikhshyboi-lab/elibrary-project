@@ -1,0 +1,98 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ title }} - National Assembly e-Library{% endblock %}
+
+{% block content %}
+<div class="container py-4">
+    <div class="row mb-4">
+        <div class="col-12">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="{% url 'documents:bill_list' %}">Bills</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">{{ bill.title|truncatewords:5 }}</li>
+                </ol>
+            </nav>
+            <h2 class="fw-bold mb-1">{{ bill.title }}</h2>
+            {% if bill.bill_number %}
+            <p class="text-muted">Bill Number: {{ bill.bill_number }}</p>
+            {% endif %}
+        </div>
+    </div>
+    
+    <div class="row">
+        <div class="col-lg-8">
+            <div class="card mb-4">
+                <div class="card-header">
+                    <h5 class="mb-0">Bill Details</h5>
+                </div>
+                <div class="card-body">
+                    <p><strong>Description:</strong></p>
+                    <p>{{ bill.description|default:"No description available." }}</p>
+                    
+                    {% if bill.keywords %}
+                    <p><strong>Keywords:</strong></p>
+                    <p>{{ bill.keywords }}</p>
+                    {% endif %}
+                    
+                    <p><strong>Year:</strong> {{ bill.year }}</p>
+                    {% if bill.session %}
+                    <p><strong>Session:</strong> {{ bill.session }}</p>
+                    {% endif %}
+                </div>
+            </div>
+            
+            <!-- Status Timeline -->
+            <div class="card">
+                <div class="card-header">
+                    <h5 class="mb-0"><i class="bi bi-clock-history me-2"></i>Legislative Status Timeline</h5>
+                </div>
+                <div class="card-body">
+                    {% if statuses %}
+                    <div class="timeline">
+                        {% for status in statuses %}
+                        <div class="timeline-item mb-3">
+                            <div class="d-flex">
+                                <div class="me-3">
+                                    <div class="rounded-circle bg-primary text-white p-2" style="width: 40px; height: 40px; text-align: center;">
+                                        <i class="bi bi-check"></i>
+                                    </div>
+                                </div>
+                                <div class="flex-grow-1">
+                                    <h6 class="mb-1">{{ status.get_status_display }}</h6>
+                                    <p class="text-muted small mb-1">{{ status.status_date }}</p>
+                                    {% if status.notes %}
+                                    <p class="mb-0">{{ status.notes }}</p>
+                                    {% endif %}
+                                </div>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                    {% else %}
+                    <p class="text-muted">No status updates recorded.</p>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-lg-4">
+            <div class="card">
+                <div class="card-header">
+                    <h5 class="mb-0">Actions</h5>
+                </div>
+                <div class="card-body">
+                    {% if bill.file %}
+                    <a href="{% url 'documents:document_download' bill.slug %}" class="btn btn-success w-100 mb-2">
+                        <i class="bi bi-download me-1"></i> Download Bill
+                    </a>
+                    {% endif %}
+                    <a href="{% url 'documents:document_list' %}?type=bill" class="btn btn-outline-secondary w-100">
+                        <i class="bi bi-arrow-left me-1"></i> Back to Bills
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+

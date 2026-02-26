@@ -8,6 +8,7 @@ from documents.models import Document, DocumentCategory
 from django.db.models import Count
 from django.utils import timezone
 from datetime import timedelta
+from members.models import Member
 
 
 def home_view(request):
@@ -46,11 +47,40 @@ def home_view(request):
         'total_categories': DocumentCategory.objects.filter(is_active=True).count(),
     }
     
+    # Get member statistics
+    members = Member.objects.filter(is_active=True)
+    party_stats = members.values('party').annotate(
+        count=Count('id')
+    ).filter(party__isnull=False).exclude(party='').order_by('-count')
+    
+    gender_stats = {
+        'male': members.filter(gender='male').count(),
+        'female': members.filter(gender='female').count(),
+        'other': members.filter(gender='other').count(),
+    }
+    
+    constituency_count = members.values('constituency').distinct().count()
+    
+    # Calculate average term
+    avg_years = 0
+    terms = [m.term_duration for m in members if m.term_duration]
+    if terms:
+        avg_years = sum(terms) / len(terms)
+    
+    member_stats = {
+        'total': members.count(),
+        'party_breakdown': list(party_stats),
+        'gender_breakdown': gender_stats,
+        'constituencies': constituency_count,
+        'average_term_years': round(avg_years, 1),
+    }
+    
     return render(request, 'core/home.html', {
         'recent_documents': recent_documents,
         'doc_types': doc_types,
         'categories': categories,
         'stats': stats,
+        'member_stats': member_stats,
         'title': 'National Assembly e-Library'
     })
 

@@ -66,16 +66,21 @@ class DocumentForm(forms.ModelForm):
     class Meta:
         model = Document
         fields = [
-            'title', 'document_type', 'category', 'description',
+            'title', 'slug', 'document_type', 'category', 'description',
             'keywords', 'file', 'version', 'version_notes',
             'act_number', 'bill_number', 'session', 'year',
             'date_enacted', 'effective_date', 'committee_name',
-            'report_number', 'access_level', 'language', 'pages', 'notes'
+            'report_number', 'access_level', 'is_published', 'published_at',
+            'language', 'pages', 'notes', 'uploaded_by'
         ]
         widgets = {
             'title': forms.TextInput(attrs={
                 'class': 'form-control',
                 'placeholder': 'Document Title'
+            }),
+            'slug': forms.TextInput(attrs={
+                'class': 'form-control',
+                'placeholder': 'URL Slug (auto-generated if empty)'
             }),
             'document_type': forms.Select(attrs={
                 'class': 'form-select'
@@ -135,6 +140,17 @@ class DocumentForm(forms.ModelForm):
             'access_level': forms.Select(attrs={
                 'class': 'form-select'
             }),
+            'is_published': forms.CheckboxInput(attrs={
+                'class': 'form-check-input'
+            }),
+            'published_at': forms.DateTimeInput(attrs={
+                'class': 'form-control',
+                'type': 'datetime-local'
+            }),
+            'uploaded_by': forms.TextInput(attrs={
+                'class': 'form-control',
+                'readonly': 'readonly'
+            }),
             'language': forms.TextInput(attrs={
                 'class': 'form-control',
                 'placeholder': 'Language (e.g., en)'
@@ -161,29 +177,116 @@ class DocumentForm(forms.ModelForm):
 
 class DocumentSearchForm(forms.Form):
     """
-    Form for document search.
+    Form for document search with advanced filters.
     """
     
     q = forms.CharField(
         required=False,
         widget=forms.TextInput(attrs={
             'class': 'form-control',
-            'placeholder': 'Search documents...',
+            'placeholder': 'Search documents by title, description, keywords...',
             'autocomplete': 'off'
         })
     )
+    
+    # Author search (for both Document uploader and Book author)
+    author = forms.CharField(
+        required=False,
+        widget=forms.TextInput(attrs={
+            'class': 'form-control',
+            'placeholder': 'Search by author name...',
+            'autocomplete': 'off'
+        })
+    )
+    
     document_type = forms.ChoiceField(
         required=False,
         widget=forms.Select(attrs={
             'class': 'form-select'
         })
     )
-    year = forms.ChoiceField(
+    
+    category = forms.ChoiceField(
         required=False,
         widget=forms.Select(attrs={
             'class': 'form-select'
         })
     )
+    
+    # Year range
+    year_from = forms.ChoiceField(
+        required=False,
+        widget=forms.NumberInput(attrs={
+            'class': 'form-control',
+            'placeholder': 'From',
+            'min': '1900'
+        }),
+        label='Year From'
+    )
+    
+    year_to = forms.ChoiceField(
+        required=False,
+        widget=forms.NumberInput(attrs={
+            'class': 'form-control',
+            'placeholder': 'To',
+            'min': '1900'
+        }),
+        label='Year To'
+    )
+    
+    # Committee / Department filter
+    committee = forms.CharField(
+        required=False,
+        widget=forms.TextInput(attrs={
+            'class': 'form-control',
+            'placeholder': 'Search by committee/department...'
+        })
+    )
+    
+    # Language filter
+    language = forms.ChoiceField(
+        required=False,
+        widget=forms.Select(attrs={
+            'class': 'form-select'
+        })
+    )
+    
+    # Date uploaded range
+    date_from = forms.DateField(
+        required=False,
+        widget=forms.DateInput(attrs={
+            'class': 'form-control',
+            'type': 'date'
+        }),
+        label='Date Uploaded From'
+    )
+    
+    date_to = forms.DateField(
+        required=False,
+        widget=forms.DateInput(attrs={
+            'class': 'form-control',
+            'type': 'date'
+        }),
+        label='Date Uploaded To'
+    )
+    
+    # Sort options
+    sort_by = forms.ChoiceField(
+        required=False,
+        widget=forms.Select(attrs={
+            'class': 'form-select'
+        }),
+        choices=[
+            ('', 'Newest First'),
+            ('oldest', 'Oldest First'),
+            ('title_asc', 'Title A-Z'),
+            ('title_desc', 'Title Z-A'),
+            ('downloads', 'Most Downloaded'),
+            ('views', 'Most Viewed'),
+        ],
+        initial='newest'
+    )
+    
     access_level = forms.ChoiceField(
         required=False,
         widget=forms.Select(attrs={
@@ -195,22 +298,41 @@ class DocumentSearchForm(forms.Form):
         super().__init__(*args, **kwargs)
         
         # Add document type choices
-        type_choices = [('', 'All Types')]
+        type_choices = [('', 'All Document Types')]
         type_choices.extend(Document.DocumentType.choices)
         self.fields['document_type'].choices = type_choices
         
         # Add year choices
         from django.utils import timezone
         current_year = timezone.now().year
-        year_choices = [('', 'All Years')]
-        for year in range(current_year, current_year - 30, -1):
+        year_choices = [('', 'Any Year')]
+        for year in range(current_year, current_year - 50, -1):
             year_choices.append((year, str(year)))
-        self.fields['year'].choices = year_choices
+        self.fields['year_from'].choices = year_choices
+        self.fields['year_to'].choices = year_choices
+        
+        # Add language choices
+        language_choices = [('', 'All Languages')]
+        language_choices.extend([
+            ('en', 'English'),
+            ('fr', 'French'),
+            ('ar', 'Arabic'),
+            ('pt', 'Portuguese'),
+            ('other', 'Other'),
+        ])
+        self.fields['language'].choices = language_choices
         
         # Add access level choices
-        level_choices = [('', 'All Levels')]
+        level_choices = [('', 'All Access Levels')]
         level_choices.extend(Document.AccessLevel.choices)
         self.fields['access_level'].choices = level_choices
+        
+        # Add category choices
+        category_choices = [('', 'All Categories')]
+        categories = DocumentCategory.objects.filter(is_active=True)
+        for cat in categories:
+            category_choices.append((cat.slug, cat.name))
+        self.fields['category'].choices = category_choices
 
 
 class BulkUploadForm(forms.Form):

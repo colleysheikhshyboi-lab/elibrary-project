@@ -1,0 +1,27 @@
+<parameter name="content">#!/usr/bin/env python
+"""Test script to check member list view."""
+import os
+import django
+
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'elibrary_project.settings')
+django.setup()
+
+from django.test import Client
+
+client = Client()
+response = client.get('/members/')
+print('Status code:', response.status_code)
+
+if hasattr(response, 'context') and response.context:
+    print('Context keys:', list(response.context.keys()))
+    if response.context.get('members'):
+        members = response.context['members']
+        print('Members count:', members.paginator.count)
+        print('First few members:', [m.name for m in members.object_list[:3]])
+    else:
+        print('No members in context')
+        print('Context data:', dict(response.context))
+else:
+    print('No context')
+    print('Response content length:', len(response.content))
+</parameter>

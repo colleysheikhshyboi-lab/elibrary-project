@@ -1,0 +1,105 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ title }} - National Assembly e-Library{% endblock %}
+
+{% block content %}
+<div class="container py-4">
+    <div class="row mb-4">
+        <div class="col-12">
+            <h2 class="fw-bold mb-1">
+                <i class="bi bi-file-earmark-text text-gambia-blue me-2"></i>
+                Legislative Tracking - Bills
+            </h2>
+            <p class="text-muted">Track bills through the parliamentary process</p>
+        </div>
+    </div>
+    
+    <!-- Filters -->
+    <div class="card mb-4">
+        <div class="card-body">
+            <form method="get" class="row g-3">
+                <div class="col-md-4">
+                    <label class="form-label">Search</label>
+                    <input type="text" name="q" class="form-control" placeholder="Search bills..." value="{{ request.GET.q|default:'' }}">
+                </div>
+                <div class="col-md-3">
+                    <label class="form-label">Status</label>
+                    <select name="status" class="form-select">
+                        <option value="">All Statuses</option>
+                        <option value="draft">Draft</option>
+                        <option value="introduced">Introduced</option>
+                        <option value="passed">Passed</option>
+                        <option value="assented">Assented</option>
+                        <option value="act">Enacted as Act</option>
+                    </select>
+                </div>
+                <div class="col-md-2 d-flex align-items-end">
+                    <button type="submit" class="btn btn-primary w-100">
+                        <i class="bi bi-search me-1"></i> Filter
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+    
+    <!-- Bill List -->
+    <div class="row">
+        {% for bill in bills %}
+        <div class="col-md-6 col-lg-4 mb-4">
+            <div class="card h-100">
+                <div class="card-header bg-transparent">
+                    <span class="badge bg-primary">{{ bill.get_document_type_display }}</span>
+                    {% if bill.bill_number %}
+                    <span class="badge bg-secondary">{{ bill.bill_number }}</span>
+                    {% endif %}
+                </div>
+                <div class="card-body">
+                    <h6 class="card-title">
+                        <a href="{% url 'documents:bill_detail' bill.slug %}" class="text-decoration-none">
+                            {{ bill.title|truncatewords:20 }}
+                        </a>
+                    </h6>
+                    <p class="card-text text-muted small">
+                        {{ bill.description|truncatewords:30 }}
+                    </p>
+                </div>
+                <div class="card-footer bg-transparent">
+                    <small class="text-muted">
+                        <i class="bi bi-calendar me-1"></i> {{ bill.year }}
+                    </small>
+                </div>
+            </div>
+        </div>
+        {% empty %}
+        <div class="col-12">
+            <div class="alert alert-info">
+                <i class="bi bi-info-circle me-2"></i>
+                No bills found. Add bills in the admin panel to see them here.
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    
+    <!-- Pagination -->
+    {% if bills.has_other_pages %}
+    <nav>
+        <ul class="pagination justify-content-center">
+            {% if bills.has_previous %}
+            <li class="page-item">
+                <a class="page-link" href="?page={{ bills.previous_page_number }}">Previous</a>
+            </li>
+            {% endif %}
+            <li class="page-item active">
+                <span class="page-link">Page {{ bills.number }} of {{ bills.paginator.num_pages }}</span>
+            </li>
+            {% if bills.has_next %}
+            <li class="page-item">
+                <a class="page-link" href="?page={{ bills.next_page_number }}">Next</a>
+            </li>
+            {% endif %}
+        </ul>
+    </nav>
+    {% endif %}
+</div>
+{% endblock %}
+

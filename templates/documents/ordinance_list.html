@@ -1,0 +1,117 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ title }} - National Assembly e-Library{% endblock %}
+
+{% block content %}
+<div class="container py-4">
+    <div class="row mb-4">
+        <div class="col-12">
+            <h2 class="fw-bold mb-1">
+                <i class="bi bi-journal-x text-gambia-blue me-2"></i>
+                Ordinances
+            </h2>
+            <p class="text-muted">Browse ordinances issued by the President</p>
+        </div>
+    </div>
+    
+    <!-- Filters -->
+    <div class="card mb-4">
+        <div class="card-body">
+            <form method="get" class="row g-3">
+                <div class="col-md-4">
+                    <label class="form-label">Search</label>
+                    <input type="text" name="q" class="form-control" placeholder="Search ordinances..." value="{{ request.GET.q|default:'' }}">
+                </div>
+                <div class="col-md-2">
+                    <label class="form-label">Year</label>
+                    <select name="year" class="form-select">
+                        <option value="">All Years</option>
+                        <option value="2024">2024</option>
+                        <option value="2023">2023</option>
+                        <option value="2022">2022</option>
+                    </select>
+                </div>
+                <div class="col-md-2">
+                    <label class="form-label">Status</label>
+                    <select name="status" class="form-select">
+                        <option value="">All Status</option>
+                        <option value="active">Active</option>
+                        <option value="expired">Expired</option>
+                        <option value="replaced">Replaced</option>
+                        <option value="lapsed">Lapsed</option>
+                    </select>
+                </div>
+                <div class="col-md-2 d-flex align-items-end">
+                    <button type="submit" class="btn btn-primary w-100">
+                        <i class="bi bi-search me-1"></i> Filter
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+    
+    <!-- Ordinance List -->
+    <div class="row">
+        {% for ordinance in ordinances %}
+        <div class="col-md-6 col-lg-4 mb-4">
+            <div class="card h-100">
+                <div class="card-header bg-transparent">
+                    <span class="badge bg-{% if ordinance.status == 'active' %}success{% elif ordinance.status == 'expired' %}warning{% else %}secondary{% endif %}">
+                        {{ ordinance.get_status_display }}
+                    </span>
+                </div>
+                <div class="card-body">
+                    <h6 class="card-title">
+                        <a href="{% url 'documents:ordinance_detail' ordinance.slug %}" class="text-decoration-none">
+                            {{ ordinance.title|truncatewords:15 }}
+                        </a>
+                    </h6>
+                    <p class="card-text text-muted small">
+                        <strong>Number:</strong> {{ ordinance.ordinance_number }}<br>
+                        {{ ordinance.issued_date }}
+                    </p>
+                </div>
+                <div class="card-footer bg-transparent">
+                    <small class="text-muted">
+                        {% if ordinance.lapsed_date %}
+                        Lapsed: {{ ordinance.lapsed_date }}
+                        {% else %}
+                        Issued: {{ ordinance.issued_date }}
+                        {% endif %}
+                    </small>
+                </div>
+            </div>
+        </div>
+        {% empty %}
+        <div class="col-12">
+            <div class="alert alert-info">
+                <i class="bi bi-info-circle me-2"></i>
+                No ordinances found. Add ordinances in the admin panel.
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    
+    <!-- Pagination -->
+    {% if ordinances.has_other_pages %}
+    <nav>
+        <ul class="pagination justify-content-center">
+            {% if ordinances.has_previous %}
+            <li class="page-item">
+                <a class="page-link" href="?page={{ ordinances.previous_page_number }}">Previous</a>
+            </li>
+            {% endif %}
+            <li class="page-item active">
+                <span class="page-link">Page {{ ordinances.number }} of {{ ordinances.paginator.num_pages }}</span>
+            </li>
+            {% if ordinances.has_next %}
+            <li class="page-item">
+                <a class="page-link" href="?page={{ ordinances.next_page_number }}">Next</a>
+            </li>
+            {% endif %}
+        </ul>
+    </nav>
+    {% endif %}
+</div>
+{% endblock %}
+

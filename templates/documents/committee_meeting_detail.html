@@ -1,0 +1,90 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ title }} - National Assembly e-Library{% endblock %}
+
+{% block content %}
+<div class="container py-4">
+    <div class="row mb-4">
+        <div class="col-12">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="{% url 'documents:committee_list' %}">Committees</a></li>
+                    <li class="breadcrumb-item"><a href="{% url 'documents:committee_detail' committee.slug %}">{{ committee.name }}</a></li>
+                    <li class="breadcrumb-item active">Meeting #{{ meeting.meeting_number }}</li>
+                </ol>
+            </nav>
+            <h2 class="fw-bold mb-1">{{ committee.name }}</h2>
+            <p class="text-muted">{{ meeting.get_meeting_type_display }} - Meeting #{{ meeting.meeting_number }}</p>
+        </div>
+    </div>
+    
+    <div class="row">
+        <div class="col-lg-8">
+            <div class="card mb-4">
+                <div class="card-header">
+                    <h5 class="mb-0">Meeting Details</h5>
+                </div>
+                <div class="card-body">
+                    <p><strong>Meeting Number:</strong> #{{ meeting.meeting_number }}</p>
+                    <p><strong>Type:</strong> {{ meeting.get_meeting_type_display }}</p>
+                    <p><strong>Date:</strong> {{ meeting.meeting_date }}</p>
+                    <p><strong>Venue:</strong> {{ meeting.venue }}</p>
+                    {% if meeting.start_time %}
+                    <p><strong>Time:</strong> {{ meeting.start_time }}{% if meeting.end_time %} - {{ meeting.end_time }}{% endif %}</p>
+                    {% endif %}
+                </div>
+            </div>
+            
+            <div class="card mb-4">
+                <div class="card-header">
+                    <h5 class="mb-0">Agenda</h5>
+                </div>
+                <div class="card-body">
+                    {{ meeting.agenda|linebreaks }}
+                </div>
+            </div>
+            
+            {% if meeting.minutes %}
+            <div class="card mb-4">
+                <div class="card-header">
+                    <h5 class="mb-0">Minutes</h5>
+                </div>
+                <div class="card-body">
+                    {{ meeting.minutes|linebreaks }}
+                </div>
+            </div>
+            {% endif %}
+            
+            {% if meeting.decisions %}
+            <div class="card mb-4">
+                <div class="card-header">
+                    <h5 class="mb-0">Decisions</h5>
+                </div>
+                <div class="card-body">
+                    {{ meeting.decisions|linebreaks }}
+                </div>
+            </div>
+            {% endif %}
+        </div>
+        
+        <div class="col-lg-4">
+            <div class="card">
+                <div class="card-header">
+                    <h5 class="mb-0">Actions</h5>
+                </div>
+                <div class="card-body">
+                    {% if meeting.notice %}
+                    <a href="#" class="btn btn-outline-primary w-100 mb-2">
+                        <i class="bi bi-file-earmark-text me-1"></i> View Notice
+                    </a>
+                    {% endif %}
+                    <a href="{% url 'documents:committee_detail' committee.slug %}" class="btn btn-outline-secondary w-100">
+                        <i class="bi bi-arrow-left me-1"></i> Back to Committee
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+

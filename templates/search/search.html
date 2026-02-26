@@ -1,64 +1,202 @@
 {% extends 'base.html' %}
-{% load crispy_forms_tags %}
+{% load url_replace %}
 
 {% block title %}Search Documents - National Assembly e-Library{% endblock %}
 
 {% block content %}
 <div class="row">
-    <div class="col-md-3">
-        <!-- Search Filters -->
-        <div class="card mb-3">
-            <div class="card-header">
+    <!-- Left Side - Filters Panel -->
+    <div class="col-lg-3 col-md-4 mb-4">
+        <div class="card shadow-sm" style="border-radius: 12px;">
+            <div class="card-header bg-primary text-white">
                 <h5 class="mb-0">
                     <i class="bi bi-funnel"></i>
-                    Search Filters
+                    Filters
                 </h5>
             </div>
             <div class="card-body">
-                <form method="get">
-                    {{ form|crispy }}
+                <form method="get" id="filterForm">
+                    <!-- Search by Title/Keyword -->
+                    <div class="mb-3">
+                        <label class="form-label fw-bold">Title Keyword</label>
+                        {{ search_form.q }}
+                    </div>
                     
-                    <div class="d-grid gap-2 mt-3">
+                    <!-- Search by Author -->
+                    <div class="mb-3">
+                        <label class="form-label fw-bold">Author</label>
+                        <input type="text" name="author" class="form-control" 
+                               placeholder="Search by author name" 
+                               value="{{ current_filters.author|default:'' }}">
+                    </div>
+                    
+                    <!-- Document Type -->
+                    <div class="mb-3">
+                        <label class="form-label fw-bold">Document Type</label>
+                        <select name="type" class="form-select">
+                            <option value="">All Document Types</option>
+                            {% for value, label, count in doc_types %}
+                            <option value="{{ value }}" {% if current_filters.type == value %}selected{% endif %}>
+                                {{ label }} ({{ count }})
+                            </option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                    
+                    <!-- Category -->
+                    <div class="mb-3">
+                        <label class="form-label fw-bold">Category</label>
+                        <select name="category" class="form-select">
+                            <option value="">All Categories</option>
+                            {% for cat in categories %}
+                            <option value="{{ cat.slug }}" {% if current_filters.category == cat.slug %}selected{% endif %}>
+                                {{ cat.name }}
+                            </option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                    
+                    <!-- Year Range -->
+                    <div class="mb-3">
+                        <label class="form-label fw-bold">Year Range</label>
+                        <div class="row g-2">
+                            <div class="col-6">
+                                {{ search_form.year_from }}
+                            </div>
+                            <div class="col-6">
+                                {{ search_form.year_to }}
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Committee / Department -->
+                    <div class="mb-3">
+                        <label class="form-label fw-bold">Committee / Department</label>
+                        <input type="text" name="committee" class="form-control" 
+                               placeholder="Search by committee/department" 
+                               value="{{ current_filters.committee|default:'' }}">
+                    </div>
+                    
+                    <!-- Language -->
+                    <div class="mb-3">
+                        <label class="form-label fw-bold">Language</label>
+                        {{ search_form.language }}
+                    </div>
+                    
+                    <!-- Date Uploaded Range -->
+                    <div class="mb-3">
+                        <label class="form-label fw-bold">Date Uploaded</label>
+                        <div class="row g-2">
+                            <div class="col-6">
+                                <input type="date" name="date_from" class="form-control" 
+                                       value="{{ current_filters.date_from|default:'' }}">
+                            </div>
+                            <div class="col-6">
+                                <input type="date" name="date_to" class="form-control" 
+                                       value="{{ current_filters.date_to|default:'' }}">
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Access Level -->
+                    <div class="mb-3">
+                        <label class="form-label fw-bold">Access Level</label>
+                        <select name="access" class="form-select">
+                            <option value="">All Access Levels</option>
+                            <option value="public" {% if current_filters.access == 'public' %}selected{% endif %}>Public</option>
+                            <option value="restricted" {% if current_filters.access == 'restricted' %}selected{% endif %}>Restricted</option>
+                            <option value="confidential" {% if current_filters.access == 'confidential' %}selected{% endif %}>Confidential</option>
+                        </select>
+                    </div>
+                    
+                    <div class="d-grid gap-2">
                         <button type="submit" class="btn btn-primary">
                             <i class="bi bi-search"></i>
                             Search
                         </button>
                         <a href="{% url 'search:search' %}" class="btn btn-outline-secondary">
-                            Clear Filters
+                            <i class="bi bi-x-circle"></i>
+                            Clear All Filters
                         </a>
                     </div>
                 </form>
             </div>
         </div>
         
+        <!-- Active Filters Summary -->
+        {% if current_filters.q or current_filters.author or current_filters.type or current_filters.category or current_filters.year_from or current_filters.year_to or current_filters.committee or current_filters.language or current_filters.date_from or current_filters.date_to or current_filters.access %}
+        <div class="card mt-3 shadow-sm" style="border-radius: 12px;">
+            <div class="card-header bg-light">
+                <h6 class="mb-0">
+                    <i class="bi bi-funnel"></i>
+                    Active Filters
+                </h6>
+            </div>
+            <div class="card-body">
+                <div class="d-flex flex-wrap gap-1">
+                    {% if current_filters.q %}
+                    <span class="badge bg-primary">
+                        <i class="bi bi-search me-1"></i>{{ current_filters.q|truncatechars:20 }}
+                    </span>
+                    {% endif %}
+                    {% if current_filters.author %}
+                    <span class="badge bg-info">
+                        <i class="bi bi-person me-1"></i>{{ current_filters.author|truncatechars:15 }}
+                    </span>
+                    {% endif %}
+                    {% if current_filters.type %}
+                    <span class="badge bg-secondary">
+                        <i class="bi bi-file-text me-1"></i>{{ current_filters.type }}
+                    </span>
+                    {% endif %}
+                    {% if current_filters.category %}
+                    <span class="badge bg-success">
+                        <i class="bi bi-folder me-1"></i>{{ current_filters.category }}
+                    </span>
+                    {% endif %}
+                    {% if current_filters.year_from or current_filters.year_to %}
+                    <span class="badge bg-warning text-dark">
+                        <i class="bi bi-calendar me-1"></i>{{ current_filters.year_from|default:'?' }} - {{ current_filters.year_to|default:'?' }}
+                    </span>
+                    {% endif %}
+                    {% if current_filters.committee %}
+                    <span class="badge bg-danger">
+                        <i class="bi bi-people me-1"></i>{{ current_filters.committee|truncatechars:15 }}
+                    </span>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+        {% endif %}
+        
         <!-- Search Tips -->
-        <div class="card">
-            <div class="card-header">
-                <h5 class="mb-0">
+        <div class="card mt-3 shadow-sm" style="border-radius: 12px;">
+            <div class="card-header bg-light">
+                <h6 class="mb-0">
                     <i class="bi bi-lightbulb"></i>
                     Search Tips
-                </h5>
+                </h6>
             </div>
             <div class="card-body">
                 <ul class="list-unstyled mb-0 small">
                     <li class="mb-2">
-                        <i class="bi bi-check"></i>
+                        <i class="bi bi-check text-success"></i>
                         Use specific keywords
                     </li>
                     <li class="mb-2">
-                        <i class="bi bi-check"></i>
+                        <i class="bi bi-check text-success"></i>
                         Try different spellings
                     </li>
                     <li class="mb-2">
-                        <i class="bi bi-check"></i>
+                        <i class="bi bi-check text-success"></i>
                         Use quotes for exact phrases
                     </li>
                     <li class="mb-2">
-                        <i class="bi bi-check"></i>
+                        <i class="bi bi-check text-success"></i>
                         Filter by document type
                     </li>
                     <li>
-                        <i class="bi bi-check"></i>
+                        <i class="bi bi-check text-success"></i>
                         Narrow by year range
                     </li>
                 </ul>
@@ -66,113 +204,148 @@
         </div>
     </div>
     
-    <div class="col-md-9">
-        <!-- Search Header -->
+    <!-- Main Content Area -->
+    <div class="col-lg-9 col-md-8">
+        <!-- Header with Sort -->
         <div class="d-flex justify-content-between align-items-center mb-3">
-            <h2 class="mb-0">
-                <i class="bi bi-search"></i>
-                Search Results
-            </h2>
-            <span class="text-muted">
-                {% if query %}
-                {{ results|length }} results for "{{ query }}"
-                {% else %}
-                {{ results|length }} documents found
+            <div>
+                <h2 class="mb-0">
+                    <i class="bi bi-search"></i>
+                    Search Results
+                </h2>
+                {% if query or current_filters.q %}
+                <span class="text-muted">
+                    Found <strong>{{ total_count }}</strong> documents
+                    {% if query or current_filters.q %}
+                    for "{{ query|default:current_filters.q }}"
+                    {% endif %}
+                </span>
                 {% endif %}
-            </span>
+            </div>
+            
+            <div class="d-flex align-items-center gap-3">
+                <!-- Sort Dropdown -->
+                <div class="dropdown">
+                    <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <i class="bi bi-sort-down me-1"></i>
+                        {% if current_filters.sort == 'oldest' %}Oldest First
+                        {% elif current_filters.sort == 'title_asc' %}Title A-Z
+                        {% elif current_filters.sort == 'title_desc' %}Title Z-A
+                        {% elif current_filters.sort == 'downloads' %}Most Downloaded
+                        {% elif current_filters.sort == 'views' %}Most Viewed
+                        {% else %}Newest First{% endif %}
+                    </button>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item {% if not current_filters.sort or current_filters.sort == 'newest' %}active{% endif %}" href="{% url_replace sort='newest' page='' %}">Newest First</a></li>
+                        <li><a class="dropdown-item {% if current_filters.sort == 'oldest' %}active{% endif %}" href="{% url_replace sort='oldest' page='' %}">Oldest First</a></li>
+                        <li><a class="dropdown-item {% if current_filters.sort == 'title_asc' %}active{% endif %}" href="{% url_replace sort='title_asc' page='' %}">Title A-Z</a></li>
+                        <li><a class="dropdown-item {% if current_filters.sort == 'title_desc' %}active{% endif %}" href="{% url_replace sort='title_desc' page='' %}">Title Z-A</a></li>
+                        <li><a class="dropdown-item {% if current_filters.sort == 'downloads' %}active{% endif %}" href="{% url_replace sort='downloads' page='' %}">Most Downloaded</a></li>
+                        <li><a class="dropdown-item {% if current_filters.sort == 'views' %}active{% endif %}" href="{% url_replace sort='views' page='' %}">Most Viewed</a></li>
+                    </ul>
+                </div>
+            </div>
         </div>
         
         <!-- Search Results -->
         {% if results %}
-        <div class="list-group">
+        <div class="row">
             {% for document in results %}
-            <div class="list-group-item">
-                <div class="d-flex w-100 justify-content-between">
-                    <div>
-                        <div class="mb-2">
-                            <span class="badge bg-{{ document.access_level|yesno:'danger,warning,info' }} me-2">
+            <div class="col-lg-6 mb-3">
+                <div class="card h-100 shadow-sm" style="border-radius: 12px;">
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between align-items-start mb-2">
+                            <span class="badge bg-{% if document.access_level == 'public' %}success{% elif document.access_level == 'restricted' %}warning{% else %}danger{% endif %}">
+                                <i class="bi bi-{% if document.access_level == 'public' %}globe{% elif document.access_level == 'restricted' %}lock{% else %}shield-exclamation{% endif %} me-1"></i>
                                 {{ document.get_access_level_display }}
                             </span>
                             <span class="badge bg-secondary">
                                 {{ document.get_document_type_display }}
                             </span>
                         </div>
-                        <h5 class="mb-1">
-                            <a href="{% url 'documents:document_detail' document.slug %}" 
-                               class="text-decoration-none">
-                                {{ document.title }}
+                        
+                        <h5 class="card-title mt-2">
+                            <a href="{% url 'documents:document_detail' document.slug %}" class="text-decoration-none text-dark">
+                                {{ document.title|truncatechars:60 }}
                             </a>
                         </h5>
-                        <p class="mb-1 text-muted">
-                            {{ document.description|truncatewords:50 }}
+                        
+                        <p class="card-text text-muted small">
+                            {{ document.description|truncatewords:25 }}
                         </p>
+                        
+                        <ul class="list-unstyled mb-0 small text-muted">
+                            {% if document.year %}
+                            <li><i class="bi bi-calendar me-1"></i> {{ document.year }}</li>
+                            {% endif %}
+                            {% if document.category %}
+                            <li><i class="bi bi-folder me-1"></i> {{ document.category.name }}</li>
+                            {% endif %}
+                            {% if document.committee_name %}
+                            <li><i class="bi bi-people me-1"></i> {{ document.committee_name }}</li>
+                            {% endif %}
+                        </ul>
                     </div>
-                    <div class="text-end">
-                        <small class="text-muted d-block">
-                            {{ document.year }}
-                        </small>
-                        <small class="text-muted d-block">
-                            {{ document.created_at|date:"M d, Y" }}
-                        </small>
-                    </div>
-                </div>
-                
-                <div class="d-flex justify-content-between align-items-center mt-2">
-                    <small class="text-muted">
-                        {% if document.category %}
-                        <i class="bi bi-folder"></i> {{ document.category.name }}
-                        {% endif %}
-                        {% if document.committee_name %}
-                        <span class="ms-2">
-                            <i class="bi bi-people"></i> {{ document.committee_name }}
-                        </span>
-                        {% endif %}
-                    </small>
-                    <div>
-                        <a href="{% url 'documents:document_detail' document.slug %}" 
-                           class="btn btn-sm btn-outline-primary">
-                            <i class="bi bi-eye"></i> View
-                        </a>
-                        <a href="{% url 'documents:document_download' document.slug %}" 
-                           class="btn btn-sm btn-outline-success">
-                            <i class="bi bi-download"></i> Download
-                        </a>
+                    
+                    <div class="card-footer bg-transparent border-0 pt-0">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <small class="text-muted">
+                                <i class="bi bi-eye me-1"></i> {{ document.view_count }}
+                                <i class="bi bi-download ms-2 me-1"></i> {{ document.download_count }}
+                            </small>
+                            <div>
+                                <a href="{% url 'documents:document_detail' document.slug %}" class="btn btn-sm btn-outline-primary">
+                                    <i class="bi bi-eye me-1"></i> View
+                                </a>
+                                <a href="{% url 'documents:document_download' document.slug %}" class="btn btn-sm btn-outline-success">
+                                    <i class="bi bi-download"></i>
+                                </a>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
             {% endfor %}
         </div>
         
-        {% if results|length >= 100 %}
-        <div class="alert alert-warning mt-3">
-            <i class="bi bi-exclamation-triangle"></i>
-            Your search returned more than 100 results. Please refine your search for better results.
+        <!-- Pagination -->
+        {% if results.paginator.num_pages > 1 %}
+        <div class="mt-4">
+            {% include 'includes/pagination.html' %}
         </div>
         {% endif %}
         
-        {% elif query %}
+        {% elif query or current_filters.q or current_filters.author or current_filters.type %}
         <div class="text-center py-5">
-            <i class="bi bi-search display-1 text-muted"></i>
-            <h3 class="mt-3">No Results Found</h3>
+            <i class="bi bi-folder-x display-1 text-muted"></i>
+            <h3 class="mt-3">No Documents Found</h3>
             <p class="text-muted">
-                We couldn't find any documents matching "{{ query }}"
+                {% if query or current_filters.q %}
+                We couldn't find any documents matching "{{ query|default:current_filters.q }}"
+                {% else %}
+                No documents match your current filters
+                {% endif %}
             </p>
             <div class="mt-4">
                 <h5>Suggestions:</h5>
                 <ul class="list-unstyled text-start d-inline-block">
-                    <li>Check your spelling</li>
-                    <li>Try more general terms</li>
-                    <li>Try different keywords</li>
-                    <li>Remove some filters</li>
+                    <li><i class="bi bi-check text-success"></i> Check your spelling</li>
+                    <li><i class="bi bi-check text-success"></i> Try more general terms</li>
+                    <li><i class="bi bi-check text-success"></i> Try different keywords</li>
+                    <li><i class="bi bi-check text-success"></i> Remove some filters</li>
                 </ul>
             </div>
+            <a href="{% url 'search:search' %}" class="btn btn-primary mt-3">
+                <i class="bi bi-arrow-counterclockwise"></i>
+                Clear Filters
+            </a>
         </div>
         {% else %}
         <div class="text-center py-5">
             <i class="bi bi-search display-1 text-muted"></i>
             <h3 class="mt-3">Start Searching</h3>
             <p class="text-muted">
-                Enter keywords above to search the document library
+                Enter keywords or use filters to search the document library
             </p>
         </div>
         {% endif %}

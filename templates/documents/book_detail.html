@@ -1,0 +1,274 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ book.title }} - National Assembly e-Library{% endblock %}
+
+{% block content %}
+<div class="container py-4">
+    <!-- Breadcrumb -->
+    <nav aria-label="breadcrumb" class="mb-4">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="{% url 'core:home' %}">Home</a></li>
+            <li class="breadcrumb-item"><a href="{% url 'documents:document_list' %}">Parliament</a></li>
+            <li class="breadcrumb-item"><a href="{% url 'documents:book_list' %}">Books</a></li>
+            <li class="breadcrumb-item active">{{ book.title|truncatewords:5 }}</li>
+        </ol>
+    </nav>
+
+    <div class="row">
+        <!-- Book Details -->
+        <div class="col-lg-8">
+            <div class="card mb-4">
+                <div class="card-body">
+                    <div class="d-flex justify-content-between align-items-start mb-3">
+                        <div>
+                            <h2 class="fw-bold mb-1">{{ book.title }}</h2>
+                            <p class="text-muted">by {{ book.author }}{% if book.co_authors %}, {{ book.co_authors }}{% endif %}</p>
+                        </div>
+                        <div>
+                            <span class="badge bg-{% if book.is_available %}success{% else %}warning{% endif %} fs-6">
+                                {% if book.is_available %}Available{% else %}Unavailable{% endif %}
+                            </span>
+                            <span class="badge bg-{% if book.is_reference_only %}info{% else %}secondary{% endif %} fs-6">
+                                {% if book.is_reference_only %}Reference Only{% else %}Borrowable{% endif %}
+                            </span>
+                            <span class="badge bg-primary fs-6">{{ book.get_condition_display }}</span>
+                        </div>
+                    </div>
+                    
+                    <table class="table table-borderless">
+                        <tbody>
+                            {% if book.author %}
+                            <tr>
+                                <th width="30%"><i class="bi bi-person me-2"></i>Author(s):</th>
+                                <td>{{ book.author }}{% if book.co_authors %}, {{ book.co_authors }}{% endif %}</td>
+                            </tr>
+                            {% endif %}
+                            
+                            {% if book.publisher %}
+                            <tr>
+                                <th><i class="bi bi-building me-2"></i>Publisher:</th>
+                                <td>{{ book.publisher }}{% if book.publication_place %}, {{ book.publication_place }}{% endif %}</td>
+                            </tr>
+                            {% endif %}
+                            
+                            {% if book.publication_year %}
+                            <tr>
+                                <th><i class="bi bi-calendar me-2"></i>Publication Year:</th>
+                                <td>{{ book.publication_year }}</td>
+                            </tr>
+                            {% endif %}
+                            
+                            {% if book.edition %}
+                            <tr>
+                                <th><i class="bi bi-bookmark me-2"></i>Edition:</th>
+                                <td>{{ book.edition }}</td>
+                            </tr>
+                            {% endif %}
+                            
+                            {% if book.volume %}
+                            <tr>
+                                <th><i class="bi bi-collection me-2"></i>Volume:</th>
+                                <td>{{ book.volume }}</td>
+                            </tr>
+                            {% endif %}
+                            
+                            {% if book.pages %}
+                            <tr>
+                                <th><i class="bi bi-file-text me-2"></i>Pages:</th>
+                                <td>{{ book.pages }}</td>
+                            </tr>
+                            {% endif %}
+                            
+                            {% if book.isbn %}
+                            <tr>
+                                <th><i class="bi bi-upc me-2"></i>ISBN:</th>
+                                <td>{{ book.isbn }}</td>
+                            </tr>
+                            {% endif %}
+                            
+                            {% if book.genre %}
+                            <tr>
+                                <th><i class="bi bi-tag me-2"></i>Genre:</th>
+                                <td><span class="badge bg-light text-dark">{{ book.get_genre_display }}</span></td>
+                            </tr>
+                            {% endif %}
+                            
+                            {% if book.language %}
+                            <tr>
+                                <th><i class="bi bi-translate me-2"></i>Language:</th>
+                                <td>{{ book.get_language_display }}</td>
+                            </tr>
+                            {% endif %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Physical Details -->
+            {% if book.binding or book.dimensions %}
+            <div class="card mb-4">
+                <div class="card-header">
+                    <h5 class="mb-0"><i class="bi bi-rulers me-2"></i>Physical Details</h5>
+                </div>
+                <div class="card-body">
+                    <table class="table table-borderless">
+                        <tbody>
+                            {% if book.binding %}
+                            <tr>
+                                <th width="30%">Binding:</th>
+                                <td>{{ book.binding }}</td>
+                            </tr>
+                            {% endif %}
+                            
+                            {% if book.dimensions %}
+                            <tr>
+                                <th>Dimensions:</th>
+                                <td>{{ book.dimensions }}</td>
+                            </tr>
+                            {% endif %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            {% endif %}
+
+            <!-- Catalog Information -->
+            <div class="card mb-4">
+                <div class="card-header">
+                    <h5 class="mb-0"><i class="bi bi-hash me-2"></i>Catalog Information</h5>
+                </div>
+                <div class="card-body">
+                    <table class="table table-borderless">
+                        <tbody>
+                            <tr>
+                                <th width="30%"><i class="bi bi-hash me-2"></i>Accession Number:</th>
+                                <td>{{ book.accession_number }}</td>
+                            </tr>
+                            
+                            {% if book.barcode %}
+                            <tr>
+                                <th><i class="bi bi-barcode me-2"></i>Barcode:</th>
+                                <td>{{ book.barcode }}</td>
+                            </tr>
+                            {% endif %}
+                            
+                            {% if book.shelf_location %}
+                            <tr>
+                                <th><i class="bi bi-geo-alt me-2"></i>Shelf Location:</th>
+                                <td>{{ book.shelf_location }}</td>
+                            </tr>
+                            {% endif %}
+                            
+                            {% if book.acquisition_date %}
+                            <tr>
+                                <th><i class="bi bi-calendar-plus me-2"></i>Acquisition Date:</th>
+                                <td>{{ book.acquisition_date }}</td>
+                            </tr>
+                            {% endif %}
+                            
+                            {% if book.acquisition_source %}
+                            <tr>
+                                <th><i class="bi bi-truck me-2"></i>Acquisition Source:</th>
+                                <td>{{ book.acquisition_source }}</td>
+                            </tr>
+                            {% endif %}
+                            
+                            {% if book.cost %}
+                            <tr>
+                                <th><i class="bi bi-currency-dollar me-2"></i>Cost:</th>
+                                <td>${{ book.cost }}</td>
+                            </tr>
+                            {% endif %}
+                            
+                            <tr>
+                                <th><i class="bi bi-calendar me-2"></i>Catalog Date:</th>
+                                <td>{{ book.catalog_date }}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Notes -->
+            {% if book.notes %}
+            <div class="card mb-4">
+                <div class="card-header">
+                    <h5 class="mb-0"><i class="bi bi-chat-left-text me-2"></i>Notes</h5>
+                </div>
+                <div class="card-body">
+                    <p class="mb-0">{{ book.notes }}</p>
+                </div>
+            </div>
+            {% endif %}
+        </div>
+
+        <!-- Sidebar -->
+        <div class="col-lg-4">
+            <!-- Document File -->
+            {% if book.document.file %}
+            <div class="card mb-4">
+                <div class="card-header">
+                    <h5 class="mb-0"><i class="bi bi-file-earmark-text me-2"></i>Document</h5>
+                </div>
+                <div class="card-body text-center">
+                    <i class="bi bi-book display-1 text-gambia-blue"></i>
+                    <p class="mt-2 mb-3">{{ book.document.title }}</p>
+                    <a href="{% url 'documents:document_download' book.document.slug %}" class="btn btn-primary">
+                        <i class="bi bi-download me-2"></i>Download
+                    </a>
+                </div>
+            </div>
+            {% endif %}
+
+            <!-- Full Citation -->
+            <div class="card mb-4">
+                <div class="card-header">
+                    <h5 class="mb-0"><i class="bi bi-quote me-2"></i>Full Citation</h5>
+                </div>
+                <div class="card-body">
+                    <p class="mb-0 font-monospace small">{{ book.full_citation }}</p>
+                </div>
+            </div>
+
+            <!-- Related Books -->
+            {% if related_books %}
+            <div class="card mb-4">
+                <div class="card-header">
+                    <h5 class="mb-0"><i class="bi bi-bookshelf me-2"></i>Related Books</h5>
+                </div>
+                <div class="card-body">
+                    {% for related in related_books %}
+                    <div class="mb-3">
+                        <a href="{% url 'documents:book_detail' related.pk %}" class="text-decoration-none">
+                            {{ related.document.title|truncatewords:10 }}
+                        </a>
+                        <br>
+                        <small class="text-muted">{{ related.author }}</small>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+            {% endif %}
+
+            <!-- Document Stats -->
+            <div class="card mb-4">
+                <div class="card-header">
+                    <h5 class="mb-0"><i class="bi bi-bar-chart me-2"></i>Statistics</h5>
+                </div>
+                <div class="card-body">
+                    <div class="row text-center">
+                        <div class="col-6">
+                            <h4 class="mb-0">{{ book.document.view_count }}</h4>
+                            <small class="text-muted">Views</small>
+                        </div>
+                        <div class="col-6">
+                            <h4 class="mb-0">{{ book.document.download_count }}</h4>
+                            <small class="text-muted">Downloads</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

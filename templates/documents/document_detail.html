@@ -3,362 +3,353 @@
 {% block title %}{{ document.title }} - National Assembly e-Library{% endblock %}
 
 {% block content %}
-<div class="row">
-    <div class="col-md-8">
-        <!-- Main Content -->
-        <div class="card mb-4">
-            <div class="card-header">
-                <div class="d-flex justify-content-between align-items-center">
-                    <div>
-                        <span class="badge bg-{{ document.access_level|yesno:'danger,warning,info' }} me-2">
-                            {{ document.get_access_level_display }}
-                        </span>
-                        <span class="badge bg-secondary">
-                            {{ document.get_document_type_display }}
-                        </span>
+<div class="container-fluid py-4">
+    <div class="row">
+        <div class="col-md-8">
+            <!-- Main Content -->
+            <div class="card border-0 shadow-sm mb-4" style="border-radius: 16px;">
+                <div class="card-header bg-transparent border-0 pt-4 px-4">
+                    <div class="d-flex justify-content-between align-items-start flex-wrap gap-2">
+                        <div>
+                            <span class="badge bg-{% if document.access_level == 'public' %}success{% elif document.access_level == 'restricted' %}warning{% else %}danger{% endif %} mb-2">
+                                <i class="bi bi-{% if document.access_level == 'public' %}globe{% elif document.access_level == 'restricted' %}lock{% else %}shield-exclamation{% endif %} me-1"></i>
+                                {{ document.get_access_level_display }}
+                            </span>
+                            <span class="badge bg-secondary mb-2">
+                                {{ document.get_document_type_display }}
+                            </span>
+                        </div>
+                        <div>
+                            {% if user.can_upload %}
+                            <a href="{% url 'documents:document_edit' document.slug %}" class="btn btn-sm btn-outline-primary">
+                                <i class="bi bi-pencil me-1"></i> Edit
+                            </a>
+                            {% endif %}
+                        </div>
                     </div>
-                    <div>
+                </div>
+                
+                <div class="card-body px-4">
+                    <h2 class="card-title fw-bold mb-3">{{ document.title }}</h2>
+                    
+                    {% if document.description %}
+                    <p class="card-text text-muted">{{ document.description }}</p>
+                    {% endif %}
+                    
+                    <!-- Document Details -->
+                    <div class="row mt-4">
+                        <div class="col-md-6">
+                            <table class="table table-sm">
+                                <tbody>
+                                    {% if document.act_number %}
+                                    <tr>
+                                        <th class="text-muted" style="width: 40%;">Act Number</th>
+                                        <td>{{ document.act_number }}</td>
+                                    </tr>
+                                    {% endif %}
+                                    {% if document.bill_number %}
+                                    <tr>
+                                        <th class="text-muted">Bill Number</th>
+                                        <td>{{ document.bill_number }}</td>
+                                    </tr>
+                                    {% endif %}
+                                    <tr>
+                                        <th class="text-muted">Year</th>
+                                        <td>{{ document.year }}</td>
+                                    </tr>
+                                    {% if document.session %}
+                                    <tr>
+                                        <th class="text-muted">Session</th>
+                                        <td>{{ document.session }}</td>
+                                    </tr>
+                                    {% endif %}
+                                    {% if document.date_enacted %}
+                                    <tr>
+                                        <th class="text-muted">Date Enacted</th>
+                                        <td>{{ document.date_enacted|date:"F d, Y" }}</td>
+                                    </tr>
+                                    {% endif %}
+                                    {% if document.effective_date %}
+                                    <tr>
+                                        <th class="text-muted">Effective Date</th>
+                                        <td>{{ document.effective_date|date:"F d, Y" }}</td>
+                                    </tr>
+                                    {% endif %}
+                                </tbody>
+                            </table>
+                        </div>
+                        
+                        <div class="col-md-6">
+                            <table class="table table-sm">
+                                <tbody>
+                                    {% if document.committee_name %}
+                                    <tr>
+                                        <th class="text-muted" style="width: 40%;">Committee</th>
+                                        <td>{{ document.committee_name }}</td>
+                                    </tr>
+                                    {% endif %}
+                                    {% if document.report_number %}
+                                    <tr>
+                                        <th class="text-muted">Report Number</th>
+                                        <td>{{ document.report_number }}</td>
+                                    </tr>
+                                    {% endif %}
+                                    <tr>
+                                        <th class="text-muted">Version</th>
+                                        <td>{{ document.version }}</td>
+                                    </tr>
+                                    {% if document.pages %}
+                                    <tr>
+                                        <th class="text-muted">Pages</th>
+                                        <td>{{ document.pages }}</td>
+                                    </tr>
+                                    {% endif %}
+                                    <tr>
+                                        <th class="text-muted">Language</th>
+                                        <td>{{ document.language|upper }}</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    
+                    <!-- Keywords -->
+                    {% if keywords_list %}
+                    <div class="mt-3">
+                        <strong>Keywords:</strong>
+                        {% for keyword in keywords_list %}
+                        <span class="badge bg-light text-dark ms-1">{{ keyword }}</span>
+                        {% endfor %}
+                    </div>
+                    {% endif %}
+                    
+                    <!-- File Information -->
+                    <div class="alert alert-info mt-4">
+                        <h6 class="alert-heading fw-bold">
+                            <i class="bi bi-file-earmark me-2"></i>
+                            File Information
+                        </h6>
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <ul class="mb-0 list-unstyled">
+                                    <li><strong>File Type:</strong> {{ document.get_file_extension|upper }}</li>
+                                    <li><strong>File Size:</strong> {{ document.get_file_size_mb }} MB</li>
+                                </ul>
+                            </div>
+                            <div class="col-sm-6">
+                                <ul class="mb-0 list-unstyled">
+                                    <li><strong>Views:</strong> {{ document.view_count }}</li>
+                                    <li><strong>Downloads:</strong> {{ document.download_count }}</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="card-footer bg-transparent border-0 px-4 pb-4">
+                    <div class="d-flex justify-content-between align-items-center flex-wrap gap-3">
+                        <div class="d-flex gap-2">
+                            <a href="{% url 'documents:document_download' document.slug %}" class="btn btn-success">
+                                <i class="bi bi-download me-2"></i>
+                                Download Document
+                            </a>
+                            <button class="btn btn-outline-secondary" onclick="window.print()">
+                                <i class="bi bi-printer me-1"></i>
+                                Print
+                            </button>
+                        </div>
+                        
+                        <div class="text-muted small">
+                            <i class="bi bi-person me-1"></i>
+                            Uploaded by {{ document.uploaded_by.get_full_name|default:document.uploaded_by.username }}
+                            on {{ document.created_at|date:"F d, Y" }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Version History -->
+            {% if versions %}
+            <div class="card border-0 shadow-sm" style="border-radius: 16px;">
+                <div class="card-header bg-transparent border-0 pt-4 px-4">
+                    <h5 class="fw-bold mb-0">
+                        <i class="bi bi-clock-history text-gambia-blue me-2"></i>
+                        Version History
+                    </h5>
+                </div>
+                <div class="card-body px-4 pb-4">
+                    <div class="list-group list-group-flush">
+                        {% for version in versions %}
+                        <div class="list-group-item border-0 px-0">
+                            <div class="d-flex justify-content-between align-items-start">
+                                <div>
+                                    <strong>Version {{ version.version }}</strong>
+                                    <p class="mb-0 small text-muted">{{ version.changes|default:"No change notes" }}</p>
+                                </div>
+                                <div class="text-end">
+                                    <small class="text-muted d-block">{{ version.created_at|date:"M d, Y H:i" }}</small>
+                                    <small class="text-muted">{{ version.uploaded_by.get_full_name|default:"Unknown" }}</small>
+                                </div>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+            {% endif %}
+        </div>
+        
+        <!-- Sidebar -->
+        <div class="col-md-4">
+            <!-- Quick Links Card -->
+            <div class="card border-0 shadow-sm mb-4" style="border-radius: 16px;">
+                <div class="card-header bg-transparent border-0 pt-4 px-4">
+                    <h5 class="fw-bold mb-0">
+                        <i class="bi bi-link-45deg text-gambia-blue me-2"></i>
+                        Quick Links
+                    </h5>
+                </div>
+                <div class="card-body px-4 pb-4">
+                    <ul class="list-unstyled mb-0">
+                        <li class="mb-3">
+                            <a href="https://assembly.on-forge.com/" target="_blank" rel="noopener" class="text-decoration-none d-flex align-items-center">
+                                <i class="bi bi-globe text-primary me-2"></i> National Assembly Website
+                            </a>
+                        </li>
+                        <li class="mb-3">
+                            <a href="#" class="text-decoration-none d-flex align-items-center">
+                                <i class="bi bi-file-text text-primary me-2"></i> Parliamentary Procedures
+                            </a>
+                        </li>
+                        <li class="mb-3">
+                            <a href="#" class="text-decoration-none d-flex align-items-center">
+                                <i class="bi bi-calendar3 text-primary me-2"></i> Session Calendar
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{% url 'members:member_list' %}" class="text-decoration-none d-flex align-items-center">
+                                <i class="bi bi-people text-primary me-2"></i> Members Directory
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="card-footer bg-transparent border-0 px-4 pb-4">
+                    <div class="text-center">
+                        <div class="mb-2">
+                            <i class="bi bi-building fs-1 text-primary"></i>
+                        </div>
+                        <h6 class="mb-1 fw-bold">National Assembly</h6>
+                        <p class="text-muted small mb-1">Republic of The Gambia</p>
+                        <hr class="my-2">
+                        <p class="small mb-2">
+                            The National Assembly is the unicameral legislature of The Gambia, 
+                            serving the people through transparent governance.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Actions Card -->
+            <div class="card border-0 shadow-sm mb-4" style="border-radius: 16px;">
+                <div class="card-header bg-transparent border-0 pt-4 px-4">
+                    <h5 class="fw-bold mb-0">Actions</h5>
+                </div>
+                <div class="card-body px-4 pb-4">
+                    <div class="d-grid gap-2">
+                        <a href="{% url 'documents:document_download' document.slug %}" class="btn btn-success">
+                            <i class="bi bi-download me-2"></i>
+                            Download ({{ document.get_file_size_mb }} MB)
+                        </a>
+                        
+                        <button class="btn btn-outline-primary" onclick="shareDocument('{{ document.slug }}')">
+                            <i class="bi bi-share me-2"></i>
+                            Share
+                        </button>
+                        
+                        <button class="btn btn-outline-warning" onclick="addToFavorites('{{ document.slug }}')">
+                            <i class="bi bi-star me-2"></i>
+                            Add to Favorites
+                        </button>
+                        
                         {% if user.can_upload %}
-                        <a href="{% url 'documents:document_edit' document.slug %}" class="btn btn-sm btn-outline-primary">
-                            <i class="bi bi-pencil"></i> Edit
+                        <hr>
+                        <a href="{% url 'documents:document_edit' document.slug %}" class="btn btn-outline-dark">
+                            <i class="bi bi-pencil me-2"></i>
+                            Edit Document
+                        </a>
+                        
+                        {% if not document.is_published %}
+                        <a href="{% url 'documents:document_publish' document.slug %}" class="btn btn-outline-success">
+                            <i class="bi bi-check-circle me-2"></i>
+                            Publish
+                        </a>
+                        {% else %}
+                        <a href="{% url 'documents:document_unpublish' document.slug %}" class="btn btn-outline-danger">
+                            <i class="bi bi-x-circle me-2"></i>
+                            Unpublish
+                        </a>
+                        {% endif %}
+                        
+                        <a href="{% url 'documents:document_delete' document.slug %}" class="btn btn-outline-danger">
+                            <i class="bi bi-trash me-2"></i>
+                            Delete
                         </a>
                         {% endif %}
                     </div>
                 </div>
             </div>
             
-            <div class="card-body">
-                <h1 class="card-title">{{ document.title }}</h1>
-                
-                {% if document.description %}
-                <p class="card-text">{{ document.description }}</p>
-                {% endif %}
-                
-                <!-- Document Details -->
-                <div class="row mt-4">
-                    <div class="col-md-6">
-                        <table class="table table-sm">
-                            <tbody>
-                                {% if document.act_number %}
-                                <tr>
-                                    <th>Act Number</th>
-                                    <td>{{ document.act_number }}</td>
-                                </tr>
-                                {% endif %}
-                                {% if document.bill_number %}
-                                <tr>
-                                    <th>Bill Number</th>
-                                    <td>{{ document.bill_number }}</td>
-                                </tr>
-                                {% endif %}
-                                <tr>
-                                    <th>Year</th>
-                                    <td>{{ document.year }}</td>
-                                </tr>
-                                {% if document.session %}
-                                <tr>
-                                    <th>Session</th>
-                                    <td>{{ document.session }}</td>
-                                </tr>
-                                {% endif %}
-                                {% if document.date_enacted %}
-                                <tr>
-                                    <th>Date Enacted</th>
-                                    <td>{{ document.date_enacted|date:"F d, Y" }}</td>
-                                </tr>
-                                {% endif %}
-                                {% if document.effective_date %}
-                                <tr>
-                                    <th>Effective Date</th>
-                                    <td>{{ document.effective_date|date:"F d, Y" }}</td>
-                                </tr>
-                                {% endif %}
-                            </tbody>
-                        </table>
-                    </div>
-                    
-                    <div class="col-md-6">
-                        <table class="table table-sm">
-                            <tbody>
-                                {% if document.committee_name %}
-                                <tr>
-                                    <th>Committee</th>
-                                    <td>{{ document.committee_name }}</td>
-                                </tr>
-                                {% endif %}
-                                {% if document.report_number %}
-                                <tr>
-                                    <th>Report Number</th>
-                                    <td>{{ document.report_number }}</td>
-                                </tr>
-                                {% endif %}
-                                <tr>
-                                    <th>Version</th>
-                                    <td>{{ document.version }}</td>
-                                </tr>
-                                {% if document.pages %}
-                                <tr>
-                                    <th>Pages</th>
-                                    <td>{{ document.pages }}</td>
-                                </tr>
-                                {% endif %}
-                                <tr>
-                                    <th>Language</th>
-                                    <td>{{ document.language|upper }}</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
+            <!-- Related Documents -->
+            {% if related_docs %}
+            <div class="card border-0 shadow-sm mb-4" style="border-radius: 16px;">
+                <div class="card-header bg-transparent border-0 pt-4 px-4">
+                    <h5 class="fw-bold mb-0">
+                        <i class="bi bi-collection text-gambia-blue me-2"></i>
+                        Related Documents
+                    </h5>
                 </div>
-                
-                <!-- Keywords -->
-                {% if keywords_list %}
-                <div class="mt-3">
-                    <strong>Keywords:</strong>
-                    {% for keyword in keywords_list %}
-                    <span class="badge bg-light text-dark">{{ keyword }}</span>
-                    {% endfor %}
-                </div>
-                {% endif %}
-                
-                <!-- File Information -->
-                <div class="alert alert-info mt-4">
-                    <h6 class="alert-heading">
-                        <i class="bi bi-file-earmark"></i>
-                        File Information
-                    </h6>
-                    <div class="row">
-                        <div class="col-sm-6">
-                            <ul class="mb-0 list-unstyled">
-                                <li><strong>File Type:</strong> {{ document.get_file_extension|upper }}</li>
-                                <li><strong>File Size:</strong> {{ document.get_file_size_mb }} MB</li>
-                            </ul>
-                        </div>
-                        <div class="col-sm-6">
-                            <ul class="mb-0 list-unstyled">
-                                <li><strong>Views:</strong> {{ document.view_count }}</li>
-                                <li><strong>Downloads:</strong> {{ document.download_count }}</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="card-footer">
-                <div class="d-flex justify-content-between align-items-center">
-                    <div>
-                        <a href="{% url 'documents:document_download' document.slug %}" class="btn btn-success">
-                            <i class="bi bi-download"></i>
-                            Download Document
-                        </a>
-                        <button class="btn btn-outline-secondary" onclick="window.print()">
-                            <i class="bi bi-printer"></i>
-                            Print
-                        </button>
-                    </div>
-                    
-                    <div class="text-muted small">
-                        <i class="bi bi-person"></i>
-                        Uploaded by {{ document.uploaded_by.get_full_name|default:document.uploaded_by.username }}
-                        on {{ document.created_at|date:"F d, Y" }}
-                    </div>
-                </div>
-            </div>
-        </div>
-        
-        <!-- Version History -->
-        {% if versions %}
-        <div class="card mb-4">
-            <div class="card-header">
-                <h5 class="mb-0">
-                    <i class="bi bi-clock-history"></i>
-                    Version History
-                </h5>
-            </div>
-            <div class="card-body">
                 <div class="list-group list-group-flush">
-                    {% for version in versions %}
-                    <div class="list-group-item">
-                        <div class="d-flex justify-content-between align-items-center">
-                            <div>
-                                <strong>Version {{ version.version }}</strong>
-                                <p class="mb-0 small text-muted">{{ version.changes|default:"No change notes" }}</p>
-                            </div>
-                            <div class="text-end">
-                                <small class="text-muted">{{ version.created_at|date:"M d, Y H:i" }}</small>
-                                <br>
-                                <small class="text-muted">{{ version.uploaded_by.get_full_name|default:"Unknown" }}</small>
-                            </div>
+                    {% for related in related_docs %}
+                    <a href="{% url 'documents:document_detail' related.slug %}" class="list-group-item list-group-item-action">
+                        <div class="d-flex w-100 justify-content-between">
+                            <h6 class="mb-1">{{ related.title|truncatewords:15 }}</h6>
+                            <small>{{ related.year }}</small>
                         </div>
-                    </div>
+                        <small class="text-muted">{{ related.get_document_type_display }}</small>
+                    </a>
                     {% endfor %}
                 </div>
             </div>
-        </div>
-        {% endif %}
-    </div>
-    
-    <!-- Sidebar -->
-    <div class="col-md-4">
-        <!-- Quick Links Card -->
-        <div class="card mb-4">
-            <div class="card-header">
-                <h5 class="mb-0">
-                    <i class="bi bi-link-45deg"></i>
-                    Quick Links
-                </h5>
-            </div>
-            <div class="card-body">
-                <ul class="list-unstyled mb-0">
-                    <li class="mb-2">
-                        <a href="https://assembly.on-forge.com/" target="_blank" rel="noopener">
-                            <i class="bi bi-globe"></i> National Assembly Website
-                        </a>
-                    </li>
-                    <li class="mb-2">
-                        <a href="#" target="_blank" rel="noopener">
-                            <i class="bi bi-file-text"></i> Parliamentary Procedures
-                        </a>
-                    </li>
-                    <li class="mb-2">
-                        <a href="#" target="_blank" rel="noopener">
-                            <i class="bi bi-calendar3"></i> Session Calendar
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#" target="_blank" rel="noopener">
-                            <i class="bi bi-people"></i> Members Directory
-                        </a>
-                    </li>
-                </ul>
-            </div>
-            <div class="card-footer bg-white border-top">
-                <div class="text-center">
-                    <div class="mb-2">
-                        <i class="bi bi-building fs-1 text-primary"></i>
-                    </div>
-                    <h6 class="mb-1">National Assembly</h6>
-                    <p class="text-muted small mb-1">Republic of The Gambia</p>
-                    <p class="small mb-2">
-                        The National Assembly is the unicameral legislature of The Gambia, 
-                        serving the people through transparent governance and legislative excellence.
-                    </p>
-                    <hr class="my-2">
-                    <p class="small mb-1">
-                        <i class="bi bi-geo-alt"></i> New Assembly Building, Reg. Pye Lane, Banjul, The Gambia
-                    </p>
-                    <p class="small mb-1">
-                        <i class="bi bi-telephone"></i> (220) 4228305 / 4226643
-                    </p>
-                    <p class="small mb-0">
-                        <a href="mailto:info@assembly.gm" class="text-decoration-none">
-                            <i class="bi bi-envelope"></i> info@assembly.gm
-                        </a>
-                    </p>
+            {% endif %}
+            
+            <!-- Statistics Card -->
+            <div class="card border-0 shadow-sm" style="border-radius: 16px;">
+                <div class="card-header bg-transparent border-0 pt-4 px-4">
+                    <h5 class="fw-bold mb-0">
+                        <i class="bi bi-bar-chart text-gambia-blue me-2"></i>
+                        Statistics
+                    </h5>
                 </div>
-            </div>
-        </div>
-        
-        <!-- Actions Card -->
-        <div class="card mb-4">
-            <div class="card-header">
-                <h5 class="mb-0">Actions</h5>
-            </div>
-            <div class="card-body">
-                <div class="d-grid gap-2">
-                    <a href="{% url 'documents:document_download' document.slug %}" class="btn btn-success">
-                        <i class="bi bi-download"></i>
-                        Download ({{ document.get_file_size_mb }} MB)
-                    </a>
-                    
-                    <button class="btn btn-outline-primary" onclick="shareDocument('{{ document.slug }}')">
-                        <i class="bi bi-share"></i>
-                        Share
-                    </button>
-                    
-                    <button class="btn btn-outline-secondary" onclick="addToFavorites('{{ document.slug }}')">
-                        <i class="bi bi-star"></i>
-                        Add to Favorites
-                    </button>
-                    
-                    {% if user.can_upload %}
-                    <hr>
-                    <a href="{% url 'documents:document_edit' document.slug %}" class="btn btn-outline-warning">
-                        <i class="bi bi-pencil"></i>
-                        Edit Document
-                    </a>
-                    
-                    {% if not document.is_published %}
-                    <a href="{% url 'documents:document_publish' document.slug %}" class="btn btn-outline-success">
-                        <i class="bi bi-check-circle"></i>
-                        Publish
-                    </a>
-                    {% else %}
-                    <a href="{% url 'documents:document_unpublish' document.slug %}" class="btn btn-outline-danger">
-                        <i class="bi bi-x-circle"></i>
-                        Unpublish
-                    </a>
-                    {% endif %}
-                    
-                    <a href="{% url 'documents:document_delete' document.slug %}" class="btn btn-outline-danger">
-                        <i class="bi bi-trash"></i>
-                        Delete
-                    </a>
-                    {% endif %}
+                <div class="card-body px-4 pb-4">
+                    <ul class="list-unstyled mb-0">
+                        <li class="d-flex justify-content-between py-2 border-bottom">
+                            <span><i class="bi bi-eye me-2"></i>Views</span>
+                            <strong>{{ document.view_count }}</strong>
+                        </li>
+                        <li class="d-flex justify-content-between py-2 border-bottom">
+                            <span><i class="bi bi-download me-2"></i>Downloads</span>
+                            <strong>{{ document.download_count }}</strong>
+                        </li>
+                        <li class="d-flex justify-content-between py-2 border-bottom">
+                            <span><i class="bi bi-calendar me-2"></i>Added</span>
+                            <strong>{{ document.created_at|date:"M d, Y" }}</strong>
+                        </li>
+                        <li class="d-flex justify-content-between py-2">
+                            <span><i class="bi bi-arrow-repeat me-2"></i>Updated</span>
+                            <strong>{{ document.updated_at|date:"M d, Y" }}</strong>
+                        </li>
+                    </ul>
                 </div>
-            </div>
-        </div>
-        
-        <!-- Related Documents -->
-        {% if related_docs %}
-        <div class="card mb-4">
-            <div class="card-header">
-                <h5 class="mb-0">
-                    <i class="bi bi-collection"></i>
-                    Related Documents
-                </h5>
-            </div>
-            <div class="list-group list-group-flush">
-                {% for related in related_docs %}
-                <a href="{% url 'documents:document_detail' related.slug %}" class="list-group-item list-group-item-action">
-                    <div class="d-flex w-100 justify-content-between">
-                        <h6 class="mb-1">{{ related.title|truncatewords:20 }}</h6>
-                        <small>{{ related.year }}</small>
-                    </div>
-                    <small class="text-muted">{{ related.get_document_type_display }}</small>
-                </a>
-                {% endfor %}
-            </div>
-        </div>
-        {% endif %}
-        
-        <!-- Statistics Card -->
-        <div class="card">
-            <div class="card-header">
-                <h5 class="mb-0">
-                    <i class="bi bi-bar-chart"></i>
-                    Statistics
-                </h5>
-            </div>
-            <div class="card-body">
-                <ul class="list-unstyled mb-0">
-                    <li class="d-flex justify-content-between">
-                        <span><i class="bi bi-eye"></i> Views</span>
-                        <strong>{{ document.view_count }}</strong>
-                    </li>
-                    <li class="d-flex justify-content-between">
-                        <span><i class="bi bi-download"></i> Downloads</span>
-                        <strong>{{ document.download_count }}</strong>
-                    </li>
-                    <li class="d-flex justify-content-between">
-                        <span><i class="bi bi-calendar"></i> Added</span>
-                        <strong>{{ document.created_at|date:"M d, Y" }}</strong>
-                    </li>
-                    <li class="d-flex justify-content-between">
-                        <span><i class="bi bi-arrow-repeat"></i> Updated</span>
-                        <strong>{{ document.updated_at|date:"M d, Y" }}</strong>
-                    </li>
-                </ul>
             </div>
         </div>
     </div>
@@ -367,10 +358,10 @@
 <!-- Share Modal -->
 <div class="modal fade" id="shareModal" tabindex="-1">
     <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
+        <div class="modal-content" style="border-radius: 16px;">
+            <div class="modal-header" style="background: linear-gradient(135deg, #0c2340 0%, #1a5276 100%); color: white;">
                 <h5 class="modal-title">Share Document</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
             </div>
             <div class="modal-body">
                 <p>Copy the link below to share this document:</p>
@@ -378,7 +369,6 @@
                     <input type="text" class="form-control" id="shareUrl" readonly value="{{ request.build_absolute_uri }}">
                     <button class="btn btn-outline-secondary" onclick="copyShareUrl()">
                         <i class="bi bi-clipboard"></i>
-                        Copy
                     </button>
                 </div>
             </div>
@@ -399,12 +389,12 @@ function copyShareUrl() {
     var shareUrl = document.getElementById('shareUrl');
     shareUrl.select();
     navigator.clipboard.writeText(shareUrl.value);
-    alert('Link copied to clipboard!');
+    ELibrary.showToast('Link copied to clipboard!', 'success');
 }
 
 function addToFavorites(slug) {
-    // Implement favorite functionality
-    alert('Added to favorites!');
+    ELibrary.showToast('Added to favorites!', 'success');
 }
 </script>
 {% endblock %}
+

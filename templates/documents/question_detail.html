@@ -1,0 +1,87 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ title }} - National Assembly e-Library{% endblock %}
+
+{% block content %}
+<div class="container py-4">
+    <div class="row mb-4">
+        <div class="col-12">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="{% url 'documents:question_list' %}">Questions</a></li>
+                    <li class="breadcrumb-item active">Q.No. {{ question.question_number }}</li>
+                </ol>
+            </nav>
+            <h2 class="fw-bold mb-1">Q.No. {{ question.question_number }}</h2>
+            <p class="text-muted">{{ question.subject }}</p>
+        </div>
+    </div>
+    
+    <div class="row">
+        <div class="col-lg-8">
+            <div class="card mb-4">
+                <div class="card-header">
+                    <h5 class="mb-0">Question Details</h5>
+                </div>
+                <div class="card-body">
+                    <p><strong>Member:</strong> {{ question.member.name }}</p>
+                    <p><strong>Ministry:</strong> {{ question.ministry }}</p>
+                    <p><strong>Type:</strong> {{ question.get_question_type_display }}</p>
+                    <p><strong>Date Raised:</strong> {{ question.date_raised }}</p>
+                    {% if question.answering_date %}
+                    <p><strong>Answering Date:</strong> {{ question.answering_date }}</p>
+                    {% endif %}
+                    <p><strong>Status:</strong> 
+                        <span class="badge bg-{% if question.is_answered %}success{% else %}warning{% endif %}">
+                            {% if question.is_answered %}Answered{% else %}Pending{% endif %}
+                        </span>
+                    </p>
+                </div>
+            </div>
+            
+            <div class="card mb-4">
+                <div class="card-header">
+                    <h5 class="mb-0">Question Text</h5>
+                </div>
+                <div class="card-body">
+                    <p>{{ question.question_text }}</p>
+                </div>
+            </div>
+            
+            <!-- Answers -->
+            {% if answers %}
+            <div class="card">
+                <div class="card-header">
+                    <h5 class="mb-0">Answer{{ answers|pluralize }}</h5>
+                </div>
+                <div class="card-body">
+                    {% for answer in answers %}
+                    <div class="mb-4">
+                        <p><strong>Minister:</strong> {{ answer.minister }}</p>
+                        <p><strong>Ministry:</strong> {{ answer.answering_ministry }}</p>
+                        <p><strong>Date:</strong> {{ answer.answer_date }}</p>
+                        <hr>
+                        <p>{{ answer.answer_text }}</p>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+            {% endif %}
+        </div>
+        
+        <div class="col-lg-4">
+            <div class="card">
+                <div class="card-header">
+                    <h5 class="mb-0">Actions</h5>
+                </div>
+                <div class="card-body">
+                    <a href="{% url 'documents:question_list' %}" class="btn btn-outline-secondary w-100">
+                        <i class="bi bi-arrow-left me-1"></i> Back to Questions
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+

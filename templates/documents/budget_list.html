@@ -1,0 +1,121 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ title }} - National Assembly e-Library{% endblock %}
+
+{% block content %}
+<div class="container py-4">
+    <div class="row mb-4">
+        <div class="col-12">
+            <h2 class="fw-bold mb-1">
+                <i class="bi bi-currency-dollar text-gambia-blue me-2"></i>
+                Budget Documents
+            </h2>
+            <p class="text-muted">Browse budget proposals and approvals</p>
+        </div>
+    </div>
+    
+    <!-- Filters -->
+    <div class="card mb-4">
+        <div class="card-body">
+            <form method="get" class="row g-3">
+                <div class="col-md-3">
+                    <label class="form-label">Type</label>
+                    <select name="type" class="form-select">
+                        <option value="">All Types</option>
+                        <option value="union">Union Budget</option>
+                        <option value="state">State Budget</option>
+                        <option value="supplementary">Supplementary Budget</option>
+                        <option value="demand">Demand for Grants</option>
+                        <option value="finance_bill">Finance Bill</option>
+                    </select>
+                </div>
+                <div class="col-md-2">
+                    <label class="form-label">Fiscal Year</label>
+                    <select name="year" class="form-select">
+                        <option value="">All Years</option>
+                        <option value="2024-25">2024-25</option>
+                        <option value="2023-24">2023-24</option>
+                        <option value="2022-23">2022-23</option>
+                    </select>
+                </div>
+                <div class="col-md-2">
+                    <label class="form-label">Status</label>
+                    <select name="approved" class="form-select">
+                        <option value="">All</option>
+                        <option value="true">Approved</option>
+                        <option value="false">Pending</option>
+                    </select>
+                </div>
+                <div class="col-md-2 d-flex align-items-end">
+                    <button type="submit" class="btn btn-primary w-100">
+                        <i class="bi bi-search me-1"></i> Filter
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+    
+    <!-- Budget List -->
+    <div class="row">
+        {% for budget in budgets %}
+        <div class="col-md-6 col-lg-4 mb-4">
+            <div class="card h-100">
+                <div class="card-header bg-transparent">
+                    <span class="badge bg-{% if budget.is_approved %}success{% else %}warning{% endif %}">
+                        {% if budget.is_approved %}Approved{% else %}Pending{% endif %}
+                    </span>
+                    <span class="badge bg-primary">{{ budget.get_budget_type_display }}</span>
+                </div>
+                <div class="card-body">
+                    <h6 class="card-title">
+                        <a href="{% url 'documents:budget_detail' budget.slug %}" class="text-decoration-none">
+                            {{ budget.title|truncatewords:15 }}
+                        </a>
+                    </h6>
+                    <p class="card-text text-muted small">
+                        <strong>Fiscal Year:</strong> {{ budget.fiscal_year }}<br>
+                        {% if budget.ministry %}
+                        <strong>Ministry:</strong> {{ budget.ministry }}
+                        {% endif %}
+                    </p>
+                </div>
+                <div class="card-footer bg-transparent">
+                    <small class="text-muted">
+                        <i class="bi bi-calendar me-1"></i> {{ budget.presented_date }}
+                    </small>
+                </div>
+            </div>
+        </div>
+        {% empty %}
+        <div class="col-12">
+            <div class="alert alert-info">
+                <i class="bi bi-info-circle me-2"></i>
+                No budgets found. Add budgets in the admin panel.
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    
+    <!-- Pagination -->
+    {% if budgets.has_other_pages %}
+    <nav>
+        <ul class="pagination justify-content-center">
+            {% if budgets.has_previous %}
+            <li class="page-item">
+                <a class="page-link" href="?page={{ budgets.previous_page_number }}">Previous</a>
+            </li>
+            {% endif %}
+            <li class="page-item active">
+                <span class="page-link">Page {{ budgets.number }} of {{ budgets.paginator.num_pages }}</span>
+            </li>
+            {% if budgets.has_next %}
+            <li class="page-item">
+                <a class="page-link" href="?page={{ budgets.next_page_number }}">Next</a>
+            </li>
+            {% endif %}
+        </ul>
+    </nav>
+    {% endif %}
+</div>
+{% endblock %}
+
